@@ -2,15 +2,18 @@ import Image from "next/image";
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { siteImages } from "@/data/images";
 import { SECTION_IDS } from "@/lib/constants";
-import type { Dictionary } from "@/types";
+import { localizedPath } from "@/lib/i18n";
+import type { Dictionary, LocaleCode } from "@/types";
 
 type ClosingCtaProps = {
+  locale: LocaleCode;
   dictionary: Dictionary;
 };
 
-export function ClosingCta({ dictionary }: ClosingCtaProps) {
+export function ClosingCta({ locale, dictionary }: ClosingCtaProps) {
   const copy = dictionary.sections.closing;
   const image = siteImages.cta;
+
 
   return (
     <section
@@ -45,7 +48,7 @@ export function ClosingCta({ dictionary }: ClosingCtaProps) {
           className="md:mx-auto"
         />
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-          <Button href={`#${SECTION_IDS.menu}`}>{copy.ctaMenu}</Button>
+          <Button href={localizedPath(locale, "/menu")}>{copy.ctaMenu}</Button>
           <Button href={`#${SECTION_IDS.contact}`} variant="onDark">
             {copy.ctaContact}
           </Button>

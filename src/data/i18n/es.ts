@@ -32,10 +32,10 @@ export const es: Dictionary = {
     menu: {
       eyebrow: "La carta",
       title: "Descubre la cocina de la casa",
-      body: "La carta completa se publicará a partir del menú oficial. Mientras tanto, esta sección anticipa el tono de la experiencia gastronómica.",
+      body: "La carta completa se publica a partir del menú oficial en PDF. Explore las categorías cuando el documento fuente esté disponible en el repositorio.",
       cta: "Descubre Nuestra Carta",
       pendingNote:
-        "Las categorías y los platos se incorporarán tras la extracción del PDF oficial. No se muestran precios ni platos provisionales.",
+        "La carta se mostrará tras la extracción verificada del PDF oficial. No se publican platos ni precios provisionales.",
     },
     gallery: {
       eyebrow: "Galería",
@@ -48,6 +48,23 @@ export const es: Dictionary = {
       ctaMenu: "Descubre Nuestra Carta",
       ctaContact: "Contacto",
     },
+  },
+  menuPage: {
+    title: "Nuestra carta",
+    eyebrow: "Carta",
+    intro:
+      "La carta de Al Andalus se elabora exclusivamente a partir del menú oficial. Solo se publican platos y precios verificados.",
+    searchPlaceholder: "Buscar un plato…",
+    searchLabel: "Buscar en la carta",
+    allCategories: "Todas",
+    emptyTitle: "Carta en preparación",
+    emptyBody:
+      "El PDF fuente (docs/source/gerona12-full-menu.pdf) aún no está disponible en el repositorio. No se muestran platos inventados.",
+    noResultsTitle: "Sin resultados",
+    noResultsBody: "Pruebe otro término de búsqueda o seleccione otra categoría.",
+    resultsCount: "platos",
+    priceUnavailable: "Precio no disponible",
+    backHome: "Volver al inicio",
   },
   footer: {
     rights: "Todos los derechos reservados.",

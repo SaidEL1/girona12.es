@@ -2,17 +2,21 @@ import Image from "next/image";
 import { Button, Container, GeometricAccent } from "@/components/ui";
 import { siteImages } from "@/data/images";
 import { SECTION_IDS } from "@/lib/constants";
-import type { Dictionary } from "@/types";
+import { localizedPath } from "@/lib/i18n";
+import type { Dictionary, LocaleCode } from "@/types";
 
 type HeroProps = {
+  locale: LocaleCode;
   dictionary: Dictionary;
 };
 
 /**
  * Full-bleed cinematic hero — brand first, one headline, support, CTA group.
  */
-export function Hero({ dictionary }: HeroProps) {
+export function Hero({ locale, dictionary }: HeroProps) {
   const image = siteImages.hero;
+  const menuHref = localizedPath(locale, "/menu");
+
 
   return (
     <section
@@ -73,7 +77,7 @@ export function Hero({ dictionary }: HeroProps) {
           </div>
 
           <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
-            <Button href={`#${SECTION_IDS.menu}`}>{dictionary.home.ctaMenu}</Button>
+            <Button href={menuHref}>{dictionary.home.ctaMenu}</Button>
             <Button href={`#${SECTION_IDS.intro}`} variant="onDark">
               {dictionary.home.ctaDiscover}
             </Button>

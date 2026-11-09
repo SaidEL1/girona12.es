@@ -3,6 +3,7 @@ import { Button, Container, SectionHeading } from "@/components/ui";
 import { siteImages } from "@/data/images";
 import { menuDataset } from "@/data/menu";
 import { SECTION_IDS } from "@/lib/constants";
+import { localizedPath } from "@/lib/i18n";
 import { pickLocalized, type Dictionary, type LocaleCode } from "@/types";
 
 type MenuCategoriesProps = {
@@ -83,7 +84,7 @@ export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
               </div>
             )}
 
-            <Button href={`#${SECTION_IDS.menu}`}>{copy.cta}</Button>
+            <Button href={localizedPath(locale, "/menu")}>{copy.cta}</Button>
           </div>
         </div>
       </Container>
