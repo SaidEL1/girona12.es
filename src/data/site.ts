@@ -7,7 +7,7 @@ import type { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
   brandName: "Restaurante Al Andalus",
   legalName: "Gerona 12 — Restaurante Al Andalus",
-  defaultLocale: "es",
+  defaultLocale: "en",
   contact: {},
   location: {},
   social: [],

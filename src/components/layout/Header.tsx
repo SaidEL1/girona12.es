@@ -1,99 +1,196 @@
+"use client";
+
+import { useEffect, useId, useState } from "react";
+import { Menu, X } from "lucide-react";
 import { Container } from "@/components/ui";
-import { siteConfig } from "@/data/site";
+import { localeConfigs, supportedLocales } from "@/data/i18n";
 import { getDictionary, getLocaleConfig } from "@/lib/i18n";
 import { SECTION_IDS } from "@/lib/constants";
-import { supportedLocales, localeConfigs } from "@/data/i18n";
-import { Menu } from "lucide-react";
+import { cn } from "@/lib/cn";
 
-/**
- * Phase 01 responsive header shell.
- * Mobile nav toggle and locale routing arrive in a later phase.
- */
+const dictionary = getDictionary();
+const locale = getLocaleConfig();
+
+const navLinks = [
+  { href: `#${SECTION_IDS.intro}`, label: dictionary.nav.restaurant },
+  { href: `#${SECTION_IDS.menu}`, label: dictionary.nav.menu },
+  { href: `#${SECTION_IDS.gallery}`, label: dictionary.nav.gallery },
+  { href: `#${SECTION_IDS.contact}`, label: dictionary.nav.contact },
+] as const;
+
 export function Header() {
-  const dictionary = getDictionary();
-  const locale = getLocaleConfig();
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const panelId = useId();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 36);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.addEventListener("keydown", onKey);
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previous;
+    };
+  }, [open]);
+
+  const solid = scrolled || open;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--color-emerald)]/10 bg-[var(--color-ivory)]/90 backdrop-blur-md">
-      <Container className="flex h-16 items-center justify-between gap-4 sm:h-[4.5rem]">
-        <a
-          href={`#${SECTION_IDS.home}`}
-          className="group flex flex-col leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-emerald)]"
-        >
-          <span className="font-display text-xl tracking-wide text-[var(--color-deep-green)] transition-colors group-hover:text-[var(--color-emerald)] sm:text-2xl">
-            {siteConfig.brandName}
-          </span>
-          <span className="mt-1 hidden text-[0.65rem] uppercase tracking-[0.28em] text-[var(--color-gold)] sm:block">
-            Gerona 12
-          </span>
-        </a>
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
+          solid
+            ? "border-b border-[var(--color-emerald)]/15 bg-[var(--color-deep-green)]/95 text-[var(--color-ivory)] backdrop-blur-md"
+            : "border-b border-transparent bg-transparent text-[var(--color-ivory)]",
+        )}
+      >
+        <Container className="flex h-[4.25rem] items-center justify-between gap-4 sm:h-[4.75rem]">
+          <a
+            href={`#${SECTION_IDS.home}`}
+            className="group flex flex-col leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-gold)]"
+            onClick={() => setOpen(false)}
+          >
+            <span className="font-display text-[1.35rem] uppercase tracking-[0.12em] text-[var(--color-ivory)] transition-colors group-hover:text-[var(--color-gold)] sm:text-2xl">
+              {dictionary.brand.wordmark}
+            </span>
+            <span className="mt-1 text-[0.62rem] uppercase tracking-[0.28em] text-[var(--color-gold)]">
+              {dictionary.brand.name}
+            </span>
+          </a>
 
-        <nav
-          aria-label="Principal"
-          className="hidden items-center gap-8 md:flex"
-        >
-          <a
-            href={`#${SECTION_IDS.menu}`}
-            className="text-sm uppercase tracking-[0.18em] text-[var(--color-dark-text)]/80 transition-colors hover:text-[var(--color-emerald)]"
-          >
-            {dictionary.nav.menu}
-          </a>
-          <a
-            href={`#${SECTION_IDS.gallery}`}
-            className="text-sm uppercase tracking-[0.18em] text-[var(--color-dark-text)]/80 transition-colors hover:text-[var(--color-emerald)]"
-          >
-            {dictionary.nav.gallery}
-          </a>
-          <a
-            href={`#${SECTION_IDS.contact}`}
-            className="text-sm uppercase tracking-[0.18em] text-[var(--color-dark-text)]/80 transition-colors hover:text-[var(--color-emerald)]"
-          >
-            {dictionary.nav.contact}
-          </a>
-          <a
-            href={`#${SECTION_IDS.reservation}`}
-            className="border border-[var(--color-gold)]/80 px-4 py-2 text-sm uppercase tracking-[0.18em] text-[var(--color-deep-green)] transition-colors hover:bg-[var(--color-gold)]/15"
-          >
-            {dictionary.nav.reserve}
-          </a>
-        </nav>
+          <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ivory)]/85 transition-colors hover:text-[var(--color-gold)]"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href={`#${SECTION_IDS.menu}`}
+              className="border border-[var(--color-gold)]/80 px-4 py-2 text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[var(--color-deep-green)]"
+            >
+              {dictionary.home.ctaMenu}
+            </a>
+          </nav>
 
-        <div className="flex items-center gap-3">
-          <div
-            className="hidden items-center gap-1 text-xs uppercase tracking-[0.2em] text-[var(--color-dark-text)]/60 sm:flex"
-            aria-label={`Idioma: ${locale.label}`}
-          >
-            {supportedLocales.map((code) => {
-              const config = localeConfigs[code];
-              const isActive = code === locale.code;
-              return (
+          <div className="flex items-center gap-3">
+            <div
+              className="hidden items-center gap-1 text-[0.65rem] uppercase tracking-[0.2em] text-[var(--color-ivory)]/55 sm:flex"
+              aria-label={dictionary.a11y.languageSelector}
+            >
+              {supportedLocales.map((code) => {
+                const config = localeConfigs[code];
+                const isActive = code === locale.code;
+                return (
+                  <span
+                    key={code}
+                    className={cn(
+                      "px-1.5",
+                      isActive ? "text-[var(--color-gold)]" : "opacity-50",
+                    )}
+                    aria-current={isActive ? "true" : undefined}
+                    title={`${config.label} — routing in a later phase`}
+                  >
+                    {config.nativeLabel}
+                  </span>
+                );
+              })}
+            </div>
+
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center text-[var(--color-ivory)] lg:hidden"
+              aria-label={open ? dictionary.nav.closeMenu : dictionary.nav.openMenu}
+              aria-expanded={open}
+              aria-controls={panelId}
+              onClick={() => setOpen((value) => !value)}
+            >
+              {open ? (
+                <X aria-hidden className="h-5 w-5" strokeWidth={1.5} />
+              ) : (
+                <Menu aria-hidden className="h-5 w-5" strokeWidth={1.5} />
+              )}
+            </button>
+          </div>
+        </Container>
+      </header>
+
+      {open ? (
+        <div
+          id={panelId}
+          className="fixed inset-0 z-[60] flex flex-col bg-[var(--color-deep-green)] lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label={dictionary.nav.openMenu}
+        >
+          <Container className="flex h-[4.25rem] items-center justify-between sm:h-[4.75rem]">
+            <p className="font-display text-xl uppercase tracking-[0.12em] text-[var(--color-gold)]">
+              {dictionary.brand.wordmark}
+            </p>
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center text-[var(--color-ivory)]"
+              aria-label={dictionary.nav.closeMenu}
+              onClick={() => setOpen(false)}
+            >
+              <X aria-hidden className="h-5 w-5" strokeWidth={1.5} />
+            </button>
+          </Container>
+
+          <Container className="flex flex-1 flex-col justify-center gap-2 pb-16">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="border-b border-[var(--color-gold)]/15 py-4 font-display text-3xl text-[var(--color-ivory)] transition-colors hover:text-[var(--color-gold)]"
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href={`#${SECTION_IDS.menu}`}
+              className="mt-6 inline-flex min-h-12 items-center justify-center border border-[var(--color-gold)] px-4 py-3 text-sm uppercase tracking-[0.2em] text-[var(--color-gold)]"
+              onClick={() => setOpen(false)}
+            >
+              {dictionary.home.ctaMenu}
+            </a>
+            <div
+              className="mt-8 flex gap-4 text-xs uppercase tracking-[0.2em] text-[var(--color-ivory)]/50"
+              aria-label={dictionary.a11y.languageSelector}
+            >
+              {supportedLocales.map((code) => (
                 <span
                   key={code}
                   className={
-                    isActive
-                      ? "px-1.5 text-[var(--color-emerald)]"
-                      : "px-1.5 opacity-50"
+                    code === locale.code ? "text-[var(--color-gold)]" : undefined
                   }
-                  aria-current={isActive ? "true" : undefined}
-                  title={`${config.label} — routing in a later phase`}
                 >
-                  {config.nativeLabel}
+                  {localeConfigs[code].nativeLabel}
                 </span>
-              );
-            })}
-          </div>
-
-          <button
-            type="button"
-            className="inline-flex h-11 w-11 items-center justify-center text-[var(--color-deep-green)] md:hidden"
-            aria-label="Abrir menú de navegación"
-            disabled
-            title="Mobile navigation arrives in a later phase"
-          >
-            <Menu aria-hidden className="h-5 w-5" strokeWidth={1.5} />
-          </button>
+              ))}
+            </div>
+          </Container>
         </div>
-      </Container>
-    </header>
+      ) : null}
+    </>
   );
 }

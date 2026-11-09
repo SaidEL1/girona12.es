@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
-  Brand tokens — Restaurante Al Andalus / Al Baraka Digital
+  Brand tokens — Gerona 12 / Restaurante Al Andalus
   Emerald · Deep Green · Royal Gold · Warm Ivory · Dark Text
 */
 :root {
@@ -56,6 +56,7 @@
     background: var(--background);
     color: var(--foreground);
     font-family: var(--font-source-sans), "Segoe UI", sans-serif;
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -68,10 +69,15 @@
   font-family: var(--font-cormorant), "Palatino Linotype", "Book Antiqua", serif;
 }
 
+@utility moorish-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23D9AE4D' stroke-width='1'%3E%3Cpath d='M40 8 L48 28 L70 28 L52 42 L58 64 L40 52 L22 64 L28 42 L10 28 L32 28 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
 @keyframes fade-rise {
   from {
     opacity: 0;
-    transform: translateY(1rem);
+    transform: translateY(1.1rem);
   }
   to {
     opacity: 1;
@@ -79,6 +85,38 @@
   }
 }
 
+@keyframes rule-grow {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 @utility animate-fade-rise {
-  animation: fade-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fade-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-fade-rise-delay {
+  animation: fade-rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+@utility animate-rule-grow {
+  animation: rule-grow 1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+@utility animate-hero-zoom {
+  animation: hero-zoom 4.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }

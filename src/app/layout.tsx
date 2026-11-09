@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
 import { SiteShell } from "@/components/layout";
-import { siteConfig } from "@/data/site";
 import { getDictionary, getLocaleConfig } from "@/lib/i18n";
 import "./globals.css";
 
@@ -24,24 +23,24 @@ const locale = getLocaleConfig();
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.brandName} · Gerona 12`,
-    template: `%s · ${siteConfig.brandName}`,
+    default: `${dictionary.brand.wordmark} · ${dictionary.brand.name}`,
+    template: `%s · ${dictionary.brand.wordmark}`,
   },
   description: dictionary.home.support,
-  applicationName: siteConfig.brandName,
+  applicationName: dictionary.brand.wordmark,
   keywords: [
-    "Restaurante Al Andalus",
     "Gerona 12",
+    "Restaurante Al Andalus",
     "Al Baraka Digital",
-    "cocina andalusí",
     "Andalusian restaurant",
+    "cocina andalusí",
   ],
   openGraph: {
-    title: siteConfig.brandName,
+    title: `${dictionary.brand.wordmark} · ${dictionary.brand.name}`,
     description: dictionary.home.support,
-    locale: "es_ES",
+    locale: locale.htmlLang === "en" ? "en_US" : "es_ES",
     type: "website",
-    siteName: siteConfig.brandName,
+    siteName: dictionary.brand.wordmark,
   },
   robots: {
     index: true,
@@ -62,7 +61,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       dir={locale.dir}
       className={`${display.variable} ${sans.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-[var(--color-ivory)] font-sans text-[var(--color-dark-text)]">
+      <body className="flex min-h-full flex-col overflow-x-hidden bg-[var(--color-ivory)] font-sans text-[var(--color-dark-text)]">
         <SiteShell>{children}</SiteShell>
       </body>
     </html>
