@@ -3,25 +3,27 @@
 import { useEffect, useId, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Container } from "@/components/ui";
-import { localeConfigs, supportedLocales } from "@/data/i18n";
-import { getDictionary, getLocaleConfig } from "@/lib/i18n";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { SECTION_IDS } from "@/lib/constants";
 import { cn } from "@/lib/cn";
+import type { Dictionary, LocaleCode } from "@/types";
 
-const dictionary = getDictionary();
-const locale = getLocaleConfig();
+type HeaderProps = {
+  locale: LocaleCode;
+  dictionary: Dictionary;
+};
 
-const navLinks = [
-  { href: `#${SECTION_IDS.intro}`, label: dictionary.nav.restaurant },
-  { href: `#${SECTION_IDS.menu}`, label: dictionary.nav.menu },
-  { href: `#${SECTION_IDS.gallery}`, label: dictionary.nav.gallery },
-  { href: `#${SECTION_IDS.contact}`, label: dictionary.nav.contact },
-] as const;
-
-export function Header() {
+export function Header({ locale, dictionary }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const panelId = useId();
+
+  const navLinks = [
+    { href: `#${SECTION_IDS.intro}`, label: dictionary.nav.restaurant },
+    { href: `#${SECTION_IDS.menu}`, label: dictionary.nav.menu },
+    { href: `#${SECTION_IDS.gallery}`, label: dictionary.nav.gallery },
+    { href: `#${SECTION_IDS.contact}`, label: dictionary.nav.contact },
+  ] as const;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 36);
@@ -92,28 +94,11 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <div
-              className="hidden items-center gap-1 text-[0.65rem] uppercase tracking-[0.2em] text-[var(--color-ivory)]/55 sm:flex"
-              aria-label={dictionary.a11y.languageSelector}
-            >
-              {supportedLocales.map((code) => {
-                const config = localeConfigs[code];
-                const isActive = code === locale.code;
-                return (
-                  <span
-                    key={code}
-                    className={cn(
-                      "px-1.5",
-                      isActive ? "text-[var(--color-gold)]" : "opacity-50",
-                    )}
-                    aria-current={isActive ? "true" : undefined}
-                    title={`${config.label} — routing in a later phase`}
-                  >
-                    {config.nativeLabel}
-                  </span>
-                );
-              })}
-            </div>
+            <LanguageSwitcher
+              locale={locale}
+              label={dictionary.a11y.languageSelector}
+              className="hidden sm:flex"
+            />
 
             <button
               type="button"
@@ -173,21 +158,11 @@ export function Header() {
             >
               {dictionary.home.ctaMenu}
             </a>
-            <div
-              className="mt-8 flex gap-4 text-xs uppercase tracking-[0.2em] text-[var(--color-ivory)]/50"
-              aria-label={dictionary.a11y.languageSelector}
-            >
-              {supportedLocales.map((code) => (
-                <span
-                  key={code}
-                  className={
-                    code === locale.code ? "text-[var(--color-gold)]" : undefined
-                  }
-                >
-                  {localeConfigs[code].nativeLabel}
-                </span>
-              ))}
-            </div>
+            <LanguageSwitcher
+              locale={locale}
+              label={dictionary.a11y.languageSelector}
+              className="mt-8"
+            />
           </Container>
         </div>
       ) : null}

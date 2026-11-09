@@ -2,15 +2,19 @@ import Image from "next/image";
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { siteImages } from "@/data/images";
 import { menuDataset } from "@/data/menu";
-import { getDictionary } from "@/lib/i18n";
 import { SECTION_IDS } from "@/lib/constants";
+import { pickLocalized, type Dictionary, type LocaleCode } from "@/types";
+
+type MenuCategoriesProps = {
+  locale: LocaleCode;
+  dictionary: Dictionary;
+};
 
 /**
  * Premium menu discovery — no invented dishes or categories.
- * Real PDF-derived data will populate `menuDataset` later.
+ * Real PDF-derived multilingual data will populate `menuDataset` later.
  */
-export function MenuCategories() {
-  const dictionary = getDictionary();
+export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
   const copy = dictionary.sections.menu;
   const image = siteImages.menu;
   const hasCategories = menuDataset.categories.length > 0;
@@ -28,7 +32,7 @@ export function MenuCategories() {
       <Container className="relative">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
           <div className="relative order-2 overflow-hidden lg:order-1 lg:col-span-6">
-            <div className="absolute left-0 top-0 z-10 h-full w-1 bg-[var(--color-gold)]/70" />
+            <div className="absolute start-0 top-0 z-10 h-full w-1 bg-[var(--color-gold)]/70" />
             <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5]">
               <Image
                 src={image.src}
@@ -55,14 +59,18 @@ export function MenuCategories() {
 
             {hasCategories ? (
               <ul className="grid gap-4 sm:grid-cols-2">
-                {menuDataset.categories.map((category) => (
-                  <li
-                    key={category.id}
-                    className="border-b border-[var(--color-gold)]/25 pb-3 font-display text-2xl text-[var(--color-ivory)]"
-                  >
-                    {category.name}
-                  </li>
-                ))}
+                {menuDataset.categories.map((category) => {
+                  const name = pickLocalized(category.name, locale);
+                  if (!name) return null;
+                  return (
+                    <li
+                      key={category.id}
+                      className="border-b border-[var(--color-gold)]/25 pb-3 font-display text-2xl text-[var(--color-ivory)]"
+                    >
+                      {name}
+                    </li>
+                  );
+                })}
               </ul>
             ) : (
               <div className="space-y-4 border border-[var(--color-gold)]/25 bg-[var(--color-emerald)]/25 px-5 py-6">
@@ -72,11 +80,6 @@ export function MenuCategories() {
                 <p className="text-sm leading-relaxed text-[var(--color-ivory)]/75">
                   {copy.pendingNote}
                 </p>
-                {menuDataset.sourceNote ? (
-                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-ivory)]/45">
-                    {menuDataset.sourceNote}
-                  </p>
-                ) : null}
               </div>
             )}
 

@@ -7,11 +7,12 @@ import type { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
   brandName: "Restaurante Al Andalus",
   legalName: "Gerona 12 — Restaurante Al Andalus",
-  defaultLocale: "en",
+  /** Spanish is the primary default language for the entire site. */
+  defaultLocale: "es",
   contact: {},
   location: {},
   social: [],
   reservation: {
-    note: "Reservation channel pending confirmation.",
+    note: "Canal de reservas pendiente de confirmación.",
   },
 };

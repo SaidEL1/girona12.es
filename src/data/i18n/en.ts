@@ -9,7 +9,7 @@ export const en: Dictionary = {
   },
   nav: {
     home: "Home",
-    restaurant: "Restaurant",
+    restaurant: "The restaurant",
     menu: "Menu",
     gallery: "Gallery",
     contact: "Contact",
@@ -21,11 +21,11 @@ export const en: Dictionary = {
     support:
       "Restaurante Al Andalus offers a serene table where Andalusian sensibility is expressed through hospitality, unhurried rhythm, and cooking with character.",
     ctaMenu: "Explore Our Menu",
-    ctaDiscover: "Discover the Restaurant",
+    ctaDiscover: "Discover Our Restaurant",
   },
   sections: {
     intro: {
-      eyebrow: "The restaurant",
+      eyebrow: "Our Story",
       title: "A warm, contemporary Andalusian presence",
       body: "Gerona 12 presents Restaurante Al Andalus as a carefully composed hospitality space: restrained light, noble materials, and a kitchen that honours the character of the south with a modern eye. No artifice — only attention.",
     },
@@ -33,20 +33,20 @@ export const en: Dictionary = {
       eyebrow: "The menu",
       title: "Discover the house cuisine",
       body: "The full menu will be published from the official document. This section sets the tone for the culinary experience until then.",
-      cta: "View the menu",
+      cta: "Explore Our Menu",
       pendingNote:
         "Categories and dishes will be added after official PDF extraction. No provisional prices or invented plates are shown.",
     },
     gallery: {
-      eyebrow: "Atmosphere",
+      eyebrow: "Gallery",
       title: "The table, the light, the pace",
-      body: "An editorial gallery of atmosphere — food, service, and dining room in an intimate, premium key.",
+      body: "An editorial gallery of atmosphere — cooking, service, and dining room in an intimate, premium key.",
     },
     closing: {
       title: "The table awaits",
       body: "Explore the menu when it is available, or continue discovering the character of Al Andalus.",
       ctaMenu: "Explore Our Menu",
-      ctaContact: "Go to contact",
+      ctaContact: "Contact Us",
     },
   },
   footer: {

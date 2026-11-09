@@ -6,28 +6,52 @@ import {
 import type { Dictionary, LocaleCode, LocaleConfig, TextDirection } from "@/types";
 import { siteConfig } from "@/data/site";
 
+export const LOCALE_COOKIE = "girona12_locale";
+export const DEFAULT_LOCALE: LocaleCode = siteConfig.defaultLocale;
+
 export function isLocaleCode(value: string): value is LocaleCode {
   return (supportedLocales as string[]).includes(value);
 }
 
-export function getLocaleConfig(locale: LocaleCode = siteConfig.defaultLocale): LocaleConfig {
+export function getLocaleConfig(locale: LocaleCode = DEFAULT_LOCALE): LocaleConfig {
   return localeConfigs[locale];
 }
 
-export function getDictionary(locale: LocaleCode = siteConfig.defaultLocale): Dictionary {
+export function getDictionary(locale: LocaleCode = DEFAULT_LOCALE): Dictionary {
   return dictionaries[locale];
 }
 
-export function getTextDirection(locale: LocaleCode = siteConfig.defaultLocale): TextDirection {
+export function getTextDirection(locale: LocaleCode = DEFAULT_LOCALE): TextDirection {
   return localeConfigs[locale].dir;
 }
 
-/**
- * Phase 01: single-locale root. Routing for ES/EN/AR + RTL document dir
- * will land in a later phase via a `[locale]` segment.
- */
-export const i18nScaffold = {
-  defaultLocale: siteConfig.defaultLocale,
+/** Build a localized path, preserving an optional hash. */
+export function localizedPath(
+  locale: LocaleCode,
+  path = "",
+  hash = "",
+): string {
+  const normalized = path === "/" || path === "" ? "" : path.startsWith("/") ? path : `/${path}`;
+  const base = `/${locale}${normalized}`;
+  return hash ? `${base}${hash.startsWith("#") ? hash : `#${hash}`}` : base;
+}
+
+/** Swap the locale segment of a pathname (e.g. /es → /ar). */
+export function replaceLocaleInPathname(
+  pathname: string,
+  nextLocale: LocaleCode,
+): string {
+  const segments = pathname.split("/");
+  // ["", "es", ...]
+  if (segments.length > 1 && isLocaleCode(segments[1] ?? "")) {
+    segments[1] = nextLocale;
+    return segments.join("/") || `/${nextLocale}`;
+  }
+  return localizedPath(nextLocale, pathname);
+}
+
+export const i18nConfig = {
+  defaultLocale: DEFAULT_LOCALE,
   locales: supportedLocales,
-  note: "Locale routing and RTL document switching are scaffolded, not wired.",
+  cookieName: LOCALE_COOKIE,
 } as const;

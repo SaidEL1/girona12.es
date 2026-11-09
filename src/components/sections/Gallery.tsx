@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Container, SectionHeading } from "@/components/ui";
 import { siteImages } from "@/data/images";
-import { getDictionary } from "@/lib/i18n";
 import { SECTION_IDS } from "@/lib/constants";
 import { cn } from "@/lib/cn";
+import type { Dictionary } from "@/types";
 
 const layoutClass = [
   "sm:col-span-2 sm:row-span-2 aspect-[4/5] sm:aspect-auto sm:min-h-[28rem]",
@@ -14,8 +14,11 @@ const layoutClass = [
   "aspect-[4/3]",
 ] as const;
 
-export function Gallery() {
-  const dictionary = getDictionary();
+type GalleryProps = {
+  dictionary: Dictionary;
+};
+
+export function Gallery({ dictionary }: GalleryProps) {
   const copy = dictionary.sections.gallery;
   const images = siteImages.gallery;
 

@@ -1,15 +1,21 @@
-import type { MenuItem } from "@/types";
+import { pickLocalized, type LocaleCode, type MenuItem } from "@/types";
 
 type MenuItemCardProps = {
   item: MenuItem;
+  locale: LocaleCode;
 };
 
 /**
  * Presentational stub for a single menu item.
- * Do not invent prices — values must come from PDF extraction.
+ * Prices stay LTR; names/descriptions only render verified locale strings.
  */
-export function MenuItemCard({ item }: MenuItemCardProps) {
-  const price = new Intl.NumberFormat(item.language === "ar" ? "ar" : item.language, {
+export function MenuItemCard({ item, locale }: MenuItemCardProps) {
+  const name = pickLocalized(item.name, locale);
+  const description = pickLocalized(item.description, locale);
+
+  if (!name) return null;
+
+  const price = new Intl.NumberFormat(locale === "ar" ? "ar" : locale, {
     style: "currency",
     currency: "EUR",
   }).format(item.priceEur);
@@ -18,15 +24,15 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
     <article className="space-y-2 border-b border-[var(--color-emerald)]/10 py-4">
       <div className="flex items-baseline justify-between gap-4">
         <h3 className="font-display text-xl text-[var(--color-deep-green)]">
-          {item.name}
+          {name}
         </h3>
-        <p className="shrink-0 text-sm tracking-wide text-[var(--color-gold)]">
+        <p className="ltr-isolate shrink-0 text-sm tracking-wide text-[var(--color-gold)]">
           {price}
         </p>
       </div>
-      {item.description ? (
+      {description ? (
         <p className="text-sm leading-relaxed text-[var(--color-dark-text)]/75">
-          {item.description}
+          {description}
         </p>
       ) : null}
       {item.dietaryLabels?.length ? (
