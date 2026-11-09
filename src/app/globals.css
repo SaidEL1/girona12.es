@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/*
+  Brand tokens — Restaurante Al Andalus / Al Baraka Digital
+  Emerald · Deep Green · Royal Gold · Warm Ivory · Dark Text
+*/
+:root {
+  --brand-emerald: #064d40;
+  --brand-deep-green: #032f28;
+  --brand-gold: #d9ae4d;
+  --brand-ivory: #f4ebdd;
+  --brand-dark-text: #17241f;
+
+  --color-emerald: var(--brand-emerald);
+  --color-deep-green: var(--brand-deep-green);
+  --color-gold: var(--brand-gold);
+  --color-ivory: var(--brand-ivory);
+  --color-dark-text: var(--brand-dark-text);
+
+  --background: var(--brand-ivory);
+  --foreground: var(--brand-dark-text);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-emerald: var(--brand-emerald);
+  --color-deep-green: var(--brand-deep-green);
+  --color-gold: var(--brand-gold);
+  --color-ivory: var(--brand-ivory);
+  --color-dark-text: var(--brand-dark-text);
+  --font-sans: var(--font-source-sans);
+  --font-display: var(--font-cormorant);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-source-sans), "Segoe UI", sans-serif;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--brand-gold) 45%, transparent);
+    color: var(--brand-deep-green);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-cormorant), "Palatino Linotype", "Book Antiqua", serif;
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-rise {
+  animation: fade-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
