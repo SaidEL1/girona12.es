@@ -6,7 +6,7 @@ type MenuCategoryListProps = {
 };
 
 /**
- * Renders category stubs. Empty until PDF extraction populates `menuDataset`.
+ * Renders category stubs. Empty until PDF extraction populates the dataset.
  */
 export function MenuCategoryList({
   categories,

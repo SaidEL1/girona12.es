@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Container } from "@/components/ui";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { SECTION_IDS } from "@/lib/constants";
+import { localizedPath } from "@/lib/i18n";
 import { cn } from "@/lib/cn";
 import type { Dictionary, LocaleCode } from "@/types";
 
@@ -14,15 +17,30 @@ type HeaderProps = {
 };
 
 export function Header({ locale, dictionary }: HeaderProps) {
+  const pathname = usePathname() || localizedPath(locale);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const panelId = useId();
 
+  const homePath = localizedPath(locale);
+  const menuPath = localizedPath(locale, "/menu");
+  const isHome = pathname === homePath || pathname === `${homePath}/`;
+
+
   const navLinks = [
-    { href: `#${SECTION_IDS.intro}`, label: dictionary.nav.restaurant },
-    { href: `#${SECTION_IDS.menu}`, label: dictionary.nav.menu },
-    { href: `#${SECTION_IDS.gallery}`, label: dictionary.nav.gallery },
-    { href: `#${SECTION_IDS.contact}`, label: dictionary.nav.contact },
+    {
+      href: `${homePath}#${SECTION_IDS.intro}`,
+      label: dictionary.nav.restaurant,
+    },
+    { href: menuPath, label: dictionary.nav.menu },
+    {
+      href: `${homePath}#${SECTION_IDS.gallery}`,
+      label: dictionary.nav.gallery,
+    },
+    {
+      href: `${homePath}#${SECTION_IDS.contact}`,
+      label: dictionary.nav.contact,
+    },
   ] as const;
 
   useEffect(() => {
@@ -49,7 +67,7 @@ export function Header({ locale, dictionary }: HeaderProps) {
     };
   }, [open]);
 
-  const solid = scrolled || open;
+  const solid = scrolled || open || !isHome;
 
   return (
     <>
@@ -62,8 +80,8 @@ export function Header({ locale, dictionary }: HeaderProps) {
         )}
       >
         <Container className="flex h-[4.25rem] items-center justify-between gap-4 sm:h-[4.75rem]">
-          <a
-            href={`#${SECTION_IDS.home}`}
+          <Link
+            href={homePath}
             className="group flex flex-col leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-gold)]"
             onClick={() => setOpen(false)}
           >
@@ -73,24 +91,24 @@ export function Header({ locale, dictionary }: HeaderProps) {
             <span className="mt-1 text-[0.62rem] uppercase tracking-[0.28em] text-[var(--color-gold)]">
               {dictionary.brand.name}
             </span>
-          </a>
+          </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-ivory)]/85 transition-colors hover:text-[var(--color-gold)]"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href={`#${SECTION_IDS.menu}`}
+            <Link
+              href={menuPath}
               className="border border-[var(--color-gold)]/80 px-4 py-2 text-[0.72rem] uppercase tracking-[0.22em] text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[var(--color-deep-green)]"
             >
               {dictionary.home.ctaMenu}
-            </a>
+            </Link>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -142,22 +160,22 @@ export function Header({ locale, dictionary }: HeaderProps) {
 
           <Container className="flex flex-1 flex-col justify-center gap-2 pb-16">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="border-b border-[var(--color-gold)]/15 py-4 font-display text-3xl text-[var(--color-ivory)] transition-colors hover:text-[var(--color-gold)]"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href={`#${SECTION_IDS.menu}`}
+            <Link
+              href={menuPath}
               className="mt-6 inline-flex min-h-12 items-center justify-center border border-[var(--color-gold)] px-4 py-3 text-sm uppercase tracking-[0.2em] text-[var(--color-gold)]"
               onClick={() => setOpen(false)}
             >
               {dictionary.home.ctaMenu}
-            </a>
+            </Link>
             <LanguageSwitcher
               locale={locale}
               label={dictionary.a11y.languageSelector}

@@ -4,9 +4,11 @@ Premium Andalusian restaurant website for **Al Baraka Digital**.
 
 ## Current phase
 
-**Phase 03** — Spanish-first multilingual experience (`/es`, `/en`, `/ar`) with RTL Arabic, cookie persistence, and hreflang SEO, on the Phase 02 landing page.
+**Phase 04** — Real menu system architecture (`/es/menu`, `/en/menu`, `/ar/menu`) with typed multilingual data model, search/filter UI, and empty verified state.
 
-Menu items, contact details, and location data remain empty until official sources are provided.
+**Blocker:** `docs/source/gerona12-full-menu.pdf` is not in the repository. No dishes or prices are invented until that PDF is supplied.
+
+Contact details remain empty until verified.
 
 ## Stack
 

@@ -4,8 +4,12 @@ export type {
   MenuCategory,
   MenuDataset,
   MenuItem,
+  MenuPriceOption,
+  MenuPublicationStatus,
+  MenuSourceRef,
+  MenuSubcategory,
 } from "./menu";
-export { pickLocalized } from "./menu";
+export { isPublishableItem, pickLocalized } from "./menu";
 
 export type {
   Dictionary,

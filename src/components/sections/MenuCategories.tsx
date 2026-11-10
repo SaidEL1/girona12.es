@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { siteImages } from "@/data/images";
-import { menuDataset } from "@/data/menu";
 import { SECTION_IDS } from "@/lib/constants";
+import { localizedPath } from "@/lib/i18n";
+import { getPublishedCategories } from "@/lib/menu";
 import { pickLocalized, type Dictionary, type LocaleCode } from "@/types";
 
 type MenuCategoriesProps = {
@@ -12,12 +13,13 @@ type MenuCategoriesProps = {
 
 /**
  * Premium menu discovery — no invented dishes or categories.
- * Real PDF-derived multilingual data will populate `menuDataset` later.
+ * Populated from verified Full Menu Gerona 12 screenshot extraction.
  */
 export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
   const copy = dictionary.sections.menu;
   const image = siteImages.menu;
-  const hasCategories = menuDataset.categories.length > 0;
+  const categories = getPublishedCategories();
+  const hasCategories = categories.length > 0;
 
   return (
     <section
@@ -59,7 +61,7 @@ export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
 
             {hasCategories ? (
               <ul className="grid gap-4 sm:grid-cols-2">
-                {menuDataset.categories.map((category) => {
+                {categories.map((category) => {
                   const name = pickLocalized(category.name, locale);
                   if (!name) return null;
                   return (
@@ -83,7 +85,7 @@ export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
               </div>
             )}
 
-            <Button href={`#${SECTION_IDS.menu}`}>{copy.cta}</Button>
+            <Button href={localizedPath(locale, "/menu")}>{copy.cta}</Button>
           </div>
         </div>
       </Container>
