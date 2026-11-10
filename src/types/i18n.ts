@@ -16,33 +16,60 @@ export interface LocaleConfig {
 export interface Dictionary {
   locale: LocaleCode;
   brand: {
+    /** Primary wordmark — GERONA 12 */
+    wordmark: string;
+    /** Restaurant name */
     name: string;
     tagline: string;
   };
   nav: {
     home: string;
+    restaurant: string;
     menu: string;
     gallery: string;
     contact: string;
-    reserve: string;
+    openMenu: string;
+    closeMenu: string;
   };
   home: {
     headline: string;
     support: string;
     ctaMenu: string;
-    ctaReserve: string;
+    ctaDiscover: string;
   };
   sections: {
-    intro: string;
-    menu: string;
-    featured: string;
-    gallery: string;
-    contact: string;
-    location: string;
-    reservation: string;
+    intro: {
+      eyebrow: string;
+      title: string;
+      body: string;
+    };
+    menu: {
+      eyebrow: string;
+      title: string;
+      body: string;
+      cta: string;
+      pendingNote: string;
+    };
+    gallery: {
+      eyebrow: string;
+      title: string;
+      body: string;
+    };
+    closing: {
+      title: string;
+      body: string;
+      ctaMenu: string;
+      ctaContact: string;
+    };
   };
   footer: {
     rights: string;
-    comingSoon: string;
+    discovery: string;
+    contactPending: string;
+    photoCredit: string;
+  };
+  a11y: {
+    skipToContent: string;
+    languageSelector: string;
   };
 }

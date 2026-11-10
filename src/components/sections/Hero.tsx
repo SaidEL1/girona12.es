@@ -1,65 +1,80 @@
-import { Button, Container } from "@/components/ui";
+import Image from "next/image";
+import { Button, Container, GeometricAccent } from "@/components/ui";
+import { siteImages } from "@/data/images";
 import { getDictionary } from "@/lib/i18n";
 import { SECTION_IDS } from "@/lib/constants";
-import { siteConfig } from "@/data/site";
 
 /**
- * Phase 01 homepage hero shell: brand, one headline, short support, CTA group.
- * Full marketing sections arrive later.
+ * Full-bleed cinematic hero — brand first, one headline, support, CTA group.
  */
 export function Hero() {
   const dictionary = getDictionary();
+  const image = siteImages.hero;
 
   return (
     <section
       id={SECTION_IDS.home}
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden bg-[var(--color-deep-green)] text-[var(--color-ivory)]"
+      className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[var(--color-deep-green)] text-[var(--color-ivory)]"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.18]"
-        style={{
-          backgroundImage:
-            "radial-gradient(ellipse 80% 60% at 70% 20%, var(--color-emerald) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 10% 90%, var(--color-gold) 0%, transparent 45%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/50 to-transparent"
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center animate-hero-zoom"
       />
 
-      <Container className="relative flex min-h-[min(88vh,52rem)] flex-col justify-center py-20 sm:py-28">
-        <div className="max-w-3xl animate-fade-rise space-y-8">
-          <p className="font-display text-4xl leading-none tracking-wide text-[var(--color-gold)] sm:text-5xl md:text-6xl">
-            {siteConfig.brandName}
-          </p>
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-r from-[var(--color-deep-green)]/92 via-[var(--color-deep-green)]/72 to-[var(--color-deep-green)]/35"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-t from-[var(--color-deep-green)] via-[var(--color-deep-green)]/25 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.055] moorish-pattern"
+      />
+
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/55 to-transparent"
+      />
+
+      <Container className="relative z-10 w-full pb-16 pt-32 sm:pb-20 sm:pt-40 lg:pb-24">
+        <div className="max-w-2xl space-y-8 animate-fade-rise">
+          <div className="space-y-4">
+            <GeometricAccent tone="gold" className="animate-fade-rise-delay" />
+            <p className="font-display text-4xl leading-none uppercase tracking-[0.12em] text-[var(--color-gold)] sm:text-5xl md:text-6xl">
+              {dictionary.brand.wordmark}
+            </p>
+
+            <p className="text-xs uppercase tracking-[0.34em] text-[var(--color-ivory)]/75">
+              {dictionary.brand.name}
+            </p>
+          </div>
+
+          <div className="h-px w-16 bg-[var(--color-gold)]/70 animate-rule-grow origin-left" />
 
           <div className="space-y-5">
             <h1
               id="hero-heading"
-              className="max-w-2xl font-display text-3xl leading-[1.15] text-[var(--color-ivory)] sm:text-4xl md:text-5xl"
+              className="max-w-xl font-display text-[2.15rem] leading-[1.12] text-[var(--color-ivory)] sm:text-5xl md:text-[3.35rem]"
             >
               {dictionary.home.headline}
             </h1>
-            <p className="max-w-xl text-base leading-relaxed text-[var(--color-ivory)]/80 sm:text-lg">
+            <p className="max-w-lg text-base leading-relaxed text-[var(--color-ivory)]/80 sm:text-lg">
               {dictionary.home.support}
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
-            <Button
-              href={`#${SECTION_IDS.menu}`}
-              className="bg-[var(--color-gold)] text-[var(--color-deep-green)] hover:bg-[var(--color-ivory)] hover:text-[var(--color-deep-green)]"
-            >
-              {dictionary.home.ctaMenu}
-            </Button>
-            <Button
-              href={`#${SECTION_IDS.reservation}`}
-              variant="secondary"
-              className="border-[var(--color-ivory)]/40 text-[var(--color-ivory)] hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10"
-            >
-              {dictionary.home.ctaReserve}
+          <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
+            <Button href={`#${SECTION_IDS.menu}`}>{dictionary.home.ctaMenu}</Button>
+            <Button href={`#${SECTION_IDS.intro}`} variant="onDark">
+              {dictionary.home.ctaDiscover}
             </Button>
           </div>
         </div>

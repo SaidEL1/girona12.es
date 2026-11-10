@@ -1,17 +1,14 @@
 import {
-  Contact,
-  FeaturedDishes,
+  ClosingCta,
   Gallery,
   Hero,
   Intro,
-  Location,
   MenuCategories,
-  ReservationCta,
 } from "@/components/sections";
 
 /**
- * Phase 01 homepage shell.
- * Section components are scaffolded; full content arrives in later phases.
+ * Phase 02 premium landing page.
+ * Menu PDF extraction and full locale routing remain later phases.
  */
 export default function HomePage() {
   return (
@@ -19,11 +16,8 @@ export default function HomePage() {
       <Hero />
       <Intro />
       <MenuCategories />
-      <FeaturedDishes />
       <Gallery />
-      <Contact />
-      <Location />
-      <ReservationCta />
+      <ClosingCta />
     </>
   );
 }
