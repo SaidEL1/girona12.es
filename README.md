@@ -31,6 +31,14 @@ npm run lint
 npm run build
 ```
 
+## Deploy (Netlify)
+
+Production URL: https://girona12.netlify.app
+
+This app is **Next.js App Router** (not a static `out/` export). Netlify should use the OpenNext adapter with `npm run build` and an **empty publish directory**. See `netlify.toml` and `docs/deploy/netlify-404-investigation.md`.
+
+Homepage routes live under `/[locale]` (`/es` default). `/` redirects to Spanish via `src/proxy.ts`.
+
 ## Brand tokens
 
 | Token      | Hex       |
