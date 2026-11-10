@@ -1,17 +1,19 @@
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { ORIGINAL_MENU_PREVIEW } from "@/data/menu-pages";
 import { SECTION_IDS } from "@/lib/constants";
-import type { Dictionary } from "@/types";
+import { originalMenuPath } from "@/lib/i18n";
+import type { Dictionary, LocaleCode } from "@/types";
 
 type DigitalMenuCtaProps = {
+  locale: LocaleCode;
   dictionary: Dictionary;
 };
 
 /**
- * Landing teaser for the exact PDF image menu at /es/menu-original.
+ * Landing teaser for the exact PDF image menu.
  * Uses an actual original page preview — no redesigned mock.
  */
-export function DigitalMenuCta({ dictionary }: DigitalMenuCtaProps) {
+export function DigitalMenuCta({ locale, dictionary }: DigitalMenuCtaProps) {
   const copy = dictionary.sections.digitalMenu;
   const preview = ORIGINAL_MENU_PREVIEW;
 
@@ -40,7 +42,7 @@ export function DigitalMenuCta({ dictionary }: DigitalMenuCtaProps) {
               title={copy.title}
               description={copy.body}
             />
-            <Button href="/es/menu-original">{copy.cta}</Button>
+            <Button href={originalMenuPath(locale)}>{copy.cta}</Button>
           </div>
 
           <div className="lg:col-span-7">

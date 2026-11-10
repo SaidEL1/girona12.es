@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 import { Container } from "@/components/ui";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { SECTION_IDS } from "@/lib/constants";
-import { localizedPath } from "@/lib/i18n";
+import { localizedPath, originalMenuPath } from "@/lib/i18n";
 import { cn } from "@/lib/cn";
 import type { Dictionary, LocaleCode } from "@/types";
 
@@ -23,7 +23,7 @@ export function Header({ locale, dictionary }: HeaderProps) {
   const panelId = useId();
 
   const homePath = localizedPath(locale);
-  const menuPath = localizedPath(locale, "/menu");
+  const menuPath = originalMenuPath(locale);
   const isHome = pathname === homePath || pathname === `${homePath}/`;
 
 

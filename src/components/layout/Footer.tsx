@@ -1,15 +1,17 @@
 import { Container, GeometricAccent } from "@/components/ui";
 import { SECTION_IDS } from "@/lib/constants";
-import type { Dictionary } from "@/types";
+import { originalMenuPath } from "@/lib/i18n";
+import type { Dictionary, LocaleCode } from "@/types";
 
 /** Static copyright year — avoids unstable `Date` during Cache Components prerender. */
 const COPYRIGHT_YEAR = 2026;
 
 type FooterProps = {
+  locale: LocaleCode;
   dictionary: Dictionary;
 };
 
-export function Footer({ dictionary }: FooterProps) {
+export function Footer({ locale, dictionary }: FooterProps) {
   return (
     <footer
       id={SECTION_IDS.contact}
@@ -44,7 +46,7 @@ export function Footer({ dictionary }: FooterProps) {
               {dictionary.nav.restaurant}
             </a>
             <a
-              href={`#${SECTION_IDS.menu}`}
+              href={originalMenuPath(locale)}
               className="text-xs uppercase tracking-[0.2em] text-[var(--color-ivory)]/75 transition-colors hover:text-[var(--color-gold)]"
             >
               {dictionary.nav.menu}

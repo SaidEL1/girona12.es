@@ -21,7 +21,7 @@ export function SiteShell({ locale, dictionary, children }: SiteShellProps) {
       </a>
       <Header locale={locale} dictionary={dictionary} />
       <main className="flex-1">{children}</main>
-      <Footer dictionary={dictionary} />
+      <Footer locale={locale} dictionary={dictionary} />
     </>
   );
 }

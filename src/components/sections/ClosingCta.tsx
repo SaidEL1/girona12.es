@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { siteImages } from "@/data/images";
 import { SECTION_IDS } from "@/lib/constants";
-import { localizedPath } from "@/lib/i18n";
+import { originalMenuPath } from "@/lib/i18n";
 import type { Dictionary, LocaleCode } from "@/types";
 
 type ClosingCtaProps = {
@@ -48,7 +48,7 @@ export function ClosingCta({ locale, dictionary }: ClosingCtaProps) {
           className="md:mx-auto"
         />
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-          <Button href={localizedPath(locale, "/menu")}>{copy.ctaMenu}</Button>
+          <Button href={originalMenuPath(locale)}>{copy.ctaMenu}</Button>
           <Button href={`#${SECTION_IDS.contact}`} variant="onDark">
             {copy.ctaContact}
           </Button>
