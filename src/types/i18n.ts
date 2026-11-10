@@ -61,7 +61,12 @@ export interface Dictionary {
       eyebrow: string;
       title: string;
       body: string;
-      /** Shown until owner supplies real restaurant photographs */
+      /** Owner Banner AR — primary page alt */
+      bannerAltPrimary: string;
+      /** Owner Banner AR — secondary page alt */
+      bannerAltSecondary: string;
+      bannerCaption: string;
+      /** Remaining note until more restaurant photographs arrive */
       placeholder: string;
     };
     closing: {

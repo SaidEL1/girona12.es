@@ -47,9 +47,14 @@ export const en: Dictionary = {
     gallery: {
       eyebrow: "Gallery",
       title: "The table, the light, the pace",
-      body: "The restaurant’s visual gallery will be published with real photographs once the owner provides them.",
+      body: "Official owner banner (Banner AR). Additional restaurant photographs will be published when they are provided.",
+      bannerAltPrimary:
+        "Official Gerona 12 Al Andalus banner — page 1 (Arabic)",
+      bannerAltSecondary:
+        "Official Gerona 12 Al Andalus banner — page 2 (Arabic)",
+      bannerCaption: "Banner AR",
       placeholder:
-        "Reserved for official restaurant photographs. No provisional or stock images are shown.",
+        "Additional space reserved for official restaurant photographs. No provisional or stock images are shown.",
     },
     closing: {
       title: "The table awaits",

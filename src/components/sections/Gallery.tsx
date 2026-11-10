@@ -1,10 +1,10 @@
 import {
-  GeometricSeparator,
   PatternBackdrop,
   SectionFrame,
   ZelligeBorder,
 } from "@/components/brand";
 import { Container, GeometricAccent, SectionHeading } from "@/components/ui";
+import { OWNER_BANNER_PAGES } from "@/data/banner";
 import { SECTION_IDS } from "@/lib/constants";
 import type { Dictionary } from "@/types";
 
@@ -13,7 +13,8 @@ type GalleryProps = {
 };
 
 /**
- * Designed Zellige placeholder until the owner supplies real restaurant photographs.
+ * Gallery — owner Banner AR pages, framed in Zellige chrome.
+ * Additional restaurant photographs remain pending until supplied.
  */
 export function Gallery({ dictionary }: GalleryProps) {
   const copy = dictionary.sections.gallery;
@@ -36,27 +37,53 @@ export function Gallery({ dictionary }: GalleryProps) {
           description={copy.body}
         />
 
-        <SectionFrame tone="gold" className="overflow-hidden bg-[var(--color-deep-green)]">
-          <ZelligeBorder variant="zellige-ivory" />
-          <div className="relative min-h-[18rem] sm:min-h-[22rem]">
-            <PatternBackdrop
-              variant="zellige-emerald"
-              intensity="soft"
-              tone="deep"
-            />
-            <div className="relative z-10 flex min-h-[18rem] flex-col items-center justify-center gap-5 px-6 py-16 text-center text-[var(--color-ivory)] sm:min-h-[22rem]">
-              <GeometricAccent tone="gold" />
-              <p className="font-display text-3xl tracking-[0.08em] text-[var(--color-gold)] sm:text-4xl">
-                {dictionary.brand.wordmark}
-              </p>
-              <GeometricSeparator tone="gold" className="max-w-xs" />
-              <p className="max-w-md text-sm leading-relaxed text-[var(--color-ivory)]/80 sm:text-base">
-                {copy.placeholder}
-              </p>
-            </div>
-          </div>
-          <ZelligeBorder variant="girih-emerald" />
-        </SectionFrame>
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
+          {OWNER_BANNER_PAGES.map((page, index) => (
+            <figure key={page.id} className="m-0">
+              <SectionFrame
+                tone="gold"
+                className="overflow-hidden bg-[var(--color-deep-green)]"
+              >
+                <ZelligeBorder variant="zellige-ivory" />
+                <div className="relative px-3 py-3 sm:px-4 sm:py-4">
+                  <PatternBackdrop
+                    variant="zellige-emerald"
+                    intensity="whisper"
+                    tone="deep"
+                  />
+                  <div className="relative overflow-hidden border border-[var(--color-gold)]/35 bg-[var(--color-deep-green)]">
+                    {/* Native img — owner JPEG bytes, no optimizer recompression */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={page.src}
+                      alt={
+                        index === 0
+                          ? copy.bannerAltPrimary
+                          : copy.bannerAltSecondary
+                      }
+                      width={page.width}
+                      height={page.height}
+                      decoding="async"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      className="block h-auto w-full"
+                    />
+                  </div>
+                </div>
+                <ZelligeBorder variant="girih-emerald" />
+              </SectionFrame>
+              <figcaption className="mt-3 text-center text-xs uppercase tracking-[0.18em] text-[var(--color-emerald)]/70">
+                {copy.bannerCaption} · {index + 1}/{OWNER_BANNER_PAGES.length}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="mx-auto max-w-2xl text-center">
+          <GeometricAccent tone="emerald" className="mx-auto" />
+          <p className="mt-4 text-sm leading-relaxed text-[var(--color-dark-text)]/70 sm:text-base">
+            {copy.placeholder}
+          </p>
+        </div>
       </Container>
     </section>
   );
