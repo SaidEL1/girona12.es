@@ -1,21 +1,29 @@
 import type { MenuDataset } from "@/types";
 import { MENU_SOURCE_PDF } from "./constants";
+import { menuCategories, menuSubcategories } from "./categories";
+import { menuItems } from "./items";
 
 /**
- * Verified published menu dataset.
- * Intentionally empty until docs/source/gerona12-full-menu.pdf is supplied
- * and extraction is reviewed. Do not invent dishes or prices.
+ * Verified published menu dataset extracted from Full Menu Gerona 12 PDF screenshots.
+ * Spanish prices are canonical when locales disagree.
  */
 export const menuDataset: MenuDataset = {
-  categories: [],
-  subcategories: [],
-  items: [],
+  categories: menuCategories,
+  subcategories: menuSubcategories,
+  items: menuItems,
+  updatedAt: "2026-11-10",
   sourcePdf: MENU_SOURCE_PDF,
   sourceNote:
-    "Source PDF missing from repository. Published items remain empty.",
+    "Extracted from provided Full Menu Gerona 12.pdf page screenshots (ES/EN/AR). See docs/extraction/phase-04-extraction-report.md.",
 };
 
-/** Items extracted but not yet verified for publication. */
-export const unpublishedMenuItems: MenuDataset["items"] = [];
+export const unpublishedMenuItems = menuItems.filter(
+  (item) => item.status !== "published",
+);
 
-export const featuredDishIds: string[] = [];
+export const featuredDishIds: string[] = [
+  "breakfast-girona12",
+  "tagine-chicken",
+  "meat-grilled-salmon",
+  "pizza-margherita",
+];

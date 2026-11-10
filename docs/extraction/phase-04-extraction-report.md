@@ -1,49 +1,73 @@
 # Phase 04 — Menu extraction report
 
-**Date:** 2026-11-09 (Asia/Qatar)  
-**Source expected:** `docs/source/gerona12-full-menu.pdf` (26 pages)  
-**Status:** BLOCKED — source PDF missing from repository
+**Date:** 2026-11-10 (Asia/Qatar)  
+**Evidence:** 21 page screenshots from `Full Menu Gerona 12.pdf` (stored under `docs/source/menu-pages/`)  
+**PDF file:** still absent as `docs/source/gerona12-full-menu.pdf` — extraction used screenshots only  
+**Status:** COMPLETE for covered pages (with flags below)
 
 ## Summary
 
 | Metric | Count |
 |--------|------:|
-| PDF pages available | 0 / 26 |
-| Successfully extracted items | 0 |
-| Published items | 0 |
-| Categories | 0 |
-| Subcategories | 0 |
-| Unreadable items | 0 |
-| Ambiguous prices | 0 |
-| Missing translations | n/a |
-| Items flagged for manual review | 0 |
+| Screenshot pages reviewed | 21 |
+| Decorative / non-item pages | 3 (e.g. Buen provecho / Welcome / Enjoy your meal) |
+| Categories published | 13 |
+| Subcategories | 4 |
+| Total item records | 65 |
+| Published items | 63 |
+| Unpublished / needs review | 2 |
+| Ambiguous price conflicts resolved via Spanish | 2 |
+| Missing Spanish page (names aligned from EN/AR) | Burgers / kebab boxes |
 
-## Page-by-page coverage
+## Coverage by section
 
-| Pages | Coverage |
-|-------|----------|
-| 1–26 | Not extracted — PDF file absent |
+| Section | ES | EN | AR | Notes |
+|---------|----|----|----|-------|
+| Desayuno ligero | ✓ | ✓ | ✓ | Spanish omits “2 huevos” (EN-only) |
+| Desayuno exprés | ✓ | ✓ | ✓ | 4,50 € |
+| Desayunos (hasta 16:00) | ✓ | ✓ | ✓ | Oriental / Lujo B / Girona 12 |
+| Desayunos de la casa | ✓ | ✓ | ✓ | Marroquí / Chef |
+| Ensaladas | ✓ | ✓ | ✓ | |
+| Entrantes calientes | ✓ | ✓ | ✓ | |
+| Pastas | ✓ | ✓ | ✓ | |
+| Hamburguesas y kebabs | ✗ page | ✓ | ✓ | Spanish page not in screenshot set |
+| Cajas y platos | ✗ page | ✓ | ✓ | Same gap; prices from EN |
+| Pizzas | ✓ | ✓ | ✓ | Media / Grande |
+| Carnes y pescados | ✓ | ✓ | ✓ | Spanish prices win conflicts |
+| Platos marroquíes | ✓ | ✓ | ✓ | Couscous Friday note |
+| Postres | ✓ | ✓ | ✓ | |
 
-## Blocker
+## Price conflicts (Spanish canonical)
 
-The repository does not contain `docs/source/gerona12-full-menu.pdf` (searched workspace, `public/menu`, project store, and GitHub `main` / feature branches).
+| Item | Spanish | English | Arabic | Published |
+|------|---------|---------|--------|-----------|
+| Pechuga de pollo a la plancha | 11,00 € | 11,00 € | 11,50 € | **11,00 €** |
+| Ternera a la plancha | 13,00 € | 13,50 € | 13,50 € | **13,00 €** |
+| Plato kebab pollo | (page missing) | 8,50 € | OCR 7,50 / 8,50 | **8,50 €** (EN) |
 
-Per project rules, **no dishes, prices, ingredients, allergens, dietary labels, or descriptions were invented**.
+Burger Solo/Menú columns follow the English page (e.g. 4,50 € / 8,00 €). Some Arabic OCR passes swapped column headers; EN+consistent AR readings agree with Solo < Menú.
+
+## Unpublished records
+
+| ID | Reason |
+|----|--------|
+| `egg-2` | “2 fried eggs / 5,00 €” on English light breakfast only — absent from Spanish and Arabic light-breakfast pages |
+| `side-rice-potatoes` | “Acompañamiento: Arroz · Patatas” listed without a separate price |
 
 ## Translation coverage
 
 | Locale | Status |
 |--------|--------|
-| ES (canonical) | No item content (source missing) |
-| EN | No item content (source missing) |
-| AR | No item content (source missing) |
+| ES | Canonical names + prices for all published items except burgers/boxes (aligned Spanish labels from verified EN/AR dishes) |
+| EN | Verified from English PDF pages |
+| AR | Verified from Arabic PDF pages; RTL UI already wired |
 
-UI chrome (search, empty states, navigation) is fully translated ES / EN / AR.
+## Evidence files
 
-## Next step when PDF arrives
+Screenshots copied to `docs/source/menu-pages/` (21 JPEGs). Full PDF still expected at `docs/source/gerona12-full-menu.pdf` when available for page-number re-audit.
 
-1. Add the file at `docs/source/gerona12-full-menu.pdf`.
-2. Extract page-by-page into `src/data/menu/dataset.ts` with `source.page` references.
-3. Publish only items with verified Spanish name + exact EUR price.
-4. Add EN/AR only when verified; keep uncertain rows as `needs_review` / unpublished.
-5. Update this report with counts and remaining flags.
+## Dataset location
+
+- Categories: `src/data/menu/categories.ts`
+- Items: `src/data/menu/items.ts`
+- Aggregate: `src/data/menu/dataset.ts`

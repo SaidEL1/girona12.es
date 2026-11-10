@@ -1,21 +1,21 @@
 # Menu source documents
 
-## Required file
-
-Place the official 26-page restaurant menu PDF here:
+## Official PDF (preferred)
 
 ```text
 docs/source/gerona12-full-menu.pdf
 ```
 
-This PDF is the **only** source of truth for dishes, descriptions, categories, and EUR prices.
+This PDF remains the preferred source of truth for dishes, descriptions, categories, and EUR prices.
 
-## Status (Phase 04)
+## Screenshot evidence (Phase 04)
 
-The file is **not present** in the repository at the time of Phase 04 implementation.
+Until the full PDF is committed, Phase 04 extraction used **21 page screenshots** from `Full Menu Gerona 12.pdf`:
 
-Until it is supplied:
+```text
+docs/source/menu-pages/
+```
 
-- No dishes or prices are invented.
-- The menu UI at `/es/menu`, `/en/menu`, and `/ar/menu` remains ready with an empty verified state.
-- Extraction findings are tracked in `docs/extraction/`.
+See `docs/extraction/phase-04-extraction-report.md` for coverage, conflicts, and unpublished rows.
+
+Spanish is canonical when locales disagree. No dishes or prices were invented beyond that evidence set.

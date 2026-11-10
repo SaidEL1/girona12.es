@@ -3,7 +3,7 @@
  * Spanish is the canonical source language. English and Arabic are translations
  * of the same item records — never duplicate products per locale.
  *
- * Only publish items verified from docs/source/gerona12-full-menu.pdf.
+ * Only publish items verified from the official Full Menu Gerona 12 PDF.
  */
 
 import type { LocaleCode } from "./i18n-locale";
@@ -30,12 +30,21 @@ export type MenuPublicationStatus =
 export type LocalizedText = Partial<Record<LocaleCode, string>>;
 
 export interface MenuSourceRef {
-  /** Relative path to the source PDF */
+  /** Relative path to the source PDF or screenshot evidence */
   pdf: string;
-  /** 1-based page number in the PDF */
+  /** 1-based page number in the PDF when known */
   page: number;
   /** Optional extraction notes for reviewers */
   notes?: string;
+}
+
+/** Size / format / combo price variants (e.g. Media/Grande, Solo/Menú). */
+export interface MenuPriceOption {
+  id: string;
+  label: LocalizedText;
+  priceEur: number;
+  /** Exact label as printed (e.g. "6,50 €") */
+  priceLabel: string;
 }
 
 export interface MenuItem {
@@ -46,13 +55,17 @@ export interface MenuItem {
   name: LocalizedText;
   /** Verified localized descriptions only */
   description?: LocalizedText;
-  /** Numeric EUR amount used for sorting/filtering */
+  /** Optional availability / service notes */
+  notes?: LocalizedText;
+  /** Numeric EUR amount used for sorting (base / lowest variant) */
   priceEur: number;
   /**
-   * Exact price label as printed in the PDF (e.g. "12,50 €").
+   * Exact single price label as printed in the PDF (e.g. "12,50 €").
    * Prefer this for display so decimal formatting is preserved.
    */
   priceLabel?: string;
+  /** Multi-column prices when the PDF shows variants */
+  priceOptions?: MenuPriceOption[];
   imageSrc?: string;
   dietaryLabels?: DietaryLabel[];
   featured?: boolean;

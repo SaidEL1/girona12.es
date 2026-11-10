@@ -4,6 +4,7 @@ export type {
   MenuCategory,
   MenuDataset,
   MenuItem,
+  MenuPriceOption,
   MenuPublicationStatus,
   MenuSourceRef,
   MenuSubcategory,
