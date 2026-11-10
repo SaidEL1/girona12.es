@@ -64,11 +64,13 @@ export const es: Dictionary = {
     },
     contact: {
       eyebrow: "Contacto",
-      title: "Pronto podrá contactarnos aquí",
-      body: "Esta página permanece deliberadamente en espera. Publicaremos teléfono, dirección y horario solo cuando el propietario facilite datos verificados.",
-      placeholderLabel: "Datos de contacto",
-      placeholderBody:
-        "Ningún teléfono, dirección, correo ni horario inventado. El espacio queda reservado hasta la verificación oficial.",
+      title: "Estamos en Almería",
+      body: "Datos oficiales de GERONA 12 — Restaurante Al Andalus, tomados de la tarjeta de visita del establecimiento.",
+      detailsLabel: "Datos de contacto",
+      phoneLabel: "Teléfono",
+      emailLabel: "Correo electrónico",
+      addressLabel: "Dirección",
+      directionsLabel: "Ver en Google Maps",
     },
   },
   menuPage: {
@@ -104,8 +106,6 @@ export const es: Dictionary = {
   footer: {
     rights: "Todos los derechos reservados.",
     discovery: "Al Baraka Digital",
-    contactPending:
-      "El teléfono, la dirección y el horario se publicarán cuando estén verificados.",
   },
   a11y: {
     skipToContent: "Saltar al contenido",

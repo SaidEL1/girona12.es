@@ -80,9 +80,13 @@ export interface Dictionary {
       /** Unique page H1 */
       title: string;
       body: string;
-      /** Intentional placeholder — no invented phone / address / hours */
-      placeholderLabel: string;
-      placeholderBody: string;
+      /** Section label above contact rows */
+      detailsLabel: string;
+      phoneLabel: string;
+      emailLabel: string;
+      addressLabel: string;
+      /** CTA opening Google Maps for the verified address */
+      directionsLabel: string;
     };
   };
   menuPage: {
@@ -115,7 +119,6 @@ export interface Dictionary {
   footer: {
     rights: string;
     discovery: string;
-    contactPending: string;
   };
   a11y: {
     skipToContent: string;
