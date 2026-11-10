@@ -1,6 +1,7 @@
 /**
- * Site content stubs. Contact, hours, and map details stay empty
- * until real information is provided — no placeholder addresses or phones.
+ * Site content types.
+ * Phone / email / address are filled from the owner business card.
+ * Hours, WhatsApp, social URLs, and coordinates stay optional until verified.
  */
 
 export interface ContactInfo {

@@ -8,7 +8,7 @@ Premium Andalusian restaurant website for **Al Baraka Digital**.
 
 **Blocker:** `docs/source/gerona12-full-menu.pdf` is not in the repository. No dishes or prices are invented until that PDF is supplied.
 
-Contact details remain empty until verified.
+Contact details (phone, email, address) are published from the verified owner business card on `/contacto` and in the footer. Opening hours and social URLs remain unpublished until supplied.
 
 ## Stack
 

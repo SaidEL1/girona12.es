@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import {
-  GeometricSeparator,
   PatternBackdrop,
   SectionFrame,
   ZelligeBorder,
 } from "@/components/brand";
-import { Container, GeometricAccent, SectionHeading } from "@/components/ui";
+import { ContactDetails } from "@/components/sections/ContactDetails";
+import { Container, SectionHeading } from "@/components/ui";
 import { getDictionary, isLocaleCode } from "@/lib/i18n";
 
 export default async function ContactPage({
@@ -41,30 +41,13 @@ export default async function ContactPage({
             tone="gold"
             className="overflow-hidden bg-[var(--color-deep-green)]"
           >
-            <div className="relative min-h-[16rem] px-6 py-14 text-[var(--color-ivory)] sm:px-10 sm:py-16">
+            <div className="relative min-h-[16rem] px-5 py-12 text-[var(--color-ivory)] sm:px-10 sm:py-16">
               <PatternBackdrop
                 variant="zellige-emerald"
                 intensity="soft"
                 tone="deep"
               />
-              <div className="relative z-10 mx-auto flex max-w-xl flex-col items-center gap-6 text-center">
-                <GeometricAccent tone="gold" />
-                <p className="font-display text-3xl tracking-[0.08em] text-[var(--color-gold)] sm:text-4xl">
-                  {dictionary.brand.wordmark}
-                </p>
-                <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-ivory)]/75">
-                  {dictionary.brand.name}
-                </p>
-                <GeometricSeparator tone="gold" className="max-w-xs" />
-                <div className="space-y-3">
-                  <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-gold)]">
-                    {copy.placeholderLabel}
-                  </p>
-                  <p className="text-base leading-relaxed text-[var(--color-ivory)]/85">
-                    {copy.placeholderBody}
-                  </p>
-                </div>
-              </div>
+              <ContactDetails dictionary={dictionary} variant="page" />
             </div>
           </SectionFrame>
         </Container>

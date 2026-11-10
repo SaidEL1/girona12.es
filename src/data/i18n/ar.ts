@@ -62,11 +62,13 @@ export const ar: Dictionary = {
     },
     contact: {
       eyebrow: "التواصل",
-      title: "ستظهر بيانات التواصل هنا قريباً",
-      body: "هذه الصفحة محفوظة عمداً. سننشر الهاتف والعنوان وساعات العمل فقط عندما يوفّر المالك بيانات عمل موثّقة.",
-      placeholderLabel: "بيانات التواصل",
-      placeholderBody:
-        "لا رقم هاتف ولا عنوان ولا بريد ولا ساعات مخترعة. تبقى هذه المساحة فارغة حتى التحقق الرسمي.",
+      title: "نجدكم في ألمرية",
+      body: "بيانات رسمية لـ GERONA 12 — مطعم الأندلس، مأخوذة من بطاقة العمل الخاصة بالمطعم.",
+      detailsLabel: "بيانات التواصل",
+      phoneLabel: "الهاتف",
+      emailLabel: "البريد الإلكتروني",
+      addressLabel: "العنوان",
+      directionsLabel: "عرض على خرائط Google",
     },
   },
   menuPage: {
@@ -101,7 +103,6 @@ export const ar: Dictionary = {
   footer: {
     rights: "جميع الحقوق محفوظة.",
     discovery: "البركة ديجيتال",
-    contactPending: "يُنشر الهاتف والعنوان وساعات العمل بعد التحقق.",
   },
   a11y: {
     skipToContent: "تخطّي إلى المحتوى",
