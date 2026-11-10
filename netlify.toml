@@ -1,0 +1,30 @@
+# Gerona 12 — Netlify + Next.js (App Router)
+#
+# Root cause of https://girona12.netlify.app Page Not Found (2026-11-10):
+# production was publishing GitHub `main` at the initial README-only commit
+# (67147c9). There was no Next.js app on that branch, so Netlify served a
+# static empty site (framework=None, plugin_state=none).
+#
+# This file configures a proper Next.js build. Netlify's OpenNext adapter
+# (@netlify/plugin-nextjs) is auto-injected — do NOT pin it unless required.
+#
+# Required for production recovery (dashboard — not applied by this commit):
+# 1. Publish a branch that contains this Next.js app (merge the phase stack
+#    into `main`, OR temporarily set Production branch to the app branch).
+# 2. Build command: `npm run build` (below).
+# 3. Leave Publish directory EMPTY for the Next.js adapter.
+#    Never set publish to `public`, `.`, `out`, or `dist` for this project.
+# 4. Do not add a SPA catch-all `/* -> /index.html` redirect — it breaks SSR.
+
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Keep Next OpenNext adapter auto-updated by Netlify
+  # NETLIFY_NEXT_PLUGIN_SKIP = "false"
+
+# No [[redirects]] here on purpose.
+# Locale routing is handled by Next.js `src/proxy.ts` (`/` → `/es` default).
+# User-defined Netlify redirects take precedence over adapter routes and can
+# recreate 404s if a root rewrite is added.
