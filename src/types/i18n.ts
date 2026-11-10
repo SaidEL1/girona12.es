@@ -106,4 +106,15 @@ export interface Dictionary {
     skipToContent: string;
     languageSelector: string;
   };
+  /** Phase 2A foundation showcase — not marketing copy */
+  designFoundation: {
+    title: string;
+    intro: string;
+    tokensHeading: string;
+    patternHeading: string;
+    frameHeading: string;
+    separatorHeading: string;
+    bandHeading: string;
+    note: string;
+  };
 }

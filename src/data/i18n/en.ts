@@ -97,4 +97,15 @@ export const en: Dictionary = {
     skipToContent: "Skip to content",
     languageSelector: "Language",
   },
+  designFoundation: {
+    title: "Gerona 12 visual foundation",
+    intro:
+      "Decorative foundations derived from the original menu: emerald, gold, ivory, and Islamic geometry. This page is for design verification only.",
+    tokensHeading: "Palette",
+    patternHeading: "Geometric backgrounds",
+    frameHeading: "Ornamental frames",
+    separatorHeading: "Separators",
+    bandHeading: "Menu bands",
+    note: "The 26 original menu JPEGs are unmodified. No external photography.",
+  },
 };

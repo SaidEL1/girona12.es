@@ -2,6 +2,7 @@
 
 /*
   Brand tokens — Gerona 12 / Restaurante Al Andalus
+  Source of truth: original menu emerald geometric identity
   Emerald · Deep Green · Royal Gold · Warm Ivory · Dark Text
 */
 :root {
@@ -11,6 +12,15 @@
   --brand-ivory: #f4ebdd;
   --brand-dark-text: #17241f;
 
+  /* Supporting mixes for frames / overlays (still menu palette only) */
+  --brand-gold-muted: color-mix(in srgb, var(--brand-gold) 55%, transparent);
+  --brand-emerald-soft: color-mix(
+    in srgb,
+    var(--brand-emerald) 12%,
+    transparent
+  );
+  --brand-deep-veil: color-mix(in srgb, var(--brand-deep-green) 72%, transparent);
+
   --color-emerald: var(--brand-emerald);
   --color-deep-green: var(--brand-deep-green);
   --color-gold: var(--brand-gold);
@@ -19,6 +29,13 @@
 
   --background: var(--brand-ivory);
   --foreground: var(--brand-dark-text);
+
+  /* Decorative rhythm */
+  --brand-frame-inset: 0.5rem;
+  --brand-pattern-tile: min(22rem, 70vw);
+  --brand-pattern-opacity-soft: 0.14;
+  --brand-pattern-opacity-whisper: 0.08;
+  --brand-ornament-max-height: 7.5rem;
 }
 
 @theme inline {
@@ -84,9 +101,36 @@
   unicode-bidi: isolate;
 }
 
+/*
+  Menu-derived girih pattern (independent crop of page-02).
+  Prefer PatternBackdrop component for new work; utility kept for low-level use.
+  Opacity must stay low over copy for contrast.
+*/
+@utility menu-girih-pattern {
+  background-image: url("/brand/patterns/emerald-girih-tile.jpg");
+  background-size: var(--brand-pattern-tile);
+  background-repeat: repeat;
+}
+
+/* Legacy alias — same menu-derived tile (no generic SVG star) */
 @utility moorish-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23D9AE4D' stroke-width='1'%3E%3Cpath d='M40 8 L48 28 L70 28 L52 42 L58 64 L40 52 L22 64 L28 42 L10 28 L32 28 Z'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 80px 80px;
+  background-image: url("/brand/patterns/emerald-girih-tile.jpg");
+  background-size: var(--brand-pattern-tile);
+  background-repeat: repeat;
+}
+
+@utility brand-gold-rule {
+  height: 1px;
+  width: 4rem;
+  background: color-mix(in srgb, var(--brand-gold) 70%, transparent);
+}
+
+@utility brand-section-veil {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--brand-deep-green) 88%, transparent),
+    color-mix(in srgb, var(--brand-deep-green) 55%, transparent)
+  );
 }
 
 @keyframes fade-rise {

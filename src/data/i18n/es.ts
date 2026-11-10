@@ -97,4 +97,15 @@ export const es: Dictionary = {
     skipToContent: "Saltar al contenido",
     languageSelector: "Idioma",
   },
+  designFoundation: {
+    title: "Base visual Gerona 12",
+    intro:
+      "Fundamentos decorativos derivados del menú original: esmeralda, oro, marfil y geometría islámica. Esta página es solo de verificación de diseño.",
+    tokensHeading: "Paleta",
+    patternHeading: "Fondos geométricos",
+    frameHeading: "Marcos ornamentales",
+    separatorHeading: "Separadores",
+    bandHeading: "Bandas del menú",
+    note: "Los 26 JPEG originales del menú no se modifican. Sin fotografías externas.",
+  },
 };

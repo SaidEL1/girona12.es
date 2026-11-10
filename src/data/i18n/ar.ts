@@ -95,4 +95,15 @@ export const ar: Dictionary = {
     skipToContent: "تخطّي إلى المحتوى",
     languageSelector: "اللغة",
   },
+  designFoundation: {
+    title: "الأساس البصري لجيرونا 12",
+    intro:
+      "أساسات زخرفية مستمدة من المنيو الأصلي: الزمرد والذهب والعاجي والهندسة الإسلامية. هذه الصفحة للتحقق من التصميم فقط.",
+    tokensHeading: "لوحة الألوان",
+    patternHeading: "خلفيات هندسية",
+    frameHeading: "إطارات زخرفية",
+    separatorHeading: "فواصل",
+    bandHeading: "أشرطة المنيو",
+    note: "ملفات JPEG الأصلية الـ 26 للمنيو دون تعديل. بلا صور خارجية.",
+  },
 };
