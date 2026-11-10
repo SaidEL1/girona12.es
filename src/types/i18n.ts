@@ -18,9 +18,7 @@ export interface LocaleConfig {
 export interface Dictionary {
   locale: LocaleCode;
   brand: {
-    /** Primary wordmark — GERONA 12 */
     wordmark: string;
-    /** Restaurant name */
     name: string;
     tagline: string;
   };
@@ -63,6 +61,21 @@ export interface Dictionary {
       ctaMenu: string;
       ctaContact: string;
     };
+  };
+  menuPage: {
+    title: string;
+    eyebrow: string;
+    intro: string;
+    searchPlaceholder: string;
+    searchLabel: string;
+    allCategories: string;
+    emptyTitle: string;
+    emptyBody: string;
+    noResultsTitle: string;
+    noResultsBody: string;
+    resultsCount: string;
+    priceUnavailable: string;
+    backHome: string;
   };
   footer: {
     rights: string;

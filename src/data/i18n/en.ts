@@ -32,10 +32,10 @@ export const en: Dictionary = {
     menu: {
       eyebrow: "The menu",
       title: "Discover the house cuisine",
-      body: "The full menu will be published from the official document. This section sets the tone for the culinary experience until then.",
+      body: "The full menu is published from the official PDF. Explore categories once the source document is available in the repository.",
       cta: "Explore Our Menu",
       pendingNote:
-        "Categories and dishes will be added after official PDF extraction. No provisional prices or invented plates are shown.",
+        "Dishes will appear after verified extraction from the official PDF. No provisional plates or prices are shown.",
     },
     gallery: {
       eyebrow: "Gallery",
@@ -48,6 +48,23 @@ export const en: Dictionary = {
       ctaMenu: "Explore Our Menu",
       ctaContact: "Contact Us",
     },
+  },
+  menuPage: {
+    title: "Our menu",
+    eyebrow: "Menu",
+    intro:
+      "The Al Andalus menu is built exclusively from the official document. Only verified dishes and prices are published.",
+    searchPlaceholder: "Search a dish…",
+    searchLabel: "Search the menu",
+    allCategories: "All",
+    emptyTitle: "Menu in preparation",
+    emptyBody:
+      "The source PDF (docs/source/gerona12-full-menu.pdf) is not yet in the repository. No invented dishes are shown.",
+    noResultsTitle: "No results",
+    noResultsBody: "Try another search term or choose a different category.",
+    resultsCount: "dishes",
+    priceUnavailable: "Price unavailable",
+    backHome: "Back to home",
   },
   footer: {
     rights: "All rights reserved.",

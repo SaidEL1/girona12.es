@@ -1,18 +1,10 @@
-import type { MenuDataset } from "@/types";
-
 /**
- * Menu content will be extracted from the official PDF in a later phase.
- * Do not invent categories, dishes, descriptions, or prices.
- * Do not invent ES / EN / AR translations until the PDF is verified.
- *
- * Shape supports LocalizedText on name/description fields so future
- * extraction can fill verified locales only.
+ * Re-export shim — prefer `@/data/menu` (folder) for new imports.
  */
-export const menuDataset: MenuDataset = {
-  categories: [],
-  items: [],
-  sourceNote:
-    "Awaiting menu PDF extraction. Categories and items intentionally empty across ES/EN/AR.",
-};
-
-export const featuredDishIds: string[] = [];
+export {
+  featuredDishIds,
+  menuDataset,
+  unpublishedMenuItems,
+  MENU_SOURCE_PDF,
+  MENU_SOURCE_PAGE_COUNT,
+} from "./menu/index";

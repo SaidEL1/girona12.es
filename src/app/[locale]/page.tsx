@@ -23,11 +23,11 @@ export default async function HomePage({
 
   return (
     <>
-      <Hero dictionary={dictionary} />
+      <Hero locale={locale} dictionary={dictionary} />
       <Intro dictionary={dictionary} />
       <MenuCategories locale={locale} dictionary={dictionary} />
       <Gallery dictionary={dictionary} />
-      <ClosingCta dictionary={dictionary} />
+      <ClosingCta locale={locale} dictionary={dictionary} />
     </>
   );
 }
