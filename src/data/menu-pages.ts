@@ -15,7 +15,8 @@ export const ORIGINAL_MENU_PAGES = Array.from(
       src: `/menu/pages/page-${padded}.jpg`,
       width: 1250,
       height: 1773,
-      alt: `Gerona 12 — página ${number} de ${ORIGINAL_MENU_PAGE_COUNT}`,
+      // Language-neutral alt (brand + page index). Viewer chrome stays localized via i18n.
+      alt: `Gerona 12 — ${number} / ${ORIGINAL_MENU_PAGE_COUNT}`,
     } as const;
   },
 );

@@ -11,7 +11,10 @@ const toneClass: Record<NonNullable<GeometricAccentProps["tone"]>, string> = {
   emerald: "text-[var(--color-emerald)]",
 };
 
-/** Subtle Moorish-inspired star motif for decorative accents. */
+/**
+ * 8-point girih star accent aligned with the original menu geometric language.
+ * Decorative only (aria-hidden).
+ */
 export function GeometricAccent({
   className,
   tone = "gold",
@@ -25,11 +28,18 @@ export function GeometricAccent({
       aria-hidden
     >
       <path
-        d="M32 4 L38 22 L56 22 L42 34 L47 52 L32 42 L17 52 L22 34 L8 22 L26 22 Z"
+        d="M32 4 L36.5 20.5 L52 12 L43.5 27.5 L60 32 L43.5 36.5 L52 52 L36.5 43.5 L32 60 L27.5 43.5 L12 52 L20.5 36.5 L4 32 L20.5 27.5 L12 12 L27.5 20.5 Z"
         stroke="currentColor"
         strokeWidth="1.25"
+        strokeLinejoin="miter"
       />
-      <circle cx="32" cy="32" r="2.5" fill="currentColor" opacity="0.7" />
+      <path
+        d="M32 16 L35 26 L45 23 L38 32 L45 41 L35 38 L32 48 L29 38 L19 41 L26 32 L19 23 L29 26 Z"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.75"
+      />
+      <circle cx="32" cy="32" r="2.25" fill="currentColor" opacity="0.7" />
     </svg>
   );
 }

@@ -61,12 +61,28 @@ export interface Dictionary {
       eyebrow: string;
       title: string;
       body: string;
+      /** Owner Banner AR — primary page alt */
+      bannerAltPrimary: string;
+      /** Owner Banner AR — secondary page alt */
+      bannerAltSecondary: string;
+      bannerCaption: string;
+      /** Remaining note until more restaurant photographs arrive */
+      placeholder: string;
     };
     closing: {
       title: string;
       body: string;
       ctaMenu: string;
       ctaContact: string;
+    };
+    contact: {
+      eyebrow: string;
+      /** Unique page H1 */
+      title: string;
+      body: string;
+      /** Intentional placeholder — no invented phone / address / hours */
+      placeholderLabel: string;
+      placeholderBody: string;
     };
   };
   menuPage: {
@@ -100,10 +116,31 @@ export interface Dictionary {
     rights: string;
     discovery: string;
     contactPending: string;
-    photoCredit: string;
   };
   a11y: {
     skipToContent: string;
     languageSelector: string;
+    primaryNav: string;
+    footerNav: string;
+  };
+  /** Phase 2A foundation showcase — not marketing copy */
+  designFoundation: {
+    title: string;
+    intro: string;
+    phaseLabel: string;
+    tokensHeading: string;
+    patternHeading: string;
+    patternReadabilityNote: string;
+    frameHeading: string;
+    separatorHeading: string;
+    bandHeading: string;
+    note: string;
+    swatches: {
+      emerald: string;
+      deepGreen: string;
+      gold: string;
+      ivory: string;
+      darkText: string;
+    };
   };
 }

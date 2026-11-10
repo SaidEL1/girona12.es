@@ -10,6 +10,8 @@ type SectionHeadingProps = {
   align?: "start" | "center";
   tone?: "light" | "dark";
   showAccent?: boolean;
+  /** Page-level titles use h1; section titles on the homepage stay h2. */
+  as?: "h1" | "h2";
 };
 
 export function SectionHeading({
@@ -21,8 +23,10 @@ export function SectionHeading({
   align = "start",
   tone = "light",
   showAccent = true,
+  as = "h2",
 }: SectionHeadingProps) {
   const isDark = tone === "dark";
+  const HeadingTag = as;
 
   return (
     <div
@@ -48,7 +52,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2
+      <HeadingTag
         id={id}
         className={cn(
           "font-display text-3xl leading-[1.15] sm:text-4xl md:text-[2.75rem]",
@@ -56,7 +60,7 @@ export function SectionHeading({
         )}
       >
         {title}
-      </h2>
+      </HeadingTag>
       {description ? (
         <p
           className={cn(

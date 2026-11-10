@@ -1,15 +1,20 @@
-import Image from "next/image";
-import { Container, SectionHeading } from "@/components/ui";
-import { siteImages } from "@/data/images";
+import {
+  ArchFrame,
+  GeometricSeparator,
+  PatternBackdrop,
+  SectionFrame,
+} from "@/components/brand";
+import { Container, GeometricAccent, SectionHeading } from "@/components/ui";
 import { SECTION_IDS } from "@/lib/constants";
 import type { Dictionary } from "@/types";
 
 type IntroProps = {
   dictionary: Dictionary;
+  /** Use h1 on the dedicated /restaurante page; keep h2 on the homepage. */
+  headingAs?: "h1" | "h2";
 };
 
-export function Intro({ dictionary }: IntroProps) {
-  const image = siteImages.intro;
+export function Intro({ dictionary, headingAs = "h2" }: IntroProps) {
   const copy = dictionary.sections.intro;
 
   return (
@@ -20,13 +25,14 @@ export function Intro({ dictionary }: IntroProps) {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute -end-24 top-16 h-72 w-72 rounded-full bg-[var(--color-emerald)]/[0.06] blur-3xl"
+        className="pointer-events-none absolute inset-0 opacity-[0.35] zellige-ivory"
       />
-      <Container>
+      <Container className="relative">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
               id="intro-heading"
+              as={headingAs}
               eyebrow={copy.eyebrow}
               title={copy.title}
               description={copy.body}
@@ -34,17 +40,30 @@ export function Intro({ dictionary }: IntroProps) {
           </div>
 
           <div className="relative lg:col-span-7">
-            <div className="absolute -inset-x-3 -inset-y-3 border border-[var(--color-gold)]/35 sm:-inset-x-5 sm:-inset-y-5" />
-            <div className="absolute -bottom-4 -start-4 hidden h-24 w-24 border border-[var(--color-emerald)]/25 sm:block" />
-            <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[5/4]">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
-              />
-            </div>
+            <SectionFrame tone="gold" padded={false} className="overflow-hidden">
+              <div className="relative grid gap-0 bg-[var(--color-deep-green)] sm:grid-cols-2">
+                <div className="relative min-h-[16rem] p-6 sm:min-h-[22rem] sm:p-8">
+                  <PatternBackdrop
+                    variant="zellige-emerald"
+                    intensity="medium"
+                    tone="emerald"
+                  />
+                  <div className="relative z-10 flex h-full flex-col items-center justify-center gap-4 text-center text-[var(--color-ivory)]">
+                    <GeometricAccent tone="gold" />
+                    <p className="font-display text-3xl tracking-[0.1em] text-[var(--color-gold)]">
+                      {dictionary.brand.wordmark}
+                    </p>
+                    <GeometricSeparator tone="gold" className="max-w-[10rem]" />
+                    <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-ivory)]/75">
+                      {dictionary.brand.name}
+                    </p>
+                  </div>
+                </div>
+                <div className="relative flex items-center justify-center bg-[var(--color-ivory)] p-6 sm:p-8">
+                  <ArchFrame variant="scalloped" className="w-full max-w-xs" />
+                </div>
+              </div>
+            </SectionFrame>
           </div>
         </div>
       </Container>

@@ -1,23 +1,18 @@
-import Image from "next/image";
-import { Button, Container, SectionHeading } from "@/components/ui";
-import { siteImages } from "@/data/images";
+import { PatternBackdrop, SectionFrame, ZelligeBorder } from "@/components/brand";
+import { Button, Container, GeometricAccent, SectionHeading } from "@/components/ui";
 import { SECTION_IDS } from "@/lib/constants";
 import { originalMenuPath } from "@/lib/i18n";
 import { getPublishedCategories } from "@/lib/menu";
-import { pickLocalized, type Dictionary, type LocaleCode } from "@/types";
+import { requireLocalized } from "@/lib/locale-text";
+import type { Dictionary, LocaleCode } from "@/types";
 
 type MenuCategoriesProps = {
   locale: LocaleCode;
   dictionary: Dictionary;
 };
 
-/**
- * Premium menu discovery — no invented dishes or categories.
- * Populated from verified Full Menu Gerona 12 screenshot extraction.
- */
 export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
   const copy = dictionary.sections.menu;
-  const image = siteImages.menu;
   const categories = getPublishedCategories();
   const hasCategories = categories.length > 0;
 
@@ -27,30 +22,39 @@ export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
       aria-labelledby="menu-heading"
       className="relative bg-[var(--color-deep-green)] py-20 text-[var(--color-ivory)] sm:py-28"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.08] moorish-pattern"
+      <PatternBackdrop variant="zellige-emerald" intensity="whisper" tone="deep" />
+      <ZelligeBorder
+        variant="zellige-mix"
+        className="absolute inset-x-0 top-0 opacity-90"
       />
-      <Container className="relative">
+      <Container className="relative pt-4">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
-          <div className="relative order-2 overflow-hidden lg:order-1 lg:col-span-6">
-            <div className="absolute start-0 top-0 z-10 h-full w-1 bg-[var(--color-gold)]/70" />
-            <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5]">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 48vw"
-                className="object-cover"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0 bg-gradient-to-t from-[var(--color-deep-green)]/55 to-transparent"
-              />
-            </div>
+          <div className="relative order-2 lg:order-1 lg:col-span-5">
+            <SectionFrame tone="gold-on-dark" padded={false}>
+              <div className="relative aspect-[4/5]">
+                <PatternBackdrop
+                  variant="zellige-multi"
+                  intensity="medium"
+                  tone="emerald"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-[var(--color-deep-green)]/45"
+                />
+                <div className="relative z-10 flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
+                  <GeometricAccent tone="gold" />
+                  <p className="font-display text-3xl tracking-[0.08em] text-[var(--color-gold)]">
+                    {dictionary.brand.wordmark}
+                  </p>
+                  <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-ivory)]/70">
+                    {dictionary.brand.tagline}
+                  </p>
+                </div>
+              </div>
+            </SectionFrame>
           </div>
 
-          <div className="order-1 space-y-8 lg:order-2 lg:col-span-6">
+          <div className="order-1 space-y-8 lg:order-2 lg:col-span-7">
             <SectionHeading
               id="menu-heading"
               tone="dark"
@@ -62,12 +66,12 @@ export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
             {hasCategories ? (
               <ul className="grid gap-4 sm:grid-cols-2">
                 {categories.map((category) => {
-                  const name = pickLocalized(category.name, locale);
+                  const name = requireLocalized(category.name, locale);
                   if (!name) return null;
                   return (
                     <li
                       key={category.id}
-                      className="border-b border-[var(--color-gold)]/25 pb-3 font-display text-2xl text-[var(--color-ivory)]"
+                      className="border-b border-[var(--color-gold)]/30 pb-3 font-display text-2xl text-[var(--color-ivory)]"
                     >
                       {name}
                     </li>

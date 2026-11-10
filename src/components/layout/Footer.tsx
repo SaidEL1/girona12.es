@@ -1,9 +1,9 @@
+import { PatternBackdrop, ZelligeBorder } from "@/components/brand";
 import { Container, GeometricAccent } from "@/components/ui";
 import { SECTION_IDS } from "@/lib/constants";
-import { originalMenuPath } from "@/lib/i18n";
+import { localizedPath, originalMenuPath } from "@/lib/i18n";
 import type { Dictionary, LocaleCode } from "@/types";
 
-/** Static copyright year — avoids unstable `Date` during Cache Components prerender. */
 const COPYRIGHT_YEAR = 2026;
 
 type FooterProps = {
@@ -17,11 +17,9 @@ export function Footer({ locale, dictionary }: FooterProps) {
       id={SECTION_IDS.contact}
       className="relative overflow-hidden border-t border-[var(--color-gold)]/20 bg-[var(--color-deep-green)] text-[var(--color-ivory)]"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.07] moorish-pattern"
-      />
-      <Container className="relative grid gap-12 py-14 sm:py-16 lg:grid-cols-[1.2fr_1fr]">
+      <PatternBackdrop variant="zellige-emerald" intensity="whisper" tone="deep" />
+      <ZelligeBorder variant="girih-emerald" className="relative z-10" />
+      <Container className="relative z-10 grid gap-12 py-14 sm:py-16 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-5">
           <GeometricAccent tone="gold" />
           <div>
@@ -38,9 +36,12 @@ export function Footer({ locale, dictionary }: FooterProps) {
         </div>
 
         <div className="flex flex-col justify-between gap-8 sm:items-end sm:text-end">
-          <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-3 sm:justify-end">
+          <nav
+            aria-label={dictionary.a11y.footerNav}
+            className="flex flex-wrap gap-x-6 gap-y-3 sm:justify-end"
+          >
             <a
-              href={`#${SECTION_IDS.intro}`}
+              href={localizedPath(locale, "/restaurante")}
               className="text-xs uppercase tracking-[0.2em] text-[var(--color-ivory)]/75 transition-colors hover:text-[var(--color-gold)]"
             >
               {dictionary.nav.restaurant}
@@ -52,10 +53,16 @@ export function Footer({ locale, dictionary }: FooterProps) {
               {dictionary.nav.menu}
             </a>
             <a
-              href={`#${SECTION_IDS.gallery}`}
+              href={localizedPath(locale, "/galeria")}
               className="text-xs uppercase tracking-[0.2em] text-[var(--color-ivory)]/75 transition-colors hover:text-[var(--color-gold)]"
             >
               {dictionary.nav.gallery}
+            </a>
+            <a
+              href={localizedPath(locale, "/contacto")}
+              className="text-xs uppercase tracking-[0.2em] text-[var(--color-ivory)]/75 transition-colors hover:text-[var(--color-gold)]"
+            >
+              {dictionary.nav.contact}
             </a>
           </nav>
           <div className="space-y-2 text-xs tracking-[0.08em] text-[var(--color-ivory)]/55">
@@ -65,7 +72,6 @@ export function Footer({ locale, dictionary }: FooterProps) {
               {dictionary.footer.discovery}
             </p>
             <p>{dictionary.footer.rights}</p>
-            <p>{dictionary.footer.photoCredit}</p>
           </div>
         </div>
       </Container>

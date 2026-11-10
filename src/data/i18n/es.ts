@@ -47,13 +47,28 @@ export const es: Dictionary = {
     gallery: {
       eyebrow: "Galería",
       title: "La mesa, la luz, el ritmo",
-      body: "Una galería editorial de atmósfera: cocina, servicio y salón en clave íntima y premium.",
+      body: "Banner oficial del propietario (Banner AR). Las fotografías adicionales del restaurante se publicarán cuando se faciliten.",
+      bannerAltPrimary:
+        "Banner oficial Gerona 12 Al Andalus — página 1 (árabe)",
+      bannerAltSecondary:
+        "Banner oficial Gerona 12 Al Andalus — página 2 (árabe)",
+      bannerCaption: "Banner AR",
+      placeholder:
+        "Espacio adicional reservado para fotografías oficiales del restaurante. No se muestran imágenes provisionales ni de archivo.",
     },
     closing: {
       title: "La mesa le espera",
       body: "Descubra la carta cuando esté disponible o continúe explorando el carácter de Al Andalus.",
       ctaMenu: "Descubre Nuestra Carta",
       ctaContact: "Contacto",
+    },
+    contact: {
+      eyebrow: "Contacto",
+      title: "Pronto podrá contactarnos aquí",
+      body: "Esta página permanece deliberadamente en espera. Publicaremos teléfono, dirección y horario solo cuando el propietario facilite datos verificados.",
+      placeholderLabel: "Datos de contacto",
+      placeholderBody:
+        "Ningún teléfono, dirección, correo ni horario inventado. El espacio queda reservado hasta la verificación oficial.",
     },
   },
   menuPage: {
@@ -91,10 +106,32 @@ export const es: Dictionary = {
     discovery: "Al Baraka Digital",
     contactPending:
       "El teléfono, la dirección y el horario se publicarán cuando estén verificados.",
-    photoCredit: "Fotografías vía Unsplash (licencia Unsplash).",
   },
   a11y: {
     skipToContent: "Saltar al contenido",
     languageSelector: "Idioma",
+    primaryNav: "Navegación principal",
+    footerNav: "Navegación del pie de página",
+  },
+  designFoundation: {
+    title: "Base visual Gerona 12",
+    intro:
+      "Fundamentos decorativos derivados del menú original: esmeralda, oro, marfil y geometría islámica. Esta página es solo de verificación de diseño.",
+    phaseLabel: "Fase 2A",
+    tokensHeading: "Paleta",
+    patternHeading: "Fondos geométricos",
+    patternReadabilityNote:
+      "Motivo geométrico del menú · opacidad suave para preservar la lectura",
+    frameHeading: "Marcos ornamentales",
+    separatorHeading: "Separadores",
+    bandHeading: "Bandas del menú",
+    note: "Los 26 JPEG originales del menú no se modifican. Sin fotografías externas.",
+    swatches: {
+      emerald: "Esmeralda",
+      deepGreen: "Verde profundo",
+      gold: "Oro real",
+      ivory: "Marfil",
+      darkText: "Texto oscuro",
+    },
   },
 };

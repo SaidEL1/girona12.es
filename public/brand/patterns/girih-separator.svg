@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 24" fill="none" aria-hidden="true">
+  <path d="M8 12 H96" stroke="currentColor" stroke-width="1" opacity="0.85"/>
+  <path d="M144 12 H232" stroke="currentColor" stroke-width="1" opacity="0.85"/>
+  <path
+    d="M120 2 L123.5 9.5 L132 6 L126.5 12.5 L132 18 L123.5 14.5 L120 22 L116.5 14.5 L108 18 L113.5 12.5 L108 6 L116.5 9.5 Z"
+    stroke="currentColor"
+    stroke-width="1.1"
+    stroke-linejoin="miter"
+  />
+  <circle cx="120" cy="12" r="1.6" fill="currentColor" opacity="0.75"/>
+</svg>

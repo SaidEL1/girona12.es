@@ -1,8 +1,7 @@
-import Image from "next/image";
+import { PatternBackdrop, ZelligeBorder } from "@/components/brand";
 import { Button, Container, GeometricAccent } from "@/components/ui";
-import { siteImages } from "@/data/images";
 import { SECTION_IDS } from "@/lib/constants";
-import { originalMenuPath } from "@/lib/i18n";
+import { localizedPath, originalMenuPath } from "@/lib/i18n";
 import type { Dictionary, LocaleCode } from "@/types";
 
 type HeroProps = {
@@ -11,12 +10,11 @@ type HeroProps = {
 };
 
 /**
- * Full-bleed cinematic hero — brand first, one headline, support, CTA group.
+ * Full-bleed Zellige hero — emerald geometric field, brand first, CTA group.
+ * No photographic imagery.
  */
 export function Hero({ locale, dictionary }: HeroProps) {
-  const image = siteImages.hero;
   const menuHref = originalMenuPath(locale);
-
 
   return (
     <section
@@ -24,33 +22,25 @@ export function Hero({ locale, dictionary }: HeroProps) {
       aria-labelledby="hero-heading"
       className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[var(--color-deep-green)] text-[var(--color-ivory)]"
     >
-      <Image
-        src={image.src}
-        alt={image.alt}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center animate-hero-zoom"
+      <PatternBackdrop variant="zellige-emerald" intensity="medium" tone="deep" />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-r from-[var(--color-deep-green)]/90 via-[var(--color-deep-green)]/55 to-[var(--color-deep-green)]/25 rtl:bg-gradient-to-l"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-t from-[var(--color-deep-green)] via-[var(--color-deep-green)]/35 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-10 top-10 hidden h-px bg-[var(--color-gold)]/30 sm:block lg:inset-x-16"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-10 start-10 hidden w-px bg-[var(--color-gold)]/20 sm:block lg:start-16"
       />
 
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-[var(--color-deep-green)]/92 via-[var(--color-deep-green)]/72 to-[var(--color-deep-green)]/35 rtl:bg-gradient-to-l"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-[var(--color-deep-green)] via-[var(--color-deep-green)]/25 to-transparent"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.055] moorish-pattern"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/55 to-transparent"
-      />
-
-      <Container className="relative z-10 w-full pb-16 pt-32 sm:pb-20 sm:pt-40 lg:pb-24">
+      <Container className="relative z-10 w-full pb-14 pt-32 sm:pb-20 sm:pt-40 lg:pb-24">
         <div className="max-w-2xl space-y-8 animate-fade-rise">
           <div className="space-y-4">
             <GeometricAccent tone="gold" className="animate-fade-rise-delay" />
@@ -78,12 +68,16 @@ export function Hero({ locale, dictionary }: HeroProps) {
 
           <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
             <Button href={menuHref}>{dictionary.home.ctaMenu}</Button>
-            <Button href={`#${SECTION_IDS.intro}`} variant="onDark">
+            <Button href={localizedPath(locale, "/restaurante")} variant="onDark">
               {dictionary.home.ctaDiscover}
             </Button>
           </div>
         </div>
       </Container>
+
+      <div className="absolute inset-x-0 bottom-0 z-10">
+        <ZelligeBorder variant="girih-emerald" />
+      </div>
     </section>
   );
 }

@@ -3,7 +3,7 @@ import type { Dictionary } from "@/types";
 export const ar: Dictionary = {
   locale: "ar",
   brand: {
-    wordmark: "جيرونا 12",
+    wordmark: "Gerona 12",
     name: "مطعم الأندلس",
     tagline: "ضيافة أندلسية معاصرة",
   },
@@ -41,19 +41,32 @@ export const ar: Dictionary = {
       eyebrow: "القائمة الرقمية",
       title: "القائمة الأصلية، صفحة بصفحة",
       body: "اطّلعوا على قائمة جيرونا 12 الرسمية تماماً كما في ملف PDF: الصفحات الست والعشرون الأصلية دون إعادة تصميم أو تغيير للمحتوى.",
-      cta: "Ver nuestra carta",
-      previewAlt: "غلاف القائمة الرقمية الأصلية لجيرونا 12",
+      cta: "عرض قائمتنا",
+      previewAlt: "غلاف القائمة الرقمية الأصلية لـ Gerona 12",
     },
     gallery: {
       eyebrow: "المعرض",
       title: "المائدة والضوء والإيقاع",
-      body: "معرض تحريري للأجواء — مطبخ وخدمة وقاعة بلمسة حميمة وراقية.",
+      body: "بانر المالك الرسمي (Banner AR). ستُنشر صور إضافية للمطعم عندما تُوفَّر.",
+      bannerAltPrimary: "بانر Gerona 12 الأندلس الرسمي — الصفحة 1",
+      bannerAltSecondary: "بانر Gerona 12 الأندلس الرسمي — الصفحة 2",
+      bannerCaption: "بانر عربي",
+      placeholder:
+        "مساحة إضافية مخصّصة لصور المطعم الرسمية. لا تُعرض صور مؤقتة أو من الأرشيف العام.",
     },
     closing: {
       title: "المائدة بانتظاركم",
       body: "اكتشفوا القائمة حين تتوفر، أو واصلوا استكشاف طابع الأندلس.",
       ctaMenu: "اكتشف قائمتنا",
       ctaContact: "تواصل معنا",
+    },
+    contact: {
+      eyebrow: "التواصل",
+      title: "ستظهر بيانات التواصل هنا قريباً",
+      body: "هذه الصفحة محفوظة عمداً. سننشر الهاتف والعنوان وساعات العمل فقط عندما يوفّر المالك بيانات عمل موثّقة.",
+      placeholderLabel: "بيانات التواصل",
+      placeholderBody:
+        "لا رقم هاتف ولا عنوان ولا بريد ولا ساعات مخترعة. تبقى هذه المساحة فارغة حتى التحقق الرسمي.",
     },
   },
   menuPage: {
@@ -89,10 +102,32 @@ export const ar: Dictionary = {
     rights: "جميع الحقوق محفوظة.",
     discovery: "البركة ديجيتال",
     contactPending: "يُنشر الهاتف والعنوان وساعات العمل بعد التحقق.",
-    photoCredit: "الصور عبر Unsplash (رخصة Unsplash).",
   },
   a11y: {
     skipToContent: "تخطّي إلى المحتوى",
     languageSelector: "اللغة",
+    primaryNav: "التنقل الرئيسي",
+    footerNav: "تنقل تذييل الصفحة",
+  },
+  designFoundation: {
+    title: "الأساس البصري لـ Gerona 12",
+    intro:
+      "أساسات زخرفية مستمدة من المنيو الأصلي: الزمرد والذهب والعاجي والهندسة الإسلامية. هذه الصفحة للتحقق من التصميم فقط.",
+    phaseLabel: "المرحلة 2أ",
+    tokensHeading: "لوحة الألوان",
+    patternHeading: "خلفيات هندسية",
+    patternReadabilityNote:
+      "الزخرفة الهندسية من المنيو · شفافية خفيفة للحفاظ على وضوح النص",
+    frameHeading: "إطارات زخرفية",
+    separatorHeading: "فواصل",
+    bandHeading: "أشرطة المنيو",
+    note: "ملفات JPEG الأصلية الـ 26 للمنيو دون تعديل. بلا صور خارجية.",
+    swatches: {
+      emerald: "زمردي",
+      deepGreen: "أخضر عميق",
+      gold: "ذهب ملكي",
+      ivory: "عاجي",
+      darkText: "نص داكن",
+    },
   },
 };

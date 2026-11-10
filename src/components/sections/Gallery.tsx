@@ -1,65 +1,92 @@
-import Image from "next/image";
-import { Container, SectionHeading } from "@/components/ui";
-import { siteImages } from "@/data/images";
+import {
+  PatternBackdrop,
+  SectionFrame,
+  ZelligeBorder,
+} from "@/components/brand";
+import { Container, GeometricAccent, SectionHeading } from "@/components/ui";
+import { OWNER_BANNER_PAGES } from "@/data/banner";
 import { SECTION_IDS } from "@/lib/constants";
-import { cn } from "@/lib/cn";
 import type { Dictionary } from "@/types";
-
-const layoutClass = [
-  "sm:col-span-2 sm:row-span-2 aspect-[4/5] sm:aspect-auto sm:min-h-[28rem]",
-  "aspect-[4/3]",
-  "aspect-[3/4]",
-  "sm:col-span-2 aspect-[16/9]",
-  "aspect-[3/4]",
-  "aspect-[4/3]",
-] as const;
 
 type GalleryProps = {
   dictionary: Dictionary;
+  /** Use h1 on the dedicated /galeria page; keep h2 on the homepage. */
+  headingAs?: "h1" | "h2";
 };
 
-export function Gallery({ dictionary }: GalleryProps) {
+/**
+ * Gallery — owner Banner AR pages, framed in Zellige chrome.
+ * Additional restaurant photographs remain pending until supplied.
+ */
+export function Gallery({ dictionary, headingAs = "h2" }: GalleryProps) {
   const copy = dictionary.sections.gallery;
-  const images = siteImages.gallery;
 
   return (
     <section
       id={SECTION_IDS.gallery}
       aria-labelledby="gallery-heading"
-      className="bg-[var(--color-ivory)] py-20 sm:py-28"
+      className="relative overflow-hidden bg-[var(--color-ivory)] py-20 sm:py-28"
     >
-      <Container className="space-y-12">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.4] zellige-ivory"
+      />
+      <Container className="relative space-y-12">
         <SectionHeading
           id="gallery-heading"
+          as={headingAs}
           eyebrow={copy.eyebrow}
           title={copy.title}
           description={copy.body}
         />
 
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-          {images.map((image, index) => (
-            <li
-              key={image.src}
-              className={cn("group relative overflow-hidden", layoutClass[index])}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[var(--color-deep-green)]/0 transition-colors duration-500 group-hover:bg-[var(--color-deep-green)]/20"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-3 border border-[var(--color-gold)]/0 transition-colors duration-500 group-hover:border-[var(--color-gold)]/50"
-              />
-            </li>
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
+          {OWNER_BANNER_PAGES.map((page, index) => (
+            <figure key={page.id} className="m-0">
+              <SectionFrame
+                tone="gold"
+                className="overflow-hidden bg-[var(--color-deep-green)]"
+              >
+                <ZelligeBorder variant="zellige-ivory" />
+                <div className="relative px-3 py-3 sm:px-4 sm:py-4">
+                  <PatternBackdrop
+                    variant="zellige-emerald"
+                    intensity="whisper"
+                    tone="deep"
+                  />
+                  <div className="relative overflow-hidden border border-[var(--color-gold)]/35 bg-[var(--color-deep-green)]">
+                    {/* Native img — owner JPEG bytes, no optimizer recompression */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={page.src}
+                      alt={
+                        index === 0
+                          ? copy.bannerAltPrimary
+                          : copy.bannerAltSecondary
+                      }
+                      width={page.width}
+                      height={page.height}
+                      decoding="async"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      className="block h-auto w-full"
+                    />
+                  </div>
+                </div>
+                <ZelligeBorder variant="girih-emerald" />
+              </SectionFrame>
+              <figcaption className="mt-3 text-center text-xs uppercase tracking-[0.18em] text-[var(--color-emerald)]/70">
+                {copy.bannerCaption} · {index + 1}/{OWNER_BANNER_PAGES.length}
+              </figcaption>
+            </figure>
           ))}
-        </ul>
+        </div>
+
+        <div className="mx-auto max-w-2xl text-center">
+          <GeometricAccent tone="emerald" className="mx-auto" />
+          <p className="mt-4 text-sm leading-relaxed text-[var(--color-dark-text)]/70 sm:text-base">
+            {copy.placeholder}
+          </p>
+        </div>
       </Container>
     </section>
   );

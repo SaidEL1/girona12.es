@@ -4,7 +4,7 @@ export const en: Dictionary = {
   locale: "en",
   brand: {
     wordmark: "Gerona 12",
-    name: "Restaurante Al Andalus",
+    name: "Al Andalus Restaurant",
     tagline: "Contemporary Andalusian hospitality",
   },
   nav: {
@@ -41,19 +41,34 @@ export const en: Dictionary = {
       eyebrow: "Digital menu",
       title: "The original menu, page by page",
       body: "Browse the official Gerona 12 menu exactly as in the PDF: all 26 original pages, with no redesign or content changes.",
-      cta: "Ver nuestra carta",
+      cta: "View our menu",
       previewAlt: "Original cover page of the Gerona 12 digital menu",
     },
     gallery: {
       eyebrow: "Gallery",
       title: "The table, the light, the pace",
-      body: "An editorial gallery of atmosphere — cooking, service, and dining room in an intimate, premium key.",
+      body: "Official owner banner (Banner AR). Additional restaurant photographs will be published when they are provided.",
+      bannerAltPrimary:
+        "Official Gerona 12 Al Andalus banner — page 1 (Arabic)",
+      bannerAltSecondary:
+        "Official Gerona 12 Al Andalus banner — page 2 (Arabic)",
+      bannerCaption: "Banner AR",
+      placeholder:
+        "Additional space reserved for official restaurant photographs. No provisional or stock images are shown.",
     },
     closing: {
       title: "The table awaits",
       body: "Explore the menu when it is available, or continue discovering the character of Al Andalus.",
       ctaMenu: "Explore Our Menu",
       ctaContact: "Contact Us",
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Contact details will appear here soon",
+      body: "This page is intentionally reserved. Phone, address, and opening hours will be published only when the owner supplies verified business details.",
+      placeholderLabel: "Contact details",
+      placeholderBody:
+        "No invented phone number, address, email, or hours. This space stays empty until official verification.",
     },
   },
   menuPage: {
@@ -91,10 +106,32 @@ export const en: Dictionary = {
     discovery: "Al Baraka Digital",
     contactPending:
       "Phone, address, and opening hours will be published once verified.",
-    photoCredit: "Photography via Unsplash (Unsplash License).",
   },
   a11y: {
     skipToContent: "Skip to content",
     languageSelector: "Language",
+    primaryNav: "Primary navigation",
+    footerNav: "Footer navigation",
+  },
+  designFoundation: {
+    title: "Gerona 12 visual foundation",
+    intro:
+      "Decorative foundations derived from the original menu: emerald, gold, ivory, and Islamic geometry. This page is for design verification only.",
+    phaseLabel: "Phase 2A",
+    tokensHeading: "Palette",
+    patternHeading: "Geometric backgrounds",
+    patternReadabilityNote:
+      "Menu geometric motif · soft opacity to preserve readability",
+    frameHeading: "Ornamental frames",
+    separatorHeading: "Separators",
+    bandHeading: "Menu bands",
+    note: "The 26 original menu JPEGs are unmodified. No external photography.",
+    swatches: {
+      emerald: "Emerald",
+      deepGreen: "Deep green",
+      gold: "Royal gold",
+      ivory: "Ivory",
+      darkText: "Dark text",
+    },
   },
 };

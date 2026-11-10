@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Container } from "@/components/ui";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
-import { SECTION_IDS } from "@/lib/constants";
 import { localizedPath, originalMenuPath } from "@/lib/i18n";
 import { cn } from "@/lib/cn";
 import type { Dictionary, LocaleCode } from "@/types";
@@ -29,16 +28,16 @@ export function Header({ locale, dictionary }: HeaderProps) {
 
   const navLinks = [
     {
-      href: `${homePath}#${SECTION_IDS.intro}`,
+      href: localizedPath(locale, "/restaurante"),
       label: dictionary.nav.restaurant,
     },
     { href: menuPath, label: dictionary.nav.menu },
     {
-      href: `${homePath}#${SECTION_IDS.gallery}`,
+      href: localizedPath(locale, "/galeria"),
       label: dictionary.nav.gallery,
     },
     {
-      href: `${homePath}#${SECTION_IDS.contact}`,
+      href: localizedPath(locale, "/contacto"),
       label: dictionary.nav.contact,
     },
   ] as const;
@@ -75,7 +74,7 @@ export function Header({ locale, dictionary }: HeaderProps) {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
           solid
-            ? "border-b border-[var(--color-emerald)]/15 bg-[var(--color-deep-green)]/95 text-[var(--color-ivory)] backdrop-blur-md"
+            ? "border-b border-[var(--color-gold)]/25 bg-[var(--color-deep-green)]/96 text-[var(--color-ivory)] backdrop-blur-md"
             : "border-b border-transparent bg-transparent text-[var(--color-ivory)]",
         )}
       >
@@ -93,7 +92,10 @@ export function Header({ locale, dictionary }: HeaderProps) {
             </span>
           </Link>
 
-          <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
+          <nav
+            aria-label={dictionary.a11y.primaryNav}
+            className="hidden items-center gap-8 lg:flex"
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.href}
