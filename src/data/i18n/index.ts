@@ -6,10 +6,11 @@ import { es } from "./es";
 export const localeConfigs: Record<LocaleCode, LocaleConfig> = {
   es: {
     code: "es",
-    label: "Spanish",
+    label: "Español",
     nativeLabel: "ES",
     dir: "ltr",
     htmlLang: "es",
+    ogLocale: "es_ES",
   },
   en: {
     code: "en",
@@ -17,13 +18,15 @@ export const localeConfigs: Record<LocaleCode, LocaleConfig> = {
     nativeLabel: "EN",
     dir: "ltr",
     htmlLang: "en",
+    ogLocale: "en_US",
   },
   ar: {
     code: "ar",
-    label: "Arabic",
+    label: "العربية",
     nativeLabel: "ع",
     dir: "rtl",
     htmlLang: "ar",
+    ogLocale: "ar_AR",
   },
 };
 
@@ -33,6 +36,7 @@ export const dictionaries: Record<LocaleCode, Dictionary> = {
   ar,
 };
 
+/** Display order in the language selector */
 export const supportedLocales: LocaleCode[] = ["es", "en", "ar"];
 
 export { ar, en, es };

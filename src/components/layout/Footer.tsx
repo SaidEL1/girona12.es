@@ -1,13 +1,15 @@
 import { Container, GeometricAccent } from "@/components/ui";
-import { getDictionary } from "@/lib/i18n";
 import { SECTION_IDS } from "@/lib/constants";
+import type { Dictionary } from "@/types";
 
 /** Static copyright year — avoids unstable `Date` during Cache Components prerender. */
 const COPYRIGHT_YEAR = 2026;
 
-export function Footer() {
-  const dictionary = getDictionary();
+type FooterProps = {
+  dictionary: Dictionary;
+};
 
+export function Footer({ dictionary }: FooterProps) {
   return (
     <footer
       id={SECTION_IDS.contact}
@@ -33,7 +35,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-col justify-between gap-8 sm:items-end sm:text-right">
+        <div className="flex flex-col justify-between gap-8 sm:items-end sm:text-end">
           <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-3 sm:justify-end">
             <a
               href={`#${SECTION_IDS.intro}`}
@@ -56,7 +58,9 @@ export function Footer() {
           </nav>
           <div className="space-y-2 text-xs tracking-[0.08em] text-[var(--color-ivory)]/55">
             <p className="uppercase tracking-[0.22em] text-[var(--color-gold)]/90">
-              © {COPYRIGHT_YEAR} · {dictionary.footer.discovery}
+              <span className="ltr-isolate">© {COPYRIGHT_YEAR}</span>
+              {" · "}
+              {dictionary.footer.discovery}
             </p>
             <p>{dictionary.footer.rights}</p>
             <p>{dictionary.footer.photoCredit}</p>

@@ -1,11 +1,14 @@
 import Image from "next/image";
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { siteImages } from "@/data/images";
-import { getDictionary } from "@/lib/i18n";
 import { SECTION_IDS } from "@/lib/constants";
+import type { Dictionary } from "@/types";
 
-export function ClosingCta() {
-  const dictionary = getDictionary();
+type ClosingCtaProps = {
+  dictionary: Dictionary;
+};
+
+export function ClosingCta({ dictionary }: ClosingCtaProps) {
   const copy = dictionary.sections.closing;
   const image = siteImages.cta;
 

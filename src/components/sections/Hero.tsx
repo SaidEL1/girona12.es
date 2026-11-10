@@ -1,14 +1,17 @@
 import Image from "next/image";
 import { Button, Container, GeometricAccent } from "@/components/ui";
 import { siteImages } from "@/data/images";
-import { getDictionary } from "@/lib/i18n";
 import { SECTION_IDS } from "@/lib/constants";
+import type { Dictionary } from "@/types";
+
+type HeroProps = {
+  dictionary: Dictionary;
+};
 
 /**
  * Full-bleed cinematic hero — brand first, one headline, support, CTA group.
  */
-export function Hero() {
-  const dictionary = getDictionary();
+export function Hero({ dictionary }: HeroProps) {
   const image = siteImages.hero;
 
   return (
@@ -28,7 +31,7 @@ export function Hero() {
 
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-[var(--color-deep-green)]/92 via-[var(--color-deep-green)]/72 to-[var(--color-deep-green)]/35"
+        className="absolute inset-0 bg-gradient-to-r from-[var(--color-deep-green)]/92 via-[var(--color-deep-green)]/72 to-[var(--color-deep-green)]/35 rtl:bg-gradient-to-l"
       />
       <div
         aria-hidden
@@ -38,7 +41,6 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.055] moorish-pattern"
       />
-
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/55 to-transparent"
@@ -51,13 +53,12 @@ export function Hero() {
             <p className="font-display text-4xl leading-none uppercase tracking-[0.12em] text-[var(--color-gold)] sm:text-5xl md:text-6xl">
               {dictionary.brand.wordmark}
             </p>
-
             <p className="text-xs uppercase tracking-[0.34em] text-[var(--color-ivory)]/75">
               {dictionary.brand.name}
             </p>
           </div>
 
-          <div className="h-px w-16 bg-[var(--color-gold)]/70 animate-rule-grow origin-left" />
+          <div className="h-px w-16 origin-left bg-[var(--color-gold)]/70 animate-rule-grow rtl:origin-right" />
 
           <div className="space-y-5">
             <h1

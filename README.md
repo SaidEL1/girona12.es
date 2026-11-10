@@ -4,7 +4,7 @@ Premium Andalusian restaurant website for **Al Baraka Digital**.
 
 ## Current phase
 
-**Phase 02** — premium landing page (hero, intro, menu discovery, gallery, closing CTA) on the Phase 01 foundation.
+**Phase 03** — Spanish-first multilingual experience (`/es`, `/en`, `/ar`) with RTL Arabic, cookie persistence, and hreflang SEO, on the Phase 02 landing page.
 
 Menu items, contact details, and location data remain empty until official sources are provided.
 

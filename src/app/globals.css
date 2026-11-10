@@ -69,6 +69,21 @@
   font-family: var(--font-cormorant), "Palatino Linotype", "Book Antiqua", serif;
 }
 
+@utility font-arabic {
+  font-family: var(--font-arabic-sans), "Noto Sans Arabic", "Segoe UI", sans-serif;
+}
+
+/* Arabic display headings */
+[dir="rtl"] .font-display {
+  font-family: var(--font-arabic-display), var(--font-arabic-sans), serif;
+}
+
+/* Keep prices, years, phones and Latin digits LTR inside RTL pages */
+@utility ltr-isolate {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
 @utility moorish-pattern {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23D9AE4D' stroke-width='1'%3E%3Cpath d='M40 8 L48 28 L70 28 L52 42 L58 64 L40 52 L22 64 L28 42 L10 28 L32 28 Z'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 80px 80px;

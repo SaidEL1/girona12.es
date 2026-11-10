@@ -1,11 +1,14 @@
 import Image from "next/image";
 import { Container, SectionHeading } from "@/components/ui";
 import { siteImages } from "@/data/images";
-import { getDictionary } from "@/lib/i18n";
 import { SECTION_IDS } from "@/lib/constants";
+import type { Dictionary } from "@/types";
 
-export function Intro() {
-  const dictionary = getDictionary();
+type IntroProps = {
+  dictionary: Dictionary;
+};
+
+export function Intro({ dictionary }: IntroProps) {
   const image = siteImages.intro;
   const copy = dictionary.sections.intro;
 
@@ -17,7 +20,7 @@ export function Intro() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full bg-[var(--color-emerald)]/[0.06] blur-3xl"
+        className="pointer-events-none absolute -end-24 top-16 h-72 w-72 rounded-full bg-[var(--color-emerald)]/[0.06] blur-3xl"
       />
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -32,7 +35,7 @@ export function Intro() {
 
           <div className="relative lg:col-span-7">
             <div className="absolute -inset-x-3 -inset-y-3 border border-[var(--color-gold)]/35 sm:-inset-x-5 sm:-inset-y-5" />
-            <div className="absolute -bottom-4 -left-4 hidden h-24 w-24 border border-[var(--color-emerald)]/25 sm:block" />
+            <div className="absolute -bottom-4 -start-4 hidden h-24 w-24 border border-[var(--color-emerald)]/25 sm:block" />
             <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[5/4]">
               <Image
                 src={image.src}

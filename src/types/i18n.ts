@@ -1,4 +1,4 @@
-import type { LocaleCode } from "./menu";
+import type { LocaleCode } from "./i18n-locale";
 
 export type { LocaleCode };
 
@@ -11,6 +11,8 @@ export interface LocaleConfig {
   dir: TextDirection;
   /** BCP 47 / HTML lang attribute */
   htmlLang: string;
+  /** Open Graph locale tag */
+  ogLocale: string;
 }
 
 export interface Dictionary {
