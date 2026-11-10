@@ -37,6 +37,13 @@ export const es: Dictionary = {
       pendingNote:
         "La carta se mostrará tras la extracción verificada del PDF oficial. No se publican platos ni precios provisionales.",
     },
+    digitalMenu: {
+      eyebrow: "Carta digital",
+      title: "El menú original, página a página",
+      body: "Consulte la carta oficial de Gerona 12 exactamente como en el PDF: las 26 páginas originales, sin rediseño ni cambios de contenido.",
+      cta: "Ver nuestra carta",
+      previewAlt: "Portada original del menú digital Gerona 12",
+    },
     gallery: {
       eyebrow: "Galería",
       title: "La mesa, la luz, el ritmo",
@@ -65,6 +72,19 @@ export const es: Dictionary = {
     resultsCount: "platos",
     priceUnavailable: "Precio no disponible",
     backHome: "Volver al inicio",
+  },
+  originalMenuPage: {
+    title: "Carta original",
+    intro:
+      "Visualización exacta de las páginas originales del menú PDF de Gerona 12.",
+    previous: "Página anterior",
+    next: "Página siguiente",
+    page: "Página",
+    pagesWord: "páginas",
+    jumpLabel: "Ir a una página",
+    jumpTitle: "Elegir página",
+    jumpConfirm: "Ir",
+    jumpCancel: "Cancelar",
   },
   footer: {
     rights: "Todos los derechos reservados.",

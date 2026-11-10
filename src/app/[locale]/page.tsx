@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import {
   ClosingCta,
+  DigitalMenuCta,
   Gallery,
   Hero,
   Intro,
@@ -25,6 +26,7 @@ export default async function HomePage({
     <>
       <Hero locale={locale} dictionary={dictionary} />
       <Intro dictionary={dictionary} />
+      <DigitalMenuCta dictionary={dictionary} />
       <MenuCategories locale={locale} dictionary={dictionary} />
       <Gallery dictionary={dictionary} />
       <ClosingCta locale={locale} dictionary={dictionary} />

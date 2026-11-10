@@ -37,6 +37,13 @@ export const en: Dictionary = {
       pendingNote:
         "Dishes will appear after verified extraction from the official PDF. No provisional plates or prices are shown.",
     },
+    digitalMenu: {
+      eyebrow: "Digital menu",
+      title: "The original menu, page by page",
+      body: "Browse the official Gerona 12 menu exactly as in the PDF: all 26 original pages, with no redesign or content changes.",
+      cta: "Ver nuestra carta",
+      previewAlt: "Original cover page of the Gerona 12 digital menu",
+    },
     gallery: {
       eyebrow: "Gallery",
       title: "The table, the light, the pace",
@@ -65,6 +72,19 @@ export const en: Dictionary = {
     resultsCount: "dishes",
     priceUnavailable: "Price unavailable",
     backHome: "Back to home",
+  },
+  originalMenuPage: {
+    title: "Original menu",
+    intro:
+      "Exact view of the original Gerona 12 PDF menu pages.",
+    previous: "Previous page",
+    next: "Next page",
+    page: "Page",
+    pagesWord: "pages",
+    jumpLabel: "Jump to a page",
+    jumpTitle: "Choose a page",
+    jumpConfirm: "Go",
+    jumpCancel: "Cancel",
   },
   footer: {
     rights: "All rights reserved.",
