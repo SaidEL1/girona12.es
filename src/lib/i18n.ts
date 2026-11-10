@@ -36,6 +36,16 @@ export function localizedPath(
   return hash ? `${base}${hash.startsWith("#") ? hash : `#${hash}`}` : base;
 }
 
+/** Primary menu experience: exact original PDF page viewer. */
+export function originalMenuPath(locale: LocaleCode): string {
+  return localizedPath(locale, "/menu-original");
+}
+
+/** Secondary data-driven dish list (kept available, not used for primary CTAs). */
+export function dataMenuPath(locale: LocaleCode): string {
+  return localizedPath(locale, "/menu");
+}
+
 /** Swap the locale segment of a pathname (e.g. /es → /ar). */
 export function replaceLocaleInPathname(
   pathname: string,

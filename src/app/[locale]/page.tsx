@@ -26,7 +26,7 @@ export default async function HomePage({
     <>
       <Hero locale={locale} dictionary={dictionary} />
       <Intro dictionary={dictionary} />
-      <DigitalMenuCta dictionary={dictionary} />
+      <DigitalMenuCta locale={locale} dictionary={dictionary} />
       <MenuCategories locale={locale} dictionary={dictionary} />
       <Gallery dictionary={dictionary} />
       <ClosingCta locale={locale} dictionary={dictionary} />

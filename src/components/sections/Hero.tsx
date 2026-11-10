@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button, Container, GeometricAccent } from "@/components/ui";
 import { siteImages } from "@/data/images";
 import { SECTION_IDS } from "@/lib/constants";
-import { localizedPath } from "@/lib/i18n";
+import { originalMenuPath } from "@/lib/i18n";
 import type { Dictionary, LocaleCode } from "@/types";
 
 type HeroProps = {
@@ -15,7 +15,7 @@ type HeroProps = {
  */
 export function Hero({ locale, dictionary }: HeroProps) {
   const image = siteImages.hero;
-  const menuHref = localizedPath(locale, "/menu");
+  const menuHref = originalMenuPath(locale);
 
 
   return (
