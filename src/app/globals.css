@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
 /*
-  Brand tokens — Gerona 12 / Restaurante Al Andalus
-  Source of truth: original menu emerald geometric identity
-  Emerald · Deep Green · Royal Gold · Warm Ivory · Dark Text
+  Brand tokens — Gerona 12 Moroccan Zellige / Andalusian ornament
+  Palette from Design Guide + original menu identity
 */
 :root {
   --brand-emerald: #064d40;
@@ -11,8 +10,10 @@
   --brand-gold: #d9ae4d;
   --brand-ivory: #f4ebdd;
   --brand-dark-text: #17241f;
+  /* Accent only — small zellige details */
+  --brand-cobalt: #1f4e79;
+  --brand-terracotta: #c46a3a;
 
-  /* Supporting mixes for frames / overlays (still menu palette only) */
   --brand-gold-muted: color-mix(in srgb, var(--brand-gold) 55%, transparent);
   --brand-emerald-soft: color-mix(
     in srgb,
@@ -26,16 +27,18 @@
   --color-gold: var(--brand-gold);
   --color-ivory: var(--brand-ivory);
   --color-dark-text: var(--brand-dark-text);
+  --color-cobalt: var(--brand-cobalt);
+  --color-terracotta: var(--brand-terracotta);
 
   --background: var(--brand-ivory);
   --foreground: var(--brand-dark-text);
 
-  /* Decorative rhythm */
   --brand-frame-inset: 0.5rem;
-  --brand-pattern-tile: min(22rem, 70vw);
-  --brand-pattern-opacity-soft: 0.14;
-  --brand-pattern-opacity-whisper: 0.08;
+  --brand-pattern-tile: min(18rem, 65vw);
+  --brand-pattern-opacity-soft: 0.16;
+  --brand-pattern-opacity-whisper: 0.09;
   --brand-ornament-max-height: 7.5rem;
+  --brand-border-strip-height: 1.35rem;
 }
 
 @theme inline {
@@ -46,6 +49,8 @@
   --color-gold: var(--brand-gold);
   --color-ivory: var(--brand-ivory);
   --color-dark-text: var(--brand-dark-text);
+  --color-cobalt: var(--brand-cobalt);
+  --color-terracotta: var(--brand-terracotta);
   --font-sans: var(--font-source-sans);
   --font-display: var(--font-cormorant);
 }
@@ -90,31 +95,35 @@
   font-family: var(--font-arabic-sans), "Noto Sans Arabic", "Segoe UI", sans-serif;
 }
 
-/* Arabic display headings */
 [dir="rtl"] .font-display {
   font-family: var(--font-arabic-display), var(--font-arabic-sans), serif;
 }
 
-/* Keep prices, years, phones and Latin digits LTR inside RTL pages */
 @utility ltr-isolate {
   direction: ltr;
   unicode-bidi: isolate;
 }
 
-/*
-  Menu-derived girih pattern (independent crop of page-02).
-  Prefer PatternBackdrop component for new work; utility kept for low-level use.
-  Opacity must stay low over copy for contrast.
-*/
 @utility menu-girih-pattern {
   background-image: url("/brand/patterns/emerald-girih-tile.jpg");
   background-size: var(--brand-pattern-tile);
   background-repeat: repeat;
 }
 
-/* Legacy alias — same menu-derived tile (no generic SVG star) */
 @utility moorish-pattern {
-  background-image: url("/brand/patterns/emerald-girih-tile.jpg");
+  background-image: url("/brand/zellige/texture-emerald.jpg");
+  background-size: var(--brand-pattern-tile);
+  background-repeat: repeat;
+}
+
+@utility zellige-emerald {
+  background-image: url("/brand/zellige/texture-emerald.jpg");
+  background-size: var(--brand-pattern-tile);
+  background-repeat: repeat;
+}
+
+@utility zellige-ivory {
+  background-image: url("/brand/zellige/texture-ivory.jpg");
   background-size: var(--brand-pattern-tile);
   background-repeat: repeat;
 }
@@ -155,12 +164,12 @@
   }
 }
 
-@keyframes hero-zoom {
+@keyframes soft-glow {
   from {
-    transform: scale(1.08);
+    opacity: 0.35;
   }
   to {
-    transform: scale(1);
+    opacity: 0.7;
   }
 }
 
@@ -176,6 +185,6 @@
   animation: rule-grow 1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
 }
 
-@utility animate-hero-zoom {
-  animation: hero-zoom 4.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+@utility animate-soft-glow {
+  animation: soft-glow 3.5s ease-in-out infinite alternate;
 }

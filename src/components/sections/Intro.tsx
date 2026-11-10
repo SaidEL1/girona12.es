@@ -1,4 +1,9 @@
-import { GeometricSeparator, PatternBackdrop, SectionFrame } from "@/components/brand";
+import {
+  ArchFrame,
+  GeometricSeparator,
+  PatternBackdrop,
+  SectionFrame,
+} from "@/components/brand";
 import { Container, GeometricAccent, SectionHeading } from "@/components/ui";
 import { SECTION_IDS } from "@/lib/constants";
 import type { Dictionary } from "@/types";
@@ -18,9 +23,9 @@ export function Intro({ dictionary }: IntroProps) {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute -end-24 top-16 h-72 w-72 rounded-full bg-[var(--color-emerald)]/[0.06] blur-3xl"
+        className="pointer-events-none absolute inset-0 opacity-[0.35] zellige-ivory"
       />
-      <Container>
+      <Container className="relative">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
@@ -33,25 +38,26 @@ export function Intro({ dictionary }: IntroProps) {
 
           <div className="relative lg:col-span-7">
             <SectionFrame tone="gold" padded={false} className="overflow-hidden">
-              <div className="relative aspect-[4/5] sm:aspect-[5/4]">
-                <PatternBackdrop
-                  variant="cover-corner"
-                  intensity="medium"
-                  tone="emerald"
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 bg-gradient-to-t from-[var(--color-deep-green)]/70 via-transparent to-[var(--color-deep-green)]/20"
-                />
-                <div className="relative z-10 flex h-full flex-col items-center justify-center gap-5 px-8 text-center text-[var(--color-ivory)]">
-                  <GeometricAccent tone="gold" />
-                  <p className="font-display text-3xl tracking-[0.1em] text-[var(--color-gold)] sm:text-4xl">
-                    {dictionary.brand.wordmark}
-                  </p>
-                  <GeometricSeparator tone="gold" className="max-w-[12rem]" />
-                  <p className="max-w-xs text-xs uppercase tracking-[0.28em] text-[var(--color-ivory)]/75">
-                    {dictionary.brand.name}
-                  </p>
+              <div className="relative grid gap-0 bg-[var(--color-deep-green)] sm:grid-cols-2">
+                <div className="relative min-h-[16rem] p-6 sm:min-h-[22rem] sm:p-8">
+                  <PatternBackdrop
+                    variant="zellige-emerald"
+                    intensity="medium"
+                    tone="emerald"
+                  />
+                  <div className="relative z-10 flex h-full flex-col items-center justify-center gap-4 text-center text-[var(--color-ivory)]">
+                    <GeometricAccent tone="gold" />
+                    <p className="font-display text-3xl tracking-[0.1em] text-[var(--color-gold)]">
+                      {dictionary.brand.wordmark}
+                    </p>
+                    <GeometricSeparator tone="gold" className="max-w-[10rem]" />
+                    <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-ivory)]/75">
+                      {dictionary.brand.name}
+                    </p>
+                  </div>
+                </div>
+                <div className="relative flex items-center justify-center bg-[var(--color-ivory)] p-6 sm:p-8">
+                  <ArchFrame variant="scalloped" className="w-full max-w-xs" />
                 </div>
               </div>
             </SectionFrame>

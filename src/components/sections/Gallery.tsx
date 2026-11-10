@@ -1,4 +1,9 @@
-import { GeometricSeparator, PatternBackdrop, SectionFrame } from "@/components/brand";
+import {
+  GeometricSeparator,
+  PatternBackdrop,
+  SectionFrame,
+  ZelligeBorder,
+} from "@/components/brand";
 import { Container, GeometricAccent, SectionHeading } from "@/components/ui";
 import { SECTION_IDS } from "@/lib/constants";
 import type { Dictionary } from "@/types";
@@ -8,8 +13,7 @@ type GalleryProps = {
 };
 
 /**
- * Designed placeholder until the owner supplies real restaurant photographs.
- * Never invents or embeds stock photography.
+ * Designed Zellige placeholder until the owner supplies real restaurant photographs.
  */
 export function Gallery({ dictionary }: GalleryProps) {
   const copy = dictionary.sections.gallery;
@@ -20,7 +24,11 @@ export function Gallery({ dictionary }: GalleryProps) {
       aria-labelledby="gallery-heading"
       className="relative overflow-hidden bg-[var(--color-ivory)] py-20 sm:py-28"
     >
-      <Container className="space-y-12">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.4] zellige-ivory"
+      />
+      <Container className="relative space-y-12">
         <SectionHeading
           id="gallery-heading"
           eyebrow={copy.eyebrow}
@@ -28,10 +36,11 @@ export function Gallery({ dictionary }: GalleryProps) {
           description={copy.body}
         />
 
-        <SectionFrame tone="gold" className="bg-[var(--color-deep-green)]">
-          <div className="relative min-h-[18rem] overflow-hidden sm:min-h-[22rem]">
+        <SectionFrame tone="gold" className="overflow-hidden bg-[var(--color-deep-green)]">
+          <ZelligeBorder variant="zellige-ivory" />
+          <div className="relative min-h-[18rem] sm:min-h-[22rem]">
             <PatternBackdrop
-              variant="girih-tile"
+              variant="zellige-emerald"
               intensity="soft"
               tone="deep"
             />
@@ -46,6 +55,7 @@ export function Gallery({ dictionary }: GalleryProps) {
               </p>
             </div>
           </div>
+          <ZelligeBorder variant="girih-emerald" />
         </SectionFrame>
       </Container>
     </section>

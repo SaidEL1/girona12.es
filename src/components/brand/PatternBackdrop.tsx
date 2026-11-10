@@ -3,11 +3,13 @@ import { cn } from "@/lib/cn";
 export type PatternBackdropVariant =
   | "girih-tile"
   | "girih-field"
-  | "cover-corner";
+  | "cover-corner"
+  | "zellige-emerald"
+  | "zellige-ivory"
+  | "zellige-multi";
 
 type PatternBackdropProps = {
   variant?: PatternBackdropVariant;
-  /** Visual strength — keep low so text stays readable */
   intensity?: "whisper" | "soft" | "medium";
   tone?: "emerald" | "deep" | "ivory";
   className?: string;
@@ -17,15 +19,18 @@ const variantSrc: Record<PatternBackdropVariant, string> = {
   "girih-tile": "/brand/patterns/emerald-girih-tile.jpg",
   "girih-field": "/brand/patterns/emerald-girih-field.jpg",
   "cover-corner": "/brand/patterns/cover-girih-corner.jpg",
+  "zellige-emerald": "/brand/zellige/texture-emerald.jpg",
+  "zellige-ivory": "/brand/zellige/texture-ivory.jpg",
+  "zellige-multi": "/brand/zellige/texture-zellige-multicolor.jpg",
 };
 
 const intensityClass: Record<
   NonNullable<PatternBackdropProps["intensity"]>,
   string
 > = {
-  whisper: "opacity-[0.08]",
-  soft: "opacity-[0.14]",
-  medium: "opacity-[0.22]",
+  whisper: "opacity-[0.09]",
+  soft: "opacity-[0.16]",
+  medium: "opacity-[0.24]",
 };
 
 const toneClass: Record<NonNullable<PatternBackdropProps["tone"]>, string> = {
@@ -35,15 +40,17 @@ const toneClass: Record<NonNullable<PatternBackdropProps["tone"]>, string> = {
 };
 
 /**
- * Decorative menu-derived pattern layer. Always aria-hidden; never carries content.
- * Keep intensity low over text regions for contrast.
+ * Decorative pattern layer from menu crops or Zellige pack textures.
+ * Always aria-hidden; keep intensity low over copy.
  */
 export function PatternBackdrop({
-  variant = "girih-tile",
+  variant = "zellige-emerald",
   intensity = "soft",
   tone = "emerald",
   className,
 }: PatternBackdropProps) {
+  const coverLike = variant === "girih-field";
+
   return (
     <div
       aria-hidden
@@ -55,14 +62,13 @@ export function PatternBackdrop({
     >
       <div
         className={cn(
-          "absolute inset-0 bg-repeat",
+          "absolute inset-0",
           intensityClass[intensity],
-          variant === "girih-field" ? "bg-cover bg-center bg-no-repeat" : "",
+          coverLike ? "bg-cover bg-center bg-no-repeat" : "bg-repeat",
         )}
         style={{
           backgroundImage: `url(${variantSrc[variant]})`,
-          backgroundSize:
-            variant === "girih-field" ? "cover" : "min(22rem, 70vw)",
+          backgroundSize: coverLike ? "cover" : "var(--brand-pattern-tile)",
         }}
       />
     </div>

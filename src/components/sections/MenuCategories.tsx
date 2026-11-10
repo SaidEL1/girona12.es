@@ -1,4 +1,4 @@
-import { PatternBackdrop, SectionFrame } from "@/components/brand";
+import { PatternBackdrop, SectionFrame, ZelligeBorder } from "@/components/brand";
 import { Button, Container, GeometricAccent, SectionHeading } from "@/components/ui";
 import { SECTION_IDS } from "@/lib/constants";
 import { originalMenuPath } from "@/lib/i18n";
@@ -11,10 +11,6 @@ type MenuCategoriesProps = {
   dictionary: Dictionary;
 };
 
-/**
- * Premium menu discovery — no invented dishes or categories.
- * Visual panel uses menu-derived geometry only (no stock photography).
- */
 export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
   const copy = dictionary.sections.menu;
   const categories = getPublishedCategories();
@@ -26,25 +22,24 @@ export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
       aria-labelledby="menu-heading"
       className="relative bg-[var(--color-deep-green)] py-20 text-[var(--color-ivory)] sm:py-28"
     >
-      <PatternBackdrop
-        variant="girih-tile"
-        intensity="whisper"
-        tone="deep"
-        className="opacity-100"
+      <PatternBackdrop variant="zellige-emerald" intensity="whisper" tone="deep" />
+      <ZelligeBorder
+        variant="zellige-mix"
+        className="absolute inset-x-0 top-0 opacity-90"
       />
-      <Container className="relative">
+      <Container className="relative pt-4">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
-          <div className="relative order-2 lg:order-1 lg:col-span-6">
+          <div className="relative order-2 lg:order-1 lg:col-span-5">
             <SectionFrame tone="gold-on-dark" padded={false}>
-              <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5]">
+              <div className="relative aspect-[4/5]">
                 <PatternBackdrop
-                  variant="girih-field"
+                  variant="zellige-multi"
                   intensity="medium"
                   tone="emerald"
                 />
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-[var(--color-deep-green)]/35"
+                  className="absolute inset-0 bg-[var(--color-deep-green)]/45"
                 />
                 <div className="relative z-10 flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
                   <GeometricAccent tone="gold" />
@@ -52,14 +47,14 @@ export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
                     {dictionary.brand.wordmark}
                   </p>
                   <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-ivory)]/70">
-                    {dictionary.brand.name}
+                    {dictionary.brand.tagline}
                   </p>
                 </div>
               </div>
             </SectionFrame>
           </div>
 
-          <div className="order-1 space-y-8 lg:order-2 lg:col-span-6">
+          <div className="order-1 space-y-8 lg:order-2 lg:col-span-7">
             <SectionHeading
               id="menu-heading"
               tone="dark"
@@ -76,7 +71,7 @@ export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
                   return (
                     <li
                       key={category.id}
-                      className="border-b border-[var(--color-gold)]/25 pb-3 font-display text-2xl text-[var(--color-ivory)]"
+                      className="border-b border-[var(--color-gold)]/30 pb-3 font-display text-2xl text-[var(--color-ivory)]"
                     >
                       {name}
                     </li>
