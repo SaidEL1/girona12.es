@@ -3,6 +3,7 @@ export const SECTION_IDS = {
   home: "inicio",
   intro: "introduccion",
   menu: "carta",
+  digitalMenu: "carta-digital",
   featured: "destacados",
   gallery: "galeria",
   contact: "contacto",

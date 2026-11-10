@@ -37,6 +37,13 @@ export const ar: Dictionary = {
       pendingNote:
         "ستظهر الأطباق بعد استخراج موثّق من ملف PDF الرسمي. لا تُعرض أطباق أو أسعار مؤقتة.",
     },
+    digitalMenu: {
+      eyebrow: "القائمة الرقمية",
+      title: "القائمة الأصلية، صفحة بصفحة",
+      body: "اطّلعوا على قائمة جيرونا 12 الرسمية تماماً كما في ملف PDF: الصفحات الست والعشرون الأصلية دون إعادة تصميم أو تغيير للمحتوى.",
+      cta: "Ver nuestra carta",
+      previewAlt: "غلاف القائمة الرقمية الأصلية لجيرونا 12",
+    },
     gallery: {
       eyebrow: "المعرض",
       title: "المائدة والضوء والإيقاع",
@@ -65,6 +72,18 @@ export const ar: Dictionary = {
     resultsCount: "أطباق",
     priceUnavailable: "السعر غير متوفر",
     backHome: "العودة إلى الرئيسية",
+  },
+  originalMenuPage: {
+    title: "القائمة الأصلية",
+    intro: "عرض دقيق لصفحات قائمة جيرونا 12 الأصلية من ملف PDF.",
+    previous: "الصفحة السابقة",
+    next: "الصفحة التالية",
+    page: "صفحة",
+    pagesWord: "صفحات",
+    jumpLabel: "الانتقال إلى صفحة",
+    jumpTitle: "اختيار صفحة",
+    jumpConfirm: "انتقال",
+    jumpCancel: "إلغاء",
   },
   footer: {
     rights: "جميع الحقوق محفوظة.",

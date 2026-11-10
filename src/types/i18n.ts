@@ -50,6 +50,13 @@ export interface Dictionary {
       cta: string;
       pendingNote: string;
     };
+    digitalMenu: {
+      eyebrow: string;
+      title: string;
+      body: string;
+      cta: string;
+      previewAlt: string;
+    };
     gallery: {
       eyebrow: string;
       title: string;
@@ -76,6 +83,18 @@ export interface Dictionary {
     resultsCount: string;
     priceUnavailable: string;
     backHome: string;
+  };
+  originalMenuPage: {
+    title: string;
+    intro: string;
+    previous: string;
+    next: string;
+    page: string;
+    pagesWord: string;
+    jumpLabel: string;
+    jumpTitle: string;
+    jumpConfirm: string;
+    jumpCancel: string;
   };
   footer: {
     rights: string;
