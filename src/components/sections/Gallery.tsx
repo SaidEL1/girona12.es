@@ -10,13 +10,15 @@ import type { Dictionary } from "@/types";
 
 type GalleryProps = {
   dictionary: Dictionary;
+  /** Use h1 on the dedicated /galeria page; keep h2 on the homepage. */
+  headingAs?: "h1" | "h2";
 };
 
 /**
  * Gallery — owner Banner AR pages, framed in Zellige chrome.
  * Additional restaurant photographs remain pending until supplied.
  */
-export function Gallery({ dictionary }: GalleryProps) {
+export function Gallery({ dictionary, headingAs = "h2" }: GalleryProps) {
   const copy = dictionary.sections.gallery;
 
   return (
@@ -32,6 +34,7 @@ export function Gallery({ dictionary }: GalleryProps) {
       <Container className="relative space-y-12">
         <SectionHeading
           id="gallery-heading"
+          as={headingAs}
           eyebrow={copy.eyebrow}
           title={copy.title}
           description={copy.body}

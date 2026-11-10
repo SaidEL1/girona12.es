@@ -75,6 +75,15 @@ export interface Dictionary {
       ctaMenu: string;
       ctaContact: string;
     };
+    contact: {
+      eyebrow: string;
+      /** Unique page H1 */
+      title: string;
+      body: string;
+      /** Intentional placeholder — no invented phone / address / hours */
+      placeholderLabel: string;
+      placeholderBody: string;
+    };
   };
   menuPage: {
     title: string;

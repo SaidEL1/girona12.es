@@ -16,7 +16,7 @@ export default async function RestaurantPage({
   return (
     <div className="overflow-x-hidden pt-[4.25rem] sm:pt-[4.75rem]">
       <ZelligeBorder variant="girih-emerald" />
-      <Intro dictionary={dictionary} />
+      <Intro dictionary={dictionary} headingAs="h1" />
       <ClosingCta locale={locale} dictionary={dictionary} />
     </div>
   );

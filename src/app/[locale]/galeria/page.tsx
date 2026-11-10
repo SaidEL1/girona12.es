@@ -14,7 +14,7 @@ export default async function GalleryPage({
   return (
     <div className="overflow-x-hidden pt-[4.25rem] sm:pt-[4.75rem]">
       <ZelligeBorder variant="zellige-mix" />
-      <Gallery dictionary={dictionary} />
+      <Gallery dictionary={dictionary} headingAs="h1" />
     </div>
   );
 }

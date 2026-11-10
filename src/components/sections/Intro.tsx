@@ -10,9 +10,11 @@ import type { Dictionary } from "@/types";
 
 type IntroProps = {
   dictionary: Dictionary;
+  /** Use h1 on the dedicated /restaurante page; keep h2 on the homepage. */
+  headingAs?: "h1" | "h2";
 };
 
-export function Intro({ dictionary }: IntroProps) {
+export function Intro({ dictionary, headingAs = "h2" }: IntroProps) {
   const copy = dictionary.sections.intro;
 
   return (
@@ -30,6 +32,7 @@ export function Intro({ dictionary }: IntroProps) {
           <div className="lg:col-span-5">
             <SectionHeading
               id="intro-heading"
+              as={headingAs}
               eyebrow={copy.eyebrow}
               title={copy.title}
               description={copy.body}

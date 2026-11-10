@@ -62,6 +62,14 @@ export const es: Dictionary = {
       ctaMenu: "Descubre Nuestra Carta",
       ctaContact: "Contacto",
     },
+    contact: {
+      eyebrow: "Contacto",
+      title: "Pronto podrá contactarnos aquí",
+      body: "Esta página permanece deliberadamente en espera. Publicaremos teléfono, dirección y horario solo cuando el propietario facilite datos verificados.",
+      placeholderLabel: "Datos de contacto",
+      placeholderBody:
+        "Ningún teléfono, dirección, correo ni horario inventado. El espacio queda reservado hasta la verificación oficial.",
+    },
   },
   menuPage: {
     title: "Nuestra carta",
