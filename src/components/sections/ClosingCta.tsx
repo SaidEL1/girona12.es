@@ -1,6 +1,5 @@
-import Image from "next/image";
+import { PatternBackdrop } from "@/components/brand";
 import { Button, Container, SectionHeading } from "@/components/ui";
-import { siteImages } from "@/data/images";
 import { SECTION_IDS } from "@/lib/constants";
 import { originalMenuPath } from "@/lib/i18n";
 import type { Dictionary, LocaleCode } from "@/types";
@@ -12,8 +11,6 @@ type ClosingCtaProps = {
 
 export function ClosingCta({ locale, dictionary }: ClosingCtaProps) {
   const copy = dictionary.sections.closing;
-  const image = siteImages.cta;
-
 
   return (
     <section
@@ -21,21 +18,14 @@ export function ClosingCta({ locale, dictionary }: ClosingCtaProps) {
       aria-labelledby="closing-heading"
       className="relative isolate overflow-hidden bg-[var(--color-deep-green)] py-24 text-[var(--color-ivory)] sm:py-32"
     >
-      <Image
-        src={image.src}
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover opacity-35"
+      <PatternBackdrop variant="girih-tile" intensity="soft" tone="deep" />
+      <div
         aria-hidden
+        className="absolute inset-0 bg-[var(--color-deep-green)]/55"
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-[var(--color-deep-green)]/75"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.1] moorish-pattern"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/45 to-transparent"
       />
 
       <Container className="relative z-10 flex flex-col items-start gap-8 md:items-center md:text-center">

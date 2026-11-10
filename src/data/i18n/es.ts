@@ -47,7 +47,9 @@ export const es: Dictionary = {
     gallery: {
       eyebrow: "Galería",
       title: "La mesa, la luz, el ritmo",
-      body: "Una galería editorial de atmósfera: cocina, servicio y salón en clave íntima y premium.",
+      body: "El espacio visual del restaurante se publicará con fotografías reales cuando el propietario las facilite.",
+      placeholder:
+        "Espacio reservado para fotografías oficiales del restaurante. No se muestran imágenes provisionales ni de archivo.",
     },
     closing: {
       title: "La mesa le espera",
@@ -91,27 +93,12 @@ export const es: Dictionary = {
     discovery: "Al Baraka Digital",
     contactPending:
       "El teléfono, la dirección y el horario se publicarán cuando estén verificados.",
-    photoCredit: "Fotografías vía Unsplash (licencia Unsplash).",
   },
   a11y: {
     skipToContent: "Saltar al contenido",
     languageSelector: "Idioma",
     primaryNav: "Navegación principal",
     footerNav: "Navegación del pie de página",
-  },
-  imageAlts: {
-    hero: "Mesa preparada para un servicio de restaurante elegante",
-    intro: "Comedor de restaurante con luz cálida y suave",
-    menu: "Platos presentados con cuidado sobre una mesa",
-    cta: "Ambiente íntimo de mesa de restaurante",
-    gallery: [
-      "Interior de restaurante con luz ambiental",
-      "Marisco fresco preparado para el servicio",
-      "Ensalada mediterránea de colores",
-      "Copas de vino sobre una mesa cuidada",
-      "Detalle de un plato compuesto con atención",
-      "Plato principal presentado en vajilla blanca",
-    ],
   },
   designFoundation: {
     title: "Base visual Gerona 12",

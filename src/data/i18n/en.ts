@@ -47,7 +47,9 @@ export const en: Dictionary = {
     gallery: {
       eyebrow: "Gallery",
       title: "The table, the light, the pace",
-      body: "An editorial gallery of atmosphere — cooking, service, and dining room in an intimate, premium key.",
+      body: "The restaurant’s visual gallery will be published with real photographs once the owner provides them.",
+      placeholder:
+        "Reserved for official restaurant photographs. No provisional or stock images are shown.",
     },
     closing: {
       title: "The table awaits",
@@ -91,27 +93,12 @@ export const en: Dictionary = {
     discovery: "Al Baraka Digital",
     contactPending:
       "Phone, address, and opening hours will be published once verified.",
-    photoCredit: "Photography via Unsplash (Unsplash License).",
   },
   a11y: {
     skipToContent: "Skip to content",
     languageSelector: "Language",
     primaryNav: "Primary navigation",
     footerNav: "Footer navigation",
-  },
-  imageAlts: {
-    hero: "Dining table prepared for an elegant restaurant service",
-    intro: "Warm restaurant dining room with soft lighting",
-    menu: "Carefully plated dishes on a table surface",
-    cta: "Intimate restaurant table setting",
-    gallery: [
-      "Restaurant interior with ambient evening light",
-      "Fresh seafood prepared for service",
-      "Colourful Mediterranean salad",
-      "Wine glasses on a refined dining table",
-      "Close view of a carefully composed plated dish",
-      "Main course presented on a white plate",
-    ],
   },
   designFoundation: {
     title: "Gerona 12 visual foundation",

@@ -1,6 +1,5 @@
-import Image from "next/image";
-import { Container, SectionHeading } from "@/components/ui";
-import { siteImages } from "@/data/images";
+import { GeometricSeparator, PatternBackdrop, SectionFrame } from "@/components/brand";
+import { Container, GeometricAccent, SectionHeading } from "@/components/ui";
 import { SECTION_IDS } from "@/lib/constants";
 import type { Dictionary } from "@/types";
 
@@ -9,7 +8,6 @@ type IntroProps = {
 };
 
 export function Intro({ dictionary }: IntroProps) {
-  const image = siteImages.intro;
   const copy = dictionary.sections.intro;
 
   return (
@@ -34,17 +32,29 @@ export function Intro({ dictionary }: IntroProps) {
           </div>
 
           <div className="relative lg:col-span-7">
-            <div className="absolute -inset-x-3 -inset-y-3 border border-[var(--color-gold)]/35 sm:-inset-x-5 sm:-inset-y-5" />
-            <div className="absolute -bottom-4 -start-4 hidden h-24 w-24 border border-[var(--color-emerald)]/25 sm:block" />
-            <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[5/4]">
-              <Image
-                src={image.src}
-                alt={dictionary.imageAlts.intro}
-                fill
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
-              />
-            </div>
+            <SectionFrame tone="gold" padded={false} className="overflow-hidden">
+              <div className="relative aspect-[4/5] sm:aspect-[5/4]">
+                <PatternBackdrop
+                  variant="cover-corner"
+                  intensity="medium"
+                  tone="emerald"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-[var(--color-deep-green)]/70 via-transparent to-[var(--color-deep-green)]/20"
+                />
+                <div className="relative z-10 flex h-full flex-col items-center justify-center gap-5 px-8 text-center text-[var(--color-ivory)]">
+                  <GeometricAccent tone="gold" />
+                  <p className="font-display text-3xl tracking-[0.1em] text-[var(--color-gold)] sm:text-4xl">
+                    {dictionary.brand.wordmark}
+                  </p>
+                  <GeometricSeparator tone="gold" className="max-w-[12rem]" />
+                  <p className="max-w-xs text-xs uppercase tracking-[0.28em] text-[var(--color-ivory)]/75">
+                    {dictionary.brand.name}
+                  </p>
+                </div>
+              </div>
+            </SectionFrame>
           </div>
         </div>
       </Container>

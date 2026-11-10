@@ -57,12 +57,13 @@ src/components/layout/   # Header, footer, shell
 src/components/sections/ # Landing sections
 src/components/menu/     # Menu UI stubs
 src/components/ui/       # Shared primitives
-src/data/                # Site + menu + i18n + image registry
+src/data/                # Site + menu + i18n registries
 src/lib/                 # Helpers
 src/types/               # Shared TypeScript models
-public/images/           # Local Unsplash photography + patterns
+public/brand/            # Menu-derived geometric crops & ornaments
+public/menu/             # Original menu JPEGs + QR (read-only source of truth)
 ```
 
-## Photography
+## Visual identity
 
-Homepage imagery is downloaded locally from [Unsplash](https://unsplash.com) under the [Unsplash License](https://unsplash.com/license). Attribution is listed in `src/data/images.ts` and the site footer.
+Non-menu surfaces use emerald/gold/ivory surfaces and decorative assets derived from the original Gerona 12 menu pages. Stock photography and external image URLs are not used. The gallery remains a designed placeholder until the owner supplies real restaurant photographs. The Digital Menu CTA may preview the approved original cover page (`page-01.jpg`) without altering menu JPEG bytes.

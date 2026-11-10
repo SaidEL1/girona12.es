@@ -68,7 +68,6 @@ export function Footer({ locale, dictionary }: FooterProps) {
               {dictionary.footer.discovery}
             </p>
             <p>{dictionary.footer.rights}</p>
-            <p>{dictionary.footer.photoCredit}</p>
           </div>
         </div>
       </Container>

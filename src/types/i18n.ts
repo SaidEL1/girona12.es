@@ -61,6 +61,8 @@ export interface Dictionary {
       eyebrow: string;
       title: string;
       body: string;
+      /** Shown until owner supplies real restaurant photographs */
+      placeholder: string;
     };
     closing: {
       title: string;
@@ -100,21 +102,12 @@ export interface Dictionary {
     rights: string;
     discovery: string;
     contactPending: string;
-    photoCredit: string;
   };
   a11y: {
     skipToContent: string;
     languageSelector: string;
     primaryNav: string;
     footerNav: string;
-  };
-  /** Localized alt text for non-menu marketing images */
-  imageAlts: {
-    hero: string;
-    intro: string;
-    menu: string;
-    cta: string;
-    gallery: readonly [string, string, string, string, string, string];
   };
   /** Phase 2A foundation showcase — not marketing copy */
   designFoundation: {

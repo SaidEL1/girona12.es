@@ -1,6 +1,5 @@
-import Image from "next/image";
+import { PatternBackdrop } from "@/components/brand";
 import { Button, Container, GeometricAccent } from "@/components/ui";
-import { siteImages } from "@/data/images";
 import { SECTION_IDS } from "@/lib/constants";
 import { originalMenuPath } from "@/lib/i18n";
 import type { Dictionary, LocaleCode } from "@/types";
@@ -11,10 +10,10 @@ type HeroProps = {
 };
 
 /**
- * Full-bleed cinematic hero — brand first, one headline, support, CTA group.
+ * Full-bleed menu-identity hero — emerald girih field, brand first, CTA group.
+ * No photographic imagery.
  */
 export function Hero({ locale, dictionary }: HeroProps) {
-  const image = siteImages.hero;
   const menuHref = originalMenuPath(locale);
 
   return (
@@ -23,30 +22,26 @@ export function Hero({ locale, dictionary }: HeroProps) {
       aria-labelledby="hero-heading"
       className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[var(--color-deep-green)] text-[var(--color-ivory)]"
     >
-      <Image
-        src={image.src}
-        alt={dictionary.imageAlts.hero}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center animate-hero-zoom"
-      />
-
+      <PatternBackdrop variant="girih-tile" intensity="medium" tone="deep" />
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-[var(--color-deep-green)]/92 via-[var(--color-deep-green)]/72 to-[var(--color-deep-green)]/35 rtl:bg-gradient-to-l"
+        className="absolute inset-0 bg-gradient-to-r from-[var(--color-deep-green)]/88 via-[var(--color-deep-green)]/55 to-[var(--color-deep-green)]/30 rtl:bg-gradient-to-l"
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-[var(--color-deep-green)] via-[var(--color-deep-green)]/25 to-transparent"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.055] moorish-pattern"
+        className="absolute inset-0 bg-gradient-to-t from-[var(--color-deep-green)] via-[var(--color-deep-green)]/40 to-transparent"
       />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/55 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-8 top-8 hidden h-px bg-[var(--color-gold)]/25 sm:block lg:inset-x-16"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-8 start-8 hidden w-px bg-[var(--color-gold)]/20 sm:block lg:start-16"
       />
 
       <Container className="relative z-10 w-full pb-16 pt-32 sm:pb-20 sm:pt-40 lg:pb-24">

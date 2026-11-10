@@ -1,3 +1,4 @@
+import { OrnamentBand, PatternBackdrop } from "@/components/brand";
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { ORIGINAL_MENU_PREVIEW } from "@/data/menu-pages";
 import { SECTION_IDS } from "@/lib/constants";
@@ -11,7 +12,7 @@ type DigitalMenuCtaProps = {
 
 /**
  * Landing teaser for the exact PDF image menu.
- * Uses an actual original page preview — no redesigned mock.
+ * Uses the approved original cover preview — no redesigned mock, no stock photos.
  */
 export function DigitalMenuCta({ locale, dictionary }: DigitalMenuCtaProps) {
   const copy = dictionary.sections.digitalMenu;
@@ -23,10 +24,7 @@ export function DigitalMenuCta({ locale, dictionary }: DigitalMenuCtaProps) {
       aria-labelledby="digital-menu-heading"
       className="relative overflow-hidden bg-[var(--color-deep-green)] py-20 text-[var(--color-ivory)] sm:py-28"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.07] moorish-pattern"
-      />
+      <PatternBackdrop variant="girih-tile" intensity="whisper" tone="deep" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/50 to-transparent"
@@ -49,9 +47,17 @@ export function DigitalMenuCta({ locale, dictionary }: DigitalMenuCtaProps) {
             <div className="relative mx-auto max-w-md">
               <div
                 aria-hidden
-                className="absolute -inset-3 border border-[var(--color-gold)]/40 sm:-inset-4"
+                className="absolute -inset-3 border border-[var(--color-gold)]/45 sm:-inset-5"
               />
-              <div className="relative overflow-hidden bg-[var(--color-emerald)] shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
+              <div
+                aria-hidden
+                className="absolute -inset-1.5 border border-[var(--color-gold)]/25 sm:-inset-2.5"
+              />
+              <div className="relative overflow-hidden bg-[var(--color-emerald)]">
+                <OrnamentBand
+                  placement="top"
+                  className="max-h-14 opacity-90 sm:max-h-16"
+                />
                 {/* Native img — original JPEG bytes, no optimizer recompression */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -62,6 +68,10 @@ export function DigitalMenuCta({ locale, dictionary }: DigitalMenuCtaProps) {
                   decoding="async"
                   loading="lazy"
                   className="block h-auto w-full"
+                />
+                <OrnamentBand
+                  placement="bottom"
+                  className="max-h-14 opacity-90 sm:max-h-16"
                 />
               </div>
               <p className="mt-4 text-center text-xs uppercase tracking-[0.18em] text-[var(--color-gold)]/80">
