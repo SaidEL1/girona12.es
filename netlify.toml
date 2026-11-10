@@ -14,7 +14,9 @@
 
 [build]
   command = "npm run build"
-  # publish intentionally omitted — OpenNext owns the deploy output
+  # Required by @netlify/plugin-nextjs (cannot equal site base directory).
+  # OpenNext consumes .next and emits functions/edge — do not treat as static export.
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "22"
