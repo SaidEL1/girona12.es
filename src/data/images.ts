@@ -1,11 +1,14 @@
 /**
- * Local image registry with Unsplash attribution.
- * Photos downloaded under the Unsplash License:
+ * Local image registry (paths + dimensions).
+ * Visible alt text is localized via `dictionary.imageAlts` — do not render
+ * the English `alt` fields below in the UI.
+ * Photos currently on disk were downloaded under the Unsplash License:
  * https://unsplash.com/license
  */
 
 export type SiteImage = {
   src: string;
+  /** Legacy English caption — prefer Dictionary.imageAlts for UI */
   alt: string;
   width: number;
   height: number;

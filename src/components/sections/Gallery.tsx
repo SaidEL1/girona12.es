@@ -44,7 +44,7 @@ export function Gallery({ dictionary }: GalleryProps) {
             >
               <Image
                 src={image.src}
-                alt={image.alt}
+                alt={dictionary.imageAlts.gallery[index] ?? ""}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"

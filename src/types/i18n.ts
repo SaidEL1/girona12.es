@@ -105,16 +105,35 @@ export interface Dictionary {
   a11y: {
     skipToContent: string;
     languageSelector: string;
+    primaryNav: string;
+    footerNav: string;
+  };
+  /** Localized alt text for non-menu marketing images */
+  imageAlts: {
+    hero: string;
+    intro: string;
+    menu: string;
+    cta: string;
+    gallery: readonly [string, string, string, string, string, string];
   };
   /** Phase 2A foundation showcase — not marketing copy */
   designFoundation: {
     title: string;
     intro: string;
+    phaseLabel: string;
     tokensHeading: string;
     patternHeading: string;
+    patternReadabilityNote: string;
     frameHeading: string;
     separatorHeading: string;
     bandHeading: string;
     note: string;
+    swatches: {
+      emerald: string;
+      deepGreen: string;
+      gold: string;
+      ivory: string;
+      darkText: string;
+    };
   };
 }

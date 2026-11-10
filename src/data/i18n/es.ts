@@ -96,16 +96,42 @@ export const es: Dictionary = {
   a11y: {
     skipToContent: "Saltar al contenido",
     languageSelector: "Idioma",
+    primaryNav: "Navegación principal",
+    footerNav: "Navegación del pie de página",
+  },
+  imageAlts: {
+    hero: "Mesa preparada para un servicio de restaurante elegante",
+    intro: "Comedor de restaurante con luz cálida y suave",
+    menu: "Platos presentados con cuidado sobre una mesa",
+    cta: "Ambiente íntimo de mesa de restaurante",
+    gallery: [
+      "Interior de restaurante con luz ambiental",
+      "Marisco fresco preparado para el servicio",
+      "Ensalada mediterránea de colores",
+      "Copas de vino sobre una mesa cuidada",
+      "Detalle de un plato compuesto con atención",
+      "Plato principal presentado en vajilla blanca",
+    ],
   },
   designFoundation: {
     title: "Base visual Gerona 12",
     intro:
       "Fundamentos decorativos derivados del menú original: esmeralda, oro, marfil y geometría islámica. Esta página es solo de verificación de diseño.",
+    phaseLabel: "Fase 2A",
     tokensHeading: "Paleta",
     patternHeading: "Fondos geométricos",
+    patternReadabilityNote:
+      "Motivo geométrico del menú · opacidad suave para preservar la lectura",
     frameHeading: "Marcos ornamentales",
     separatorHeading: "Separadores",
     bandHeading: "Bandas del menú",
     note: "Los 26 JPEG originales del menú no se modifican. Sin fotografías externas.",
+    swatches: {
+      emerald: "Esmeralda",
+      deepGreen: "Verde profundo",
+      gold: "Oro real",
+      ivory: "Marfil",
+      darkText: "Texto oscuro",
+    },
   },
 };

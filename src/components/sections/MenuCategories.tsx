@@ -4,7 +4,8 @@ import { siteImages } from "@/data/images";
 import { SECTION_IDS } from "@/lib/constants";
 import { originalMenuPath } from "@/lib/i18n";
 import { getPublishedCategories } from "@/lib/menu";
-import { pickLocalized, type Dictionary, type LocaleCode } from "@/types";
+import { requireLocalized } from "@/lib/locale-text";
+import type { Dictionary, LocaleCode } from "@/types";
 
 type MenuCategoriesProps = {
   locale: LocaleCode;
@@ -38,7 +39,7 @@ export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
             <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5]">
               <Image
                 src={image.src}
-                alt={image.alt}
+                alt={dictionary.imageAlts.menu}
                 fill
                 sizes="(max-width: 1024px) 100vw, 48vw"
                 className="object-cover"
@@ -62,7 +63,7 @@ export function MenuCategories({ locale, dictionary }: MenuCategoriesProps) {
             {hasCategories ? (
               <ul className="grid gap-4 sm:grid-cols-2">
                 {categories.map((category) => {
-                  const name = pickLocalized(category.name, locale);
+                  const name = requireLocalized(category.name, locale);
                   if (!name) return null;
                   return (
                     <li

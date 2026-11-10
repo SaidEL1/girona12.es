@@ -4,7 +4,7 @@ export const en: Dictionary = {
   locale: "en",
   brand: {
     wordmark: "Gerona 12",
-    name: "Restaurante Al Andalus",
+    name: "Al Andalus Restaurant",
     tagline: "Contemporary Andalusian hospitality",
   },
   nav: {
@@ -41,7 +41,7 @@ export const en: Dictionary = {
       eyebrow: "Digital menu",
       title: "The original menu, page by page",
       body: "Browse the official Gerona 12 menu exactly as in the PDF: all 26 original pages, with no redesign or content changes.",
-      cta: "Ver nuestra carta",
+      cta: "View our menu",
       previewAlt: "Original cover page of the Gerona 12 digital menu",
     },
     gallery: {
@@ -96,16 +96,42 @@ export const en: Dictionary = {
   a11y: {
     skipToContent: "Skip to content",
     languageSelector: "Language",
+    primaryNav: "Primary navigation",
+    footerNav: "Footer navigation",
+  },
+  imageAlts: {
+    hero: "Dining table prepared for an elegant restaurant service",
+    intro: "Warm restaurant dining room with soft lighting",
+    menu: "Carefully plated dishes on a table surface",
+    cta: "Intimate restaurant table setting",
+    gallery: [
+      "Restaurant interior with ambient evening light",
+      "Fresh seafood prepared for service",
+      "Colourful Mediterranean salad",
+      "Wine glasses on a refined dining table",
+      "Close view of a carefully composed plated dish",
+      "Main course presented on a white plate",
+    ],
   },
   designFoundation: {
     title: "Gerona 12 visual foundation",
     intro:
       "Decorative foundations derived from the original menu: emerald, gold, ivory, and Islamic geometry. This page is for design verification only.",
+    phaseLabel: "Phase 2A",
     tokensHeading: "Palette",
     patternHeading: "Geometric backgrounds",
+    patternReadabilityNote:
+      "Menu geometric motif · soft opacity to preserve readability",
     frameHeading: "Ornamental frames",
     separatorHeading: "Separators",
     bandHeading: "Menu bands",
     note: "The 26 original menu JPEGs are unmodified. No external photography.",
+    swatches: {
+      emerald: "Emerald",
+      deepGreen: "Deep green",
+      gold: "Royal gold",
+      ivory: "Ivory",
+      darkText: "Dark text",
+    },
   },
 };

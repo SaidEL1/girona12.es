@@ -93,7 +93,10 @@ export function Header({ locale, dictionary }: HeaderProps) {
             </span>
           </Link>
 
-          <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
+          <nav
+            aria-label={dictionary.a11y.primaryNav}
+            className="hidden items-center gap-8 lg:flex"
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.href}

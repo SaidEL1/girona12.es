@@ -9,14 +9,6 @@ import { Container, GeometricAccent } from "@/components/ui";
 import { getDictionary, isLocaleCode } from "@/lib/i18n";
 import type { LocaleCode } from "@/types";
 
-const swatches = [
-  { name: "Emerald", varName: "--brand-emerald", sample: "#064d40" },
-  { name: "Deep green", varName: "--brand-deep-green", sample: "#032f28" },
-  { name: "Royal gold", varName: "--brand-gold", sample: "#d9ae4d" },
-  { name: "Ivory", varName: "--brand-ivory", sample: "#f4ebdd" },
-  { name: "Dark text", varName: "--brand-dark-text", sample: "#17241f" },
-] as const;
-
 /**
  * Phase 2A — design foundation showcase.
  * Not linked from primary marketing navigation; used for visual QA.
@@ -31,6 +23,34 @@ export default async function DesignFoundationPage({
   const dictionary = getDictionary(locale);
   const copy = dictionary.designFoundation;
 
+  const swatches = [
+    {
+      name: copy.swatches.emerald,
+      varName: "--brand-emerald",
+      sample: "#064d40",
+    },
+    {
+      name: copy.swatches.deepGreen,
+      varName: "--brand-deep-green",
+      sample: "#032f28",
+    },
+    {
+      name: copy.swatches.gold,
+      varName: "--brand-gold",
+      sample: "#d9ae4d",
+    },
+    {
+      name: copy.swatches.ivory,
+      varName: "--brand-ivory",
+      sample: "#f4ebdd",
+    },
+    {
+      name: copy.swatches.darkText,
+      varName: "--brand-dark-text",
+      sample: "#17241f",
+    },
+  ] as const;
+
   return (
     <div className="overflow-x-hidden bg-[var(--color-ivory)] pb-24">
       <OrnamentBand placement="top" className="max-h-[var(--brand-ornament-max-height)]" />
@@ -39,7 +59,7 @@ export default async function DesignFoundationPage({
         <header className="max-w-2xl space-y-5">
           <GeometricAccent tone="emerald" />
           <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-emerald)]">
-            Phase 2A
+            {copy.phaseLabel}
           </p>
           <h1 className="font-display text-4xl text-[var(--color-deep-green)] sm:text-5xl">
             {copy.title}
@@ -101,7 +121,7 @@ export default async function DesignFoundationPage({
               />
               <div className="relative z-10 flex h-full min-h-56 items-end p-6">
                 <p className="text-sm text-[var(--color-ivory)]/90">
-                  menu-girih-pattern · whisper opacity for readability
+                  {copy.patternReadabilityNote}
                 </p>
               </div>
             </div>

@@ -39,7 +39,7 @@ export function Intro({ dictionary }: IntroProps) {
             <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[5/4]">
               <Image
                 src={image.src}
-                alt={image.alt}
+                alt={dictionary.imageAlts.intro}
                 fill
                 sizes="(max-width: 1024px) 100vw, 58vw"
                 className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"

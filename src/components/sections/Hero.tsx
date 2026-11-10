@@ -17,7 +17,6 @@ export function Hero({ locale, dictionary }: HeroProps) {
   const image = siteImages.hero;
   const menuHref = originalMenuPath(locale);
 
-
   return (
     <section
       id={SECTION_IDS.home}
@@ -26,7 +25,7 @@ export function Hero({ locale, dictionary }: HeroProps) {
     >
       <Image
         src={image.src}
-        alt={image.alt}
+        alt={dictionary.imageAlts.hero}
         fill
         priority
         sizes="100vw"

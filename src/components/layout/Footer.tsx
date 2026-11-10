@@ -38,7 +38,10 @@ export function Footer({ locale, dictionary }: FooterProps) {
         </div>
 
         <div className="flex flex-col justify-between gap-8 sm:items-end sm:text-end">
-          <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-3 sm:justify-end">
+          <nav
+            aria-label={dictionary.a11y.footerNav}
+            className="flex flex-wrap gap-x-6 gap-y-3 sm:justify-end"
+          >
             <a
               href={`#${SECTION_IDS.intro}`}
               className="text-xs uppercase tracking-[0.2em] text-[var(--color-ivory)]/75 transition-colors hover:text-[var(--color-gold)]"

@@ -3,7 +3,7 @@ import type { Dictionary } from "@/types";
 export const ar: Dictionary = {
   locale: "ar",
   brand: {
-    wordmark: "جيرونا 12",
+    wordmark: "Gerona 12",
     name: "مطعم الأندلس",
     tagline: "ضيافة أندلسية معاصرة",
   },
@@ -41,8 +41,8 @@ export const ar: Dictionary = {
       eyebrow: "القائمة الرقمية",
       title: "القائمة الأصلية، صفحة بصفحة",
       body: "اطّلعوا على قائمة جيرونا 12 الرسمية تماماً كما في ملف PDF: الصفحات الست والعشرون الأصلية دون إعادة تصميم أو تغيير للمحتوى.",
-      cta: "Ver nuestra carta",
-      previewAlt: "غلاف القائمة الرقمية الأصلية لجيرونا 12",
+      cta: "عرض قائمتنا",
+      previewAlt: "غلاف القائمة الرقمية الأصلية لـ Gerona 12",
     },
     gallery: {
       eyebrow: "المعرض",
@@ -94,16 +94,42 @@ export const ar: Dictionary = {
   a11y: {
     skipToContent: "تخطّي إلى المحتوى",
     languageSelector: "اللغة",
+    primaryNav: "التنقل الرئيسي",
+    footerNav: "تنقل تذييل الصفحة",
+  },
+  imageAlts: {
+    hero: "مائدة مُعدّة لخدمة مطعم أنيقة",
+    intro: "قاعة طعام دافئة بإضاءة هادئة",
+    menu: "أطباق مقدَّمة بعناية على الطاولة",
+    cta: "أجواء مائدة مطعم حميمة",
+    gallery: [
+      "داخل مطعم بإضاءة مسائية",
+      "مأكولات بحرية طازجة للخدمة",
+      "سلطة متوسطية ملوّنة",
+      "كؤوس نبيذ على مائدة أنيقة",
+      "تفاصيل طبق مركَّب بعناية",
+      "طبق رئيسي على صحون بيضاء",
+    ],
   },
   designFoundation: {
-    title: "الأساس البصري لجيرونا 12",
+    title: "الأساس البصري لـ Gerona 12",
     intro:
       "أساسات زخرفية مستمدة من المنيو الأصلي: الزمرد والذهب والعاجي والهندسة الإسلامية. هذه الصفحة للتحقق من التصميم فقط.",
+    phaseLabel: "المرحلة 2أ",
     tokensHeading: "لوحة الألوان",
     patternHeading: "خلفيات هندسية",
+    patternReadabilityNote:
+      "الزخرفة الهندسية من المنيو · شفافية خفيفة للحفاظ على وضوح النص",
     frameHeading: "إطارات زخرفية",
     separatorHeading: "فواصل",
     bandHeading: "أشرطة المنيو",
     note: "ملفات JPEG الأصلية الـ 26 للمنيو دون تعديل. بلا صور خارجية.",
+    swatches: {
+      emerald: "زمردي",
+      deepGreen: "أخضر عميق",
+      gold: "ذهب ملكي",
+      ivory: "عاجي",
+      darkText: "نص داكن",
+    },
   },
 };
