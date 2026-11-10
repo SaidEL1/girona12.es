@@ -1,10 +1,19 @@
-# Owner Banner AR
+# Owner locale banners
 
-Source PDF (docs only): `docs/brand/Banner_AR.pdf`
+Source PDFs (docs only):
 
-Gallery web assets (embedded JPEG bytes extracted from the PDF, unmodified):
+- `docs/brand/Banner_AR.pdf` — Arabic (`Banner_AR`)
+- `docs/brand/Banner_ES.pdf` — Spanish (owner file `Banner_IS.pdf`)
 
-- `banner-ar-01.jpg` — page 1
-- `banner-ar-02.jpg` — page 2
+Gallery web assets (embedded JPEG bytes extracted from each PDF, unmodified):
+
+- `banner-ar-01.jpg` / `banner-ar-02.jpg` — Arabic pages
+- `banner-es-01.jpg` / `banner-es-02.jpg` — Spanish pages
+
+Locale mapping in `src/data/banner.ts`:
+
+- `ar` → Arabic banners
+- `es` → Spanish banners
+- `en` → Spanish banners until an English `Banner_EN` is supplied
 
 Owner-supplied only. Do not invent alternate banners.

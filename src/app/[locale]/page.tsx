@@ -28,7 +28,7 @@ export default async function HomePage({
       <Intro dictionary={dictionary} />
       <DigitalMenuCta locale={locale} dictionary={dictionary} />
       <MenuCategories locale={locale} dictionary={dictionary} />
-      <Gallery dictionary={dictionary} />
+      <Gallery locale={locale} dictionary={dictionary} />
       <ClosingCta locale={locale} dictionary={dictionary} />
     </>
   );

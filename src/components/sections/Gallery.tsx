@@ -4,22 +4,28 @@ import {
   ZelligeBorder,
 } from "@/components/brand";
 import { Container, GeometricAccent, SectionHeading } from "@/components/ui";
-import { OWNER_BANNER_PAGES } from "@/data/banner";
+import { getOwnerBannerPages } from "@/data/banner";
 import { SECTION_IDS } from "@/lib/constants";
-import type { Dictionary } from "@/types";
+import type { Dictionary, LocaleCode } from "@/types";
 
 type GalleryProps = {
+  locale: LocaleCode;
   dictionary: Dictionary;
   /** Use h1 on the dedicated /galeria page; keep h2 on the homepage. */
   headingAs?: "h1" | "h2";
 };
 
 /**
- * Gallery — owner Banner AR pages, framed in Zellige chrome.
+ * Gallery — owner banners matched to the active locale (AR / ES; EN uses ES until supplied).
  * Additional restaurant photographs remain pending until supplied.
  */
-export function Gallery({ dictionary, headingAs = "h2" }: GalleryProps) {
+export function Gallery({
+  locale,
+  dictionary,
+  headingAs = "h2",
+}: GalleryProps) {
   const copy = dictionary.sections.gallery;
+  const pages = getOwnerBannerPages(locale);
 
   return (
     <section
@@ -41,7 +47,7 @@ export function Gallery({ dictionary, headingAs = "h2" }: GalleryProps) {
         />
 
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
-          {OWNER_BANNER_PAGES.map((page, index) => (
+          {pages.map((page, index) => (
             <figure key={page.id} className="m-0">
               <SectionFrame
                 tone="gold"
@@ -75,7 +81,7 @@ export function Gallery({ dictionary, headingAs = "h2" }: GalleryProps) {
                 <ZelligeBorder variant="girih-emerald" />
               </SectionFrame>
               <figcaption className="mt-3 text-center text-xs uppercase tracking-[0.18em] text-[var(--color-emerald)]/70">
-                {copy.bannerCaption} · {index + 1}/{OWNER_BANNER_PAGES.length}
+                {copy.bannerCaption} · {index + 1}/{pages.length}
               </figcaption>
             </figure>
           ))}

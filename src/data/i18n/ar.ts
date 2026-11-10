@@ -47,9 +47,9 @@ export const ar: Dictionary = {
     gallery: {
       eyebrow: "المعرض",
       title: "المائدة والضوء والإيقاع",
-      body: "بانر المالك الرسمي (Banner AR). ستُنشر صور إضافية للمطعم عندما تُوفَّر.",
-      bannerAltPrimary: "بانر Gerona 12 الأندلس الرسمي — الصفحة 1",
-      bannerAltSecondary: "بانر Gerona 12 الأندلس الرسمي — الصفحة 2",
+      body: "البانر الرسمي بالعربية. ستُنشر صور إضافية للمطعم عندما تُوفَّر.",
+      bannerAltPrimary: "بانر Gerona 12 الأندلس الرسمي — الصفحة 1 (عربي)",
+      bannerAltSecondary: "بانر Gerona 12 الأندلس الرسمي — الصفحة 2 (عربي)",
       bannerCaption: "بانر عربي",
       placeholder:
         "مساحة إضافية مخصّصة لصور المطعم الرسمية. لا تُعرض صور مؤقتة أو من الأرشيف العام.",

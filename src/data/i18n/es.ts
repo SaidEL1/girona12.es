@@ -47,12 +47,12 @@ export const es: Dictionary = {
     gallery: {
       eyebrow: "Galería",
       title: "La mesa, la luz, el ritmo",
-      body: "Banner oficial del propietario (Banner AR). Las fotografías adicionales del restaurante se publicarán cuando se faciliten.",
+      body: "Banner oficial en español. Las fotografías adicionales del restaurante se publicarán cuando se faciliten.",
       bannerAltPrimary:
-        "Banner oficial Gerona 12 Al Andalus — página 1 (árabe)",
+        "Banner oficial Gerona 12 Al Andalus — página 1 (español)",
       bannerAltSecondary:
-        "Banner oficial Gerona 12 Al Andalus — página 2 (árabe)",
-      bannerCaption: "Banner AR",
+        "Banner oficial Gerona 12 Al Andalus — página 2 (español)",
+      bannerCaption: "Banner ES",
       placeholder:
         "Espacio adicional reservado para fotografías oficiales del restaurante. No se muestran imágenes provisionales ni de archivo.",
     },
