@@ -2,12 +2,13 @@
 #
 # Brand: GERONA 12
 # Permanent custom domain (future): https://gerona12.es
-# Intended Netlify hostname (after dashboard site rename): https://gerona12.es.netlify.app
-# Verified live Netlify hostname (current): https://girona12.netlify.app
+# Intended Netlify hostname (slug with .es): https://gerona12.es.netlify.app
+# Verified live Netlify hostname (current slug `gerona12`): https://gerona12.netlify.app
+# Former slug host (retired): https://girona12.netlify.app
 # Crawl-facing SEO stays on the verified live host until rename/cutover flags flip —
 # see docs/deploy/domain-migration-gerona12.md.
 #
-# Required settings (also mirrored in Netlify UI for current site slug `girona12`):
+# Required settings (also mirrored in Netlify UI for current site slug `gerona12`):
 # - Build command: npm run build
 # - Publish directory: EMPTY (do not set to public, ., out, or dist)
 # - Production branch: main

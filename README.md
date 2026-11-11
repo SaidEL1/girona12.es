@@ -34,8 +34,9 @@ npm run build
 ## Deploy (Netlify)
 
 Brand: **GERONA 12** · Permanent domain: **gerona12.es**  
-Intended Netlify host (after site rename): **https://gerona12.es.netlify.app** (not active yet)  
-Verified live crawl origin: **https://girona12.netlify.app**  
+Intended Netlify host (slug with `.es`): **https://gerona12.es.netlify.app** (not active yet)  
+Verified live crawl origin: **https://gerona12.netlify.app**  
+Former Netlify host (retired): `https://girona12.netlify.app`  
 
 See `docs/deploy/domain-migration-gerona12.md`. Do not flip `NETLIFY_HOSTNAME_RENAMED` / `DOMAIN_CUTOVER_COMPLETE` or force redirects until the target host HTTPS is verified.
 

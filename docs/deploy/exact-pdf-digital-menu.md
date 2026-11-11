@@ -27,7 +27,8 @@ Image-based viewer for the original 26-page menu. No redesign, OCR, or content r
 | `docs/print/gerona12-menu-original-qr.pdf` | Printable branded A4 |
 
 Decoded URL (PNG + PDF render): `https://girona12.netlify.app/es/menu-original`  
-(Verified live Netlify host. Intended Netlify host after site rename: `https://gerona12.es.netlify.app/…` — not active yet.  
+(Former Netlify host — QR bytes unchanged; do not regenerate. Live site is now `https://gerona12.netlify.app`.  
+Intended Netlify host with `.es` slug: `https://gerona12.es.netlify.app/…` — not active yet.  
 Permanent cutover target: `https://gerona12.es/es/menu-original` — regenerate QR only then.)
 
 ## Out of scope

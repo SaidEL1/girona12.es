@@ -4,9 +4,10 @@
  *
  * - While DOMAIN_CUTOVER_COMPLETE is false and NETLIFY_HOSTNAME_RENAMED is false,
  *   CRAWL_ORIGIN must resolve to the verified live Netlify host
- *   (https://girona12.netlify.app).
- * - Do not hard-code https://gerona12.es or https://gerona12.es.netlify.app
- *   as the crawl default before the matching flag is flipped.
+ *   (https://gerona12.netlify.app).
+ * - Do not hard-code https://gerona12.es, https://gerona12.es.netlify.app, or the
+ *   retired https://girona12.netlify.app as the crawl default before the matching
+ *   flag is flipped / without TD GO.
  */
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -29,7 +30,8 @@ function readBoolFlag(name) {
 const cutoverComplete = readBoolFlag("DOMAIN_CUTOVER_COMPLETE");
 const netlifyRenamed = readBoolFlag("NETLIFY_HOSTNAME_RENAMED");
 
-const live = "https://girona12.netlify.app";
+const live = "https://gerona12.netlify.app";
+const former = "https://girona12.netlify.app";
 const intendedNetlify = "https://gerona12.es.netlify.app";
 const future = "https://gerona12.es";
 
@@ -40,14 +42,16 @@ const required = [
     "INTENDED_NETLIFY_ORIGIN",
   ],
   [`export const FUTURE_SITE_ORIGIN = "${future}"`, "FUTURE_SITE_ORIGIN"],
+  [`export const FORMER_NETLIFY_ORIGIN = "${former}"`, "FORMER_NETLIFY_ORIGIN"],
 ];
 
 for (const [needle, label] of required) {
   if (!source.includes(needle)) {
-    // Allow single-line INTENDED_NETLIFY_ORIGIN too
     if (
       label === "INTENDED_NETLIFY_ORIGIN" &&
-      source.includes(`export const INTENDED_NETLIFY_ORIGIN = "${intendedNetlify}"`)
+      source.includes(
+        `export const INTENDED_NETLIFY_ORIGIN = "${intendedNetlify}"`,
+      )
     ) {
       continue;
     }
@@ -78,10 +82,18 @@ if (!crawlSelectorOk) {
 }
 
 const badHardcode =
-  /export const (SITE_ORIGIN|CRAWL_ORIGIN) = "https:\/\/(gerona12\.es|gerona12\.es\.netlify\.app)"/;
+  /export const (SITE_ORIGIN|CRAWL_ORIGIN|LIVE_NETLIFY_ORIGIN) = "https:\/\/(gerona12\.es|gerona12\.es\.netlify\.app|girona12\.netlify\.app)"/;
 if (!cutoverComplete && !netlifyRenamed && badHardcode.test(source)) {
   console.error(
-    "SEO origin guard: crawl origin must not hard-code an unverified host",
+    "SEO origin guard: crawl/live origin must not hard-code an unverified or retired host",
+  );
+  process.exit(1);
+}
+
+// LIVE must not accidentally equal the retired host.
+if (source.includes(`LIVE_NETLIFY_ORIGIN = "${former}"`)) {
+  console.error(
+    `SEO origin guard: LIVE_NETLIFY_ORIGIN must not be the retired host ${former}`,
   );
   process.exit(1);
 }
@@ -95,12 +107,7 @@ if (cutoverComplete) {
     `SEO origin guard OK — NETLIFY_HOSTNAME_RENAMED=true; crawl may use ${intendedNetlify}`,
   );
 } else {
-  // Extra safety: live origin must still be the verified host string.
-  if (!source.includes(`LIVE_NETLIFY_ORIGIN = "${live}"`)) {
-    console.error(`SEO origin guard: live host must remain ${live}`);
-    process.exit(1);
-  }
   console.log(
-    `SEO origin guard OK — flags false; crawl origin stays ${live} (intended ${intendedNetlify} not yet verified)`,
+    `SEO origin guard OK — flags false; crawl origin stays ${live} (intended ${intendedNetlify} not yet verified; former ${former} retired)`,
   );
 }

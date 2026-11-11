@@ -21,5 +21,5 @@ Helper: `originalMenuPath(locale)` in `src/lib/i18n.ts` (plus `dataMenuPath` for
 - 26 original JPEGs (byte-identical)
 - Viewer behavior (counter, prev/next, jump, keyboard, sticky chrome)
 - Secondary route `/[locale]/menu` still available
-- QR → `https://girona12.netlify.app/es/menu-original` (verified live host; do not regenerate until cutover)
+- QR → `https://girona12.netlify.app/es/menu-original` (former host encoded in QR bytes; do not regenerate until cutover)
 - Netlify OpenNext config
