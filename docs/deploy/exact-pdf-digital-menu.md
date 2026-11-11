@@ -26,9 +26,11 @@ Image-based viewer for the original 26-page menu. No redesign, OCR, or content r
 | `public/menu/qr/gerona12-menu-original.svg` | Vector SVG |
 | `docs/print/gerona12-menu-original-qr.pdf` | Printable branded A4 |
 
-Decoded URL (PNG + PDF render): `https://girona12.netlify.app/es/menu-original`
+Decoded URL (PNG + PDF render): `https://girona12.netlify.app/es/menu-original`  
+(Future cutover target after domain go-live: `https://gerona12.es/es/menu-original` — regenerate QR only then.)
 
 ## Out of scope
 
 - Do not invent dishes or prices
 - Do not alter QR destination without approval
+- Do not regenerate QR until `gerona12.es` HTTPS is verified

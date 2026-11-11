@@ -1,6 +1,6 @@
 # Brand decorative assets (Phase 2A)
 
-Independent **copies / crops** derived from the original Gerona 12 menu pages for non-menu UI only.
+Independent **copies / crops** derived from the original GERONA 12 menu pages for non-menu UI only.
 
 | File | Source (read-only) | Use |
 |------|--------------------|-----|

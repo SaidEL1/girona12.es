@@ -55,7 +55,8 @@ export const config = {
     /*
      * Match all pathnames except:
      * - next internals, static files, images, favicon
+     * - robots.txt / sitemap.xml (must stay at site root for crawlers)
      */
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)",
+    "/((?!_next/static|_next/image|favicon.ico|robots\\.txt|sitemap\\.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)",
   ],
 };

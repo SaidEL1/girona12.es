@@ -49,8 +49,8 @@ if (!files.en.includes('cta: "View our menu"')) {
 if (!files.ar.includes("عرض قائمتنا")) {
   errors.push("AR digitalMenu.cta must be Arabic");
 }
-if (!files.ar.includes('wordmark: "Gerona 12"')) {
-  errors.push('AR brand.wordmark must remain Latin "Gerona 12"');
+if (!files.ar.includes('wordmark: "GERONA 12"')) {
+  errors.push('AR brand.wordmark must remain Latin "GERONA 12"');
 }
 
 if (errors.length) {

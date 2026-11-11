@@ -10,7 +10,7 @@ This PDF remains the preferred source of truth for dishes, descriptions, categor
 
 ## Screenshot evidence (Phase 04)
 
-Until the full PDF is committed, Phase 04 extraction used **21 page screenshots** from `Full Menu Gerona 12.pdf`:
+Until the full PDF is committed, Phase 04 extraction used **21 page screenshots** from `Full Menu GERONA 12.pdf`:
 
 ```text
 docs/source/menu-pages/

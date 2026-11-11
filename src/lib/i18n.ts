@@ -6,7 +6,7 @@ import {
 import type { Dictionary, LocaleCode, LocaleConfig, TextDirection } from "@/types";
 import { siteConfig } from "@/data/site";
 
-export const LOCALE_COOKIE = "girona12_locale";
+export const LOCALE_COOKIE = "gerona12_locale";
 export const DEFAULT_LOCALE: LocaleCode = siteConfig.defaultLocale;
 
 export function isLocaleCode(value: string): value is LocaleCode {

@@ -17,7 +17,7 @@ export const ORIGINAL_MENU_PAGES = Array.from(
       width: 1748,
       height: 2480,
       // Language-neutral alt (brand + page index). Viewer chrome stays localized via i18n.
-      alt: `Gerona 12 — ${number} / ${ORIGINAL_MENU_PAGE_COUNT}`,
+      alt: `GERONA 12 — ${number} / ${ORIGINAL_MENU_PAGE_COUNT}`,
     } as const;
   },
 );

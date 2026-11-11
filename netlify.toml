@@ -1,4 +1,8 @@
-# Gerona 12 — Netlify + Next.js (App Router) / OpenNext
+# GERONA 12 — Netlify + Next.js (App Router) / OpenNext
+#
+# Official public domain: https://gerona12.es (canonical in app metadata).
+# Netlify project slug/host `girona12` / girona12.netlify.app stays until
+# DNS + HTTPS cutover is approved — see docs/deploy/domain-migration-gerona12.md.
 #
 # Required settings (also mirrored in Netlify UI for site girona12):
 # - Build command: npm run build
@@ -11,6 +15,7 @@
 # file mirror without the adapter.
 #
 # Do NOT add SPA catch-all redirects (/* -> /index.html).
+# Do NOT enable netlify.app → gerona12.es redirects until the custom domain is live.
 
 [build]
   command = "npm run build"

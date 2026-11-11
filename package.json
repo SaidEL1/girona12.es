@@ -2,7 +2,7 @@
   "name": "girona12.es",
   "version": "0.1.0",
   "private": true,
-  "description": "Gerona 12 — Restaurante Al Andalus (Al Baraka Digital)",
+  "description": "GERONA 12 \u2014 Restaurante Al Andalus (Al Baraka Digital)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
