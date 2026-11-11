@@ -1,0 +1,1 @@
+GERONA 12 lightweight HTML menu. Extract ZIP; keep index.html beside pages/. Open index.html to preview. Contains all 26 supplied PDF pages in order, optimized as WebP images. Use the original PDF for print-quality output.

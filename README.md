@@ -61,9 +61,9 @@ src/data/                # Site + menu + i18n registries
 src/lib/                 # Helpers
 src/types/               # Shared TypeScript models
 public/brand/            # Menu-derived geometric crops & ornaments
-public/menu/             # Original menu JPEGs + QR (read-only source of truth)
+public/menu/             # Original menu WebP pages + QR (read-only source of truth)
 ```
 
 ## Visual identity
 
-Non-menu surfaces use emerald/gold/ivory surfaces and decorative assets derived from the original Gerona 12 menu pages. Stock photography and external image URLs are not used. The gallery remains a designed placeholder until the owner supplies real restaurant photographs. The Digital Menu CTA may preview the approved original cover page (`page-01.jpg`) without altering menu JPEG bytes.
+Non-menu surfaces use emerald/gold/ivory surfaces and decorative assets derived from the original Gerona 12 menu pages. Stock photography and external image URLs are not used. The gallery remains a designed placeholder until the owner supplies real restaurant photographs. The Digital Menu CTA may preview the approved original cover page (`page-01.webp`) without altering menu page bytes.

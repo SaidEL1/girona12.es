@@ -5,17 +5,17 @@ Image-based viewer for the original 26-page menu. No redesign, OCR, or content r
 ## Route
 
 - Primary: `/es/menu-original`
-- Also available under `/en/menu-original` and `/ar/menu-original` (same JPEG pages)
+- Also available under `/en/menu-original` and `/ar/menu-original` (same page images)
 
 ## Assets
 
-- `public/menu/pages/page-01.jpg` … `page-26.jpg` (1250×1773)
-- Bytes copied unchanged from the supplied upload zips
+- `public/menu/pages/page-01.webp` … `page-26.webp` (1748×2480)
+- Bytes copied unchanged from owner `GERONA12-menu-HTML-compact` pack
 - Served via native `<img>` (not `next/image`) so the optimizer cannot recompress them
 
 ## Landing
 
-- New section `DigitalMenuCta` with original cover preview and CTA **“Ver nuestra carta”** → `/es/menu-original`
+- Section `DigitalMenuCta` with original cover preview and CTA → `/[locale]/menu-original`
 - Existing data-driven `/[locale]/menu` left intact
 
 ## QR
@@ -28,12 +28,7 @@ Image-based viewer for the original 26-page menu. No redesign, OCR, or content r
 
 Decoded URL (PNG + PDF render): `https://girona12.netlify.app/es/menu-original`
 
-## Known source anomalies (preserved)
-
-1. **Page 06 ≈ page 14** — near-duplicate Arabic burgers pages; both kept in order.
-2. **Spanish burgers page missing** from the supplied 26-page set — not fabricated.
-
 ## Out of scope
 
-- Netlify OpenNext config unchanged
-- No merge / production deploy in this PR
+- Do not invent dishes or prices
+- Do not alter QR destination without approval

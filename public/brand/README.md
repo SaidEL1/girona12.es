@@ -12,4 +12,4 @@ Independent **copies / crops** derived from the original Gerona 12 menu pages fo
 | `patterns/girih-star.svg` | Motif language from menu girih (8-point) | Inline geometric accent |
 | `patterns/girih-separator.svg` | Same language | Horizontal separator center |
 
-**Never** overwrite or re-encode `public/menu/pages/*.jpg`.
+**Never** overwrite or re-encode `public/menu/pages/*` except when replacing with an owner-approved pack (verbatim bytes).
