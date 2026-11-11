@@ -2,13 +2,24 @@
  * Official public site identity for GERONA 12.
  *
  * Brand spelling: GERONA 12
- * Intended future domain: gerona12.es (https://gerona12.es)
+ * Permanent custom domain (future cutover): gerona12.es → https://gerona12.es
+ * Intended Netlify hostname (after site rename): https://gerona12.es.netlify.app
  *
- * Crawl-facing origin (canonical / metadataBase / Open Graph / sitemap /
- * robots / JSON-LD) stays on the live Netlify host until DNS + HTTPS for
- * gerona12.es are verified and DOMAIN_CUTOVER_COMPLETE is flipped to true.
- * Do not activate redirects or regenerate the menu QR before that cutover.
+ * Verified live Netlify hostname (November 2026): https://girona12.netlify.app
+ *   Evidence: HTTPS 200 on /es; SSL SAN *.netlify.app matches.
+ * Intended Netlify hostname is NOT active yet:
+ *   https://gerona12.es.netlify.app → DNS resolves, HTTPS cert mismatch for
+ *   multi-level subdomain, HTTP body "Not Found" (Netlify site-not-found).
+ * Do NOT point crawl-facing SEO at the intended hostname or custom domain
+ * until each is verified. Do not activate redirects or regenerate the menu QR
+ * before cutover.
  */
+
+/**
+ * Flip to `true` only after the Netlify site slug is renamed so
+ * https://gerona12.es.netlify.app serves this project with a valid cert (TD GO).
+ */
+export const NETLIFY_HOSTNAME_RENAMED = false as const;
 
 /** Flip to `true` only after gerona12.es DNS + HTTPS are verified (TD GO). */
 export const DOMAIN_CUTOVER_COMPLETE = false as const;
@@ -17,16 +28,42 @@ export const DOMAIN_CUTOVER_COMPLETE = false as const;
 export const FUTURE_SITE_DOMAIN = "gerona12.es" as const;
 export const FUTURE_SITE_ORIGIN = "https://gerona12.es" as const;
 
-/** Current live hosting hostname. */
-export const NETLIFY_ORIGIN = "https://girona12.netlify.app" as const;
+/**
+ * Intended Netlify default hostname after renaming the Netlify site slug.
+ * Not used for crawl URLs while NETLIFY_HOSTNAME_RENAMED is false.
+ */
+export const INTENDED_NETLIFY_ORIGIN =
+  "https://gerona12.es.netlify.app" as const;
 
 /**
- * Origin used for all crawl-facing absolute URLs.
- * Must remain NETLIFY_ORIGIN while DOMAIN_CUTOVER_COMPLETE is false.
+ * Verified live Netlify hostname (current production).
+ * Keep crawl signals here until INTENDED_NETLIFY_ORIGIN or FUTURE_SITE_ORIGIN
+ * is verified.
+ */
+export const LIVE_NETLIFY_ORIGIN = "https://girona12.netlify.app" as const;
+
+/** @deprecated Prefer LIVE_NETLIFY_ORIGIN — alias for existing imports/guards. */
+export const NETLIFY_ORIGIN = LIVE_NETLIFY_ORIGIN;
+
+/**
+ * Origin used for all crawl-facing absolute URLs
+ * (metadataBase, canonical, Open Graph, sitemap, robots, JSON-LD).
+ *
+ * Priority while flags are false → true:
+ * 1. FUTURE_SITE_ORIGIN when DOMAIN_CUTOVER_COMPLETE
+ * 2. INTENDED_NETLIFY_ORIGIN when NETLIFY_HOSTNAME_RENAMED
+ * 3. LIVE_NETLIFY_ORIGIN (verified production)
  */
 export const CRAWL_ORIGIN = (
-  DOMAIN_CUTOVER_COMPLETE ? FUTURE_SITE_ORIGIN : NETLIFY_ORIGIN
-) as typeof NETLIFY_ORIGIN | typeof FUTURE_SITE_ORIGIN;
+  DOMAIN_CUTOVER_COMPLETE
+    ? FUTURE_SITE_ORIGIN
+    : NETLIFY_HOSTNAME_RENAMED
+      ? INTENDED_NETLIFY_ORIGIN
+      : LIVE_NETLIFY_ORIGIN
+) as
+  | typeof FUTURE_SITE_ORIGIN
+  | typeof INTENDED_NETLIFY_ORIGIN
+  | typeof LIVE_NETLIFY_ORIGIN;
 
 /** @deprecated Prefer CRAWL_ORIGIN — kept as alias for existing imports. */
 export const SITE_ORIGIN = CRAWL_ORIGIN;

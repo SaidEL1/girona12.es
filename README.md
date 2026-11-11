@@ -33,10 +33,11 @@ npm run build
 
 ## Deploy (Netlify)
 
-Brand: **GERONA 12** · Intended domain: **gerona12.es**  
-Crawl-facing SEO origin (until DNS cutover): **https://girona12.netlify.app**  
+Brand: **GERONA 12** · Permanent domain: **gerona12.es**  
+Intended Netlify host (after site rename): **https://gerona12.es.netlify.app** (not active yet)  
+Verified live crawl origin: **https://girona12.netlify.app**  
 
-See `docs/deploy/domain-migration-gerona12.md`. Do not flip `DOMAIN_CUTOVER_COMPLETE` or force redirects until `gerona12.es` HTTPS is verified.
+See `docs/deploy/domain-migration-gerona12.md`. Do not flip `NETLIFY_HOSTNAME_RENAMED` / `DOMAIN_CUTOVER_COMPLETE` or force redirects until the target host HTTPS is verified.
 
 This app is **Next.js App Router** (not a static `out/` export). Netlify should use the OpenNext adapter with `npm run build` and an **empty publish directory**. See `netlify.toml` and `docs/deploy/netlify-404-investigation.md`.
 
