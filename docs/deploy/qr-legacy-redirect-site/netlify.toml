@@ -1,3 +1,8 @@
+# ARCHIVED — TD CANCELLED (2026-11-12). DO NOT DEPLOY THIS SITE.
+# Final QR strategy: connect gerona12.es, then generate a new QR to
+# https://gerona12.es/es/menu-original (see ../custom-domain-gerona12-es.md).
+#
+# --- Historical config below (not for production use) ---
 # GERONA 12 — LEGACY QR HOST (INDEPENDENT NETLIFY SITE)
 #
 # Site name MUST be exactly: girona12

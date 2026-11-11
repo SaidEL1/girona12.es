@@ -7,114 +7,70 @@
 | Brand | **GERONA 12** |
 | Permanent custom domain | **gerona12.es** |
 | Future origin (after custom-domain cutover) | **https://gerona12.es** |
-| Intended Netlify hostname (slug with `.es`) | **https://gerona12.es.netlify.app** |
 | Verified live Netlify hostname (current) | **https://gerona12.netlify.app** |
 | Former Netlify hostname (retired) | **https://girona12.netlify.app** |
+| Intended Netlify slug host (optional / not required for cutover) | **https://gerona12.es.netlify.app** |
 
-## Hostname verification evidence (do not skip)
+## Final printed QR strategy (TD)
+
+| Step | Status |
+|------|--------|
+| Separate `girona12` legacy redirect site | **CANCELLED — do not deploy** |
+| Archived kit `docs/deploy/qr-legacy-redirect-site/` | Keep in repo; do not integrate into main app |
+| New permanent QR destination | `https://gerona12.es/es/menu-original` |
+| Generate new QR | **Only after** domain connected, HTTPS valid, locale menus 200, SEO cutover |
+
+Details: `docs/deploy/custom-domain-gerona12-es.md`, `docs/deploy/qr-legacy-host-recovery.md`.
+
+## Hostname verification evidence
 
 ### Verified live — `https://gerona12.netlify.app`
 
-Re-checked **2026-11-11** (Asia/Qatar):
-
-- HTTPS `/es` → **200** (Netlify + Next.js, brand GERONA 12)
-- Deploy alias: `https://main--gerona12.netlify.app` → **200**
-- Netlify project / CI context name: **`gerona12`**
-- TLS covered by `*.netlify.app`
+- HTTPS `/es` and `/es/menu-original` → **200**
+- Site slug: **`gerona12`**
+- Crawl SEO currently uses this host (`DOMAIN_CUTOVER_COMPLETE = false`)
 
 ### Retired — `https://girona12.netlify.app`
 
-- After the Netlify site slug rename, this host returns Netlify **site-not-found 404**
-- Do **not** use for crawl-facing SEO
-- Existing printed menu QR still decodes here — **do not regenerate** until TD cutover GO
-
-### Not active — `https://gerona12.es.netlify.app`
-
-- DNS A/AAAA resolves (Netlify anycast)
-- TLS: multi-level subdomain subject-name mismatch (`*.netlify.app` does not cover `*.es.netlify.app`)
-- HTTP (`curl -k`): **404** Netlify site-not-found
-- Conclusion: **no Netlify site is configured for this hostname**. A repo edit cannot create it.
+- Site-not-found after slug rename
+- Old printed QR still encodes this URL (bytes unchanged; no regen yet)
 
 ### Not active — `https://gerona12.es`
 
-- DNS: does not resolve (custom domain not attached)
+- DNS does not resolve until custom domain is attached
 
-## Current crawl-facing origin (live)
+## Current crawl-facing origin (do not change prematurely)
 
-Until `gerona12.es.netlify.app` **or** the custom domain is connected and verified:
-
-- Live host / crawl origin: **https://gerona12.netlify.app**
-- Controlled in `src/lib/site-url.ts`:
+- `CRAWL_ORIGIN` = **https://gerona12.netlify.app**
+- Flags in `src/lib/site-url.ts`:
   - `NETLIFY_HOSTNAME_RENAMED = false`
   - `DOMAIN_CUTOVER_COMPLETE = false`
-- `metadataBase`, canonicals, Open Graph, sitemap, robots, and JSON-LD all use **CRAWL_ORIGIN**
-- Existing menu QR still decodes to `https://girona12.netlify.app/es/menu-original` (former host)
-- **Do not regenerate the QR** and **do not activate redirects** until the target host is live
+- metadataBase, canonicals, Open Graph, sitemap, robots, JSON-LD use **CRAWL_ORIGIN**
 
-## Already prepared in the app
+## Next steps (owner / TD)
 
-- Brand spelling **GERONA 12** (ES/EN/AR)
-- Central origins: `LIVE_NETLIFY_ORIGIN`, `INTENDED_NETLIFY_ORIGIN`, `FUTURE_SITE_ORIGIN`, `FORMER_NETLIFY_ORIGIN`
-- Cutover flags + SEO origin guard: `scripts/check-seo-origin.mjs`
-- Locale cookie: `gerona12_locale`
-- `/robots.txt` and `/sitemap.xml` excluded from locale proxy redirects
+1. Follow **`docs/deploy/custom-domain-gerona12-es.md`** to attach `gerona12.es` (+ www) to the **main** site `gerona12`.
+2. Configure DNS (external or Netlify DNS) using the records in that doc.
+3. Wait for HTTPS certificate **Issued**.
+4. Verify `/es|/en|/ar/menu-original` → **200** on `https://gerona12.es`.
+5. TD GO → flip `DOMAIN_CUTOVER_COMPLETE`, then generate new QR (separate task).
+6. Do **not** merge/deploy without explicit approval.
 
-## Printed QR emergency (former host)
+### DNS records summary (external DNS)
 
-Existing QR still encodes `https://girona12.netlify.app/es/menu-original` (verified decode).
-That host is **unbound** (site-not-found). Options A/B on the **current** site are
-**not possible** — see `docs/deploy/qr-legacy-host-recovery.md`.
+| Type | Host | Value |
+|------|------|-------|
+| CNAME | `www` | `gerona12.netlify.app` |
+| ALIAS/ANAME/flattened CNAME (preferred) | `@` | `apex-loadbalancer.netlify.com` |
+| **or** A (fallback) | `@` | `75.2.60.5` |
 
-Manual recovery (TD/dashboard): deploy `docs/deploy/qr-legacy-redirect-site/` as a
-**separate** Netlify site named `girona12`, or approve a replacement QR.
-
-## Manual Netlify actions required (dashboard — not done by this PR)
-
-### A. Activate intended Netlify hostname `gerona12.es.netlify.app`
-
-1. Open **Netlify Dashboard** → site currently named **`gerona12`** (serves `gerona12.netlify.app`).
-2. **Site configuration** → **Site details** → **Change site name**.
-3. Set the site name so the default hostname becomes **`gerona12.es.netlify.app`**  
-   (typically site name `gerona12.es` if Netlify accepts a dot in the slug; if Netlify rejects dots, stop and keep `gerona12.netlify.app` — do not invent an alternate crawl host).
-4. Confirm:
-   - `https://gerona12.es.netlify.app/es` returns **200** with a **valid** certificate (no subject-name mismatch)
-   - Homepage, `/es/menu-original`, and Contacto load on the new hostname
-5. Only then set `NETLIFY_HOSTNAME_RENAMED = true` in `src/lib/site-url.ts` (TD GO) so crawl URLs move to `https://gerona12.es.netlify.app`.
-
-### B. Attach permanent custom domain `gerona12.es`
-
-1. Attach custom domain `gerona12.es` (+ `www`) in Netlify DNS / registrar.
-2. Confirm HTTPS certificates are active on `https://gerona12.es`.
-3. Verify homepage, `/es/menu-original`, and Contacto over the new domain.
-4. Set `DOMAIN_CUTOVER_COMPLETE = true` in `src/lib/site-url.ts` (TD GO) so crawl URLs switch to `https://gerona12.es`.
-5. Add Netlify redirects (example — **do not enable until steps B2–B3 pass**):
-
-   ```toml
-   # PENDING — enable only after gerona12.es HTTPS is verified
-   # [[redirects]]
-   #   from = "https://gerona12.netlify.app/*"
-   #   to = "https://gerona12.es/:splat"
-   #   status = 301
-   #   force = true
-   # [[redirects]]
-   #   from = "https://girona12.netlify.app/*"
-   #   to = "https://gerona12.es/:splat"
-   #   status = 301
-   #   force = true
-   # [[redirects]]
-   #   from = "https://gerona12.es.netlify.app/*"
-   #   to = "https://gerona12.es/:splat"
-   #   status = 301
-   #   force = true
-   ```
-
-6. Regenerate and reprint the menu QR to `https://gerona12.es/es/menu-original` (separate approved task).
-7. Optionally map apex/`www` preference (apex canonical recommended).
+Prefer any values shown in Netlify’s “Pending DNS verification” modal.
 
 ## Intentionally unchanged (pre-cutover)
 
-- GitHub repository `SaidEL1/girona12.es` and npm `package.json` `"name": "girona12.es"`
-- Verified email `girona12.andalus@gmail.com`
-- Street address `Calle Girona 12, 04001 Almería, España`
-- Original 26 menu WebP pages, order, hashes, viewer behavior, and QR destination bytes
-- Netlify build adapter / deployment pipeline (`netlify.toml` build settings)
+- GitHub repository `SaidEL1/girona12.es` / npm package name
+- Email `girona12.andalus@gmail.com`
+- Street `Calle Girona 12, 04001 Almería, España`
+- 26 menu WebP pages, QR asset bytes, viewer behavior
+- Main app OpenNext / `netlify.toml` build pipeline
+- SEO crawl origin until TD GO

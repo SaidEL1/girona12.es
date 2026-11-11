@@ -34,13 +34,14 @@ npm run build
 ## Deploy (Netlify)
 
 Brand: **GERONA 12** · Permanent domain: **gerona12.es**  
-Intended Netlify host (slug with `.es`): **https://gerona12.es.netlify.app** (not active yet)  
 Verified live crawl origin: **https://gerona12.netlify.app**  
 Former Netlify host (retired): `https://girona12.netlify.app`  
 
-See `docs/deploy/domain-migration-gerona12.md`. Do not flip `NETLIFY_HOSTNAME_RENAMED` / `DOMAIN_CUTOVER_COMPLETE` or force redirects until the target host HTTPS is verified.
+See `docs/deploy/domain-migration-gerona12.md` and `docs/deploy/custom-domain-gerona12-es.md`.  
+Do not flip `DOMAIN_CUTOVER_COMPLETE` or generate the permanent QR until `gerona12.es` HTTPS is verified.
 
-Printed QR recovery (former host 404): `docs/deploy/qr-legacy-host-recovery.md` — do not regenerate QR bytes without owner/TD approval.
+Legacy redirect site for the old QR host: **CANCELLED** (kit archived under `docs/deploy/qr-legacy-redirect-site/` — do not deploy).  
+Final QR (later): `https://gerona12.es/es/menu-original`.
 
 This app is **Next.js App Router** (not a static `out/` export). Netlify should use the OpenNext adapter with `npm run build` and an **empty publish directory**. See `netlify.toml` and `docs/deploy/netlify-404-investigation.md`.
 
