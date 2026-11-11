@@ -40,6 +40,8 @@ Former Netlify host (retired): `https://girona12.netlify.app`
 
 See `docs/deploy/domain-migration-gerona12.md`. Do not flip `NETLIFY_HOSTNAME_RENAMED` / `DOMAIN_CUTOVER_COMPLETE` or force redirects until the target host HTTPS is verified.
 
+Printed QR recovery (former host 404): `docs/deploy/qr-legacy-host-recovery.md` — do not regenerate QR bytes without owner/TD approval.
+
 This app is **Next.js App Router** (not a static `out/` export). Netlify should use the OpenNext adapter with `npm run build` and an **empty publish directory**. See `netlify.toml` and `docs/deploy/netlify-404-investigation.md`.
 
 Homepage routes live under `/[locale]` (`/es` default). `/` redirects to Spanish via `src/proxy.ts`.

@@ -59,6 +59,15 @@ Until `gerona12.es.netlify.app` **or** the custom domain is connected and verifi
 - Locale cookie: `gerona12_locale`
 - `/robots.txt` and `/sitemap.xml` excluded from locale proxy redirects
 
+## Printed QR emergency (former host)
+
+Existing QR still encodes `https://girona12.netlify.app/es/menu-original` (verified decode).
+That host is **unbound** (site-not-found). Options A/B on the **current** site are
+**not possible** — see `docs/deploy/qr-legacy-host-recovery.md`.
+
+Manual recovery (TD/dashboard): deploy `docs/deploy/qr-legacy-redirect-site/` as a
+**separate** Netlify site named `girona12`, or approve a replacement QR.
+
 ## Manual Netlify actions required (dashboard — not done by this PR)
 
 ### A. Activate intended Netlify hostname `gerona12.es.netlify.app`
