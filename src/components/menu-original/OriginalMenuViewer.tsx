@@ -199,7 +199,7 @@ export function OriginalMenuViewer({
             }}
             className="scroll-mt-[7.5rem] bg-[var(--color-deep-green)] sm:scroll-mt-[8.5rem]"
           >
-            {/* Native <img> preserves original JPEG bytes (no Next optimizer). */}
+            {/* Native <img> preserves original WebP bytes (no Next optimizer). */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={page.src}

@@ -1,6 +1,7 @@
 /**
- * Exact original GERONA 12 PDF page images (1250×1773 JPEGs).
- * Do not reorder, drop, or replace entries — anomalies are intentional.
+ * Exact original GERONA 12 PDF page images (1748×2480 WebP).
+ * Sourced from owner GERONA12-menu-HTML-compact pack — do not reorder,
+ * drop, re-encode, or invent content. Viewer chrome stays localized via i18n.
  */
 export const ORIGINAL_MENU_PAGE_COUNT = 26 as const;
 
@@ -12,9 +13,9 @@ export const ORIGINAL_MENU_PAGES = Array.from(
     return {
       number,
       id: `menu-page-${padded}`,
-      src: `/menu/pages/page-${padded}.jpg`,
-      width: 1250,
-      height: 1773,
+      src: `/menu/pages/page-${padded}.webp`,
+      width: 1748,
+      height: 2480,
       // Language-neutral alt (brand + page index). Viewer chrome stays localized via i18n.
       alt: `Gerona 12 — ${number} / ${ORIGINAL_MENU_PAGE_COUNT}`,
     } as const;
