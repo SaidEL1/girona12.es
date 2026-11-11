@@ -7,6 +7,7 @@ import {
   Source_Sans_3,
 } from "next/font/google";
 import { SiteShell } from "@/components/layout";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { supportedLocales } from "@/data/i18n";
 import {
   getDictionary,
@@ -14,6 +15,7 @@ import {
   isLocaleCode,
   localizedPath,
 } from "@/lib/i18n";
+import { CRAWL_ORIGIN } from "@/lib/site-url";
 import type { LocaleCode } from "@/types";
 import "../globals.css";
 
@@ -70,6 +72,7 @@ export async function generateMetadata({
   languages["x-default"] = localizedPath("es");
 
   return {
+    metadataBase: new URL(CRAWL_ORIGIN),
     title: {
       default: `${dictionary.brand.wordmark} · ${dictionary.brand.name}`,
       template: `%s · ${dictionary.brand.wordmark}`,
@@ -77,7 +80,8 @@ export async function generateMetadata({
     description: dictionary.home.support,
     applicationName: dictionary.brand.wordmark,
     keywords: [
-      "Gerona 12",
+      "GERONA 12",
+      "gerona12.es",
       "Restaurante Al Andalus",
       "Al Baraka Digital",
       "Andalusian restaurant",
@@ -129,6 +133,7 @@ export default async function LocaleLayout({
           isArabic ? "font-arabic" : "font-sans"
         }`}
       >
+        <JsonLd />
         <SiteShell locale={locale} dictionary={dictionary}>
           {children}
         </SiteShell>

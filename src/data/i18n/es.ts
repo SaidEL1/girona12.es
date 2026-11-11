@@ -3,7 +3,7 @@ import type { Dictionary } from "@/types";
 export const es: Dictionary = {
   locale: "es",
   brand: {
-    wordmark: "Gerona 12",
+    wordmark: "GERONA 12",
     name: "Restaurante Al Andalus",
     tagline: "Hospitalidad andalusí contemporánea",
   },
@@ -27,7 +27,7 @@ export const es: Dictionary = {
     intro: {
       eyebrow: "Nuestra Historia",
       title: "Una presencia cálida, contemporánea y andalusí",
-      body: "Gerona 12 presenta Restaurante Al Andalus como un espacio de hospitalidad cuidada: luz contenida, materiales nobles y una cocina que honra el carácter del sur con mirada actual. Sin artificio; con atención.",
+      body: "GERONA 12 presenta Restaurante Al Andalus como un espacio de hospitalidad cuidada: luz contenida, materiales nobles y una cocina que honra el carácter del sur con mirada actual. Sin artificio; con atención.",
     },
     menu: {
       eyebrow: "La carta",
@@ -40,18 +40,18 @@ export const es: Dictionary = {
     digitalMenu: {
       eyebrow: "Carta digital",
       title: "El menú original, página a página",
-      body: "Consulte la carta oficial de Gerona 12 exactamente como en el PDF: las 26 páginas originales, sin rediseño ni cambios de contenido.",
+      body: "Consulte la carta oficial de GERONA 12 exactamente como en el PDF: las 26 páginas originales, sin rediseño ni cambios de contenido.",
       cta: "Ver nuestra carta",
-      previewAlt: "Portada original del menú digital Gerona 12",
+      previewAlt: "Portada original del menú digital GERONA 12",
     },
     gallery: {
       eyebrow: "Galería",
       title: "La mesa, la luz, el ritmo",
       body: "Banner oficial en español. Las fotografías adicionales del restaurante se publicarán cuando se faciliten.",
       bannerAltPrimary:
-        "Banner oficial Gerona 12 Al Andalus — página 1 (español)",
+        "Banner oficial GERONA 12 Al Andalus — página 1 (español)",
       bannerAltSecondary:
-        "Banner oficial Gerona 12 Al Andalus — página 2 (español)",
+        "Banner oficial GERONA 12 Al Andalus — página 2 (español)",
       bannerCaption: "Banner ES",
       placeholder:
         "Espacio adicional reservado para fotografías oficiales del restaurante. No se muestran imágenes provisionales ni de archivo.",
@@ -93,7 +93,7 @@ export const es: Dictionary = {
   originalMenuPage: {
     title: "Carta original",
     intro:
-      "Visualización exacta de las páginas originales del menú PDF de Gerona 12.",
+      "Visualización exacta de las páginas originales del menú PDF de GERONA 12.",
     previous: "Página anterior",
     next: "Página siguiente",
     page: "Página",
@@ -114,7 +114,7 @@ export const es: Dictionary = {
     footerNav: "Navegación del pie de página",
   },
   designFoundation: {
-    title: "Base visual Gerona 12",
+    title: "Base visual GERONA 12",
     intro:
       "Fundamentos decorativos derivados del menú original: esmeralda, oro, marfil y geometría islámica. Esta página es solo de verificación de diseño.",
     phaseLabel: "Fase 2A",

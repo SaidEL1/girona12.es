@@ -1,5 +1,11 @@
 # Netlify 404 investigation — girona12.netlify.app
 
+> Historical incident report (site slug was then `girona12`).
+> Current verified live host is `https://gerona12.netlify.app`.
+> Former host `https://girona12.netlify.app` is retired (site-not-found).
+> Intended host `https://gerona12.es.netlify.app` is **not** configured yet
+> (see `domain-migration-gerona12.md`).
+
 **Date:** 2026-11-10 (Asia/Qatar)  
 **Production URL:** https://girona12.netlify.app  
 **Deploy alias:** https://main--girona12.netlify.app

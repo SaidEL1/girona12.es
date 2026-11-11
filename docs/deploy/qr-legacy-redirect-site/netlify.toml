@@ -1,0 +1,32 @@
+# ARCHIVED — TD CANCELLED (2026-11-12). DO NOT DEPLOY THIS SITE.
+# Final QR strategy: connect gerona12.es, then generate a new QR to
+# https://gerona12.es/es/menu-original (see ../custom-domain-gerona12-es.md).
+#
+# --- Historical config below (not for production use) ---
+# GERONA 12 — LEGACY QR HOST (INDEPENDENT NETLIFY SITE)
+#
+# Site name MUST be exactly: girona12
+# Hostname owned after rename: https://girona12.netlify.app
+#
+# Purpose ONLY: preserve previously printed QR codes that encode
+#   https://girona12.netlify.app/es/menu-original
+# by 301-redirecting every path to the live app:
+#   https://gerona12.netlify.app/:splat
+#
+# Deploy this folder as a SEPARATE Netlify site (manual drag-and-drop).
+# Do NOT attach this config to the main GERONA 12 app (`gerona12`).
+# Do NOT change the main app build / OpenNext pipeline.
+# Do NOT regenerate QR assets or touch menu WebP pages.
+#
+# Query strings: Netlify appends the original request query string to the
+# destination by default for splat redirects (e.g. ?utm=qr stays intact).
+
+[build]
+  publish = "."
+  # Static redirect site — no build command, no Node, no OpenNext.
+
+[[redirects]]
+  from = "/*"
+  to = "https://gerona12.netlify.app/:splat"
+  status = 301
+  force = true

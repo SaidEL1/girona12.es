@@ -1,0 +1,3 @@
+# Same rule as netlify.toml — kept for drag-and-drop deploys that read _redirects.
+# Query strings are preserved by Netlify on the destination URL.
+/*    https://gerona12.netlify.app/:splat    301!

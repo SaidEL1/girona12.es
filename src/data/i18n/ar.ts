@@ -3,7 +3,7 @@ import type { Dictionary } from "@/types";
 export const ar: Dictionary = {
   locale: "ar",
   brand: {
-    wordmark: "Gerona 12",
+    wordmark: "GERONA 12",
     name: "مطعم الأندلس",
     tagline: "ضيافة أندلسية معاصرة",
   },
@@ -42,14 +42,14 @@ export const ar: Dictionary = {
       title: "القائمة الأصلية، صفحة بصفحة",
       body: "اطّلعوا على قائمة جيرونا 12 الرسمية تماماً كما في ملف PDF: الصفحات الست والعشرون الأصلية دون إعادة تصميم أو تغيير للمحتوى.",
       cta: "عرض قائمتنا",
-      previewAlt: "غلاف القائمة الرقمية الأصلية لـ Gerona 12",
+      previewAlt: "غلاف القائمة الرقمية الأصلية لـ GERONA 12",
     },
     gallery: {
       eyebrow: "المعرض",
       title: "المائدة والضوء والإيقاع",
       body: "البانر الرسمي بالعربية. ستُنشر صور إضافية للمطعم عندما تُوفَّر.",
-      bannerAltPrimary: "بانر Gerona 12 الأندلس الرسمي — الصفحة 1 (عربي)",
-      bannerAltSecondary: "بانر Gerona 12 الأندلس الرسمي — الصفحة 2 (عربي)",
+      bannerAltPrimary: "بانر GERONA 12 الأندلس الرسمي — الصفحة 1 (عربي)",
+      bannerAltSecondary: "بانر GERONA 12 الأندلس الرسمي — الصفحة 2 (عربي)",
       bannerCaption: "بانر عربي",
       placeholder:
         "مساحة إضافية مخصّصة لصور المطعم الرسمية. لا تُعرض صور مؤقتة أو من الأرشيف العام.",
@@ -111,7 +111,7 @@ export const ar: Dictionary = {
     footerNav: "تنقل تذييل الصفحة",
   },
   designFoundation: {
-    title: "الأساس البصري لـ Gerona 12",
+    title: "الأساس البصري لـ GERONA 12",
     intro:
       "أساسات زخرفية مستمدة من المنيو الأصلي: الزمرد والذهب والعاجي والهندسة الإسلامية. هذه الصفحة للتحقق من التصميم فقط.",
     phaseLabel: "المرحلة 2أ",

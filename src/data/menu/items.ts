@@ -1,7 +1,7 @@
 import type { MenuItem } from "@/types";
 
 /**
- * Verified menu items extracted from Full Menu Gerona 12 screenshots.
+ * Verified menu items extracted from Full Menu GERONA 12 screenshots.
  * Spanish is canonical for prices when locales disagree.
  * Do not invent dishes beyond the PDF evidence set.
  */
@@ -353,16 +353,16 @@ export const menuItems: MenuItem[] = [
     "dietaryLabels": [],
     "featured": false,
     "status": "published",
-    "id": "breakfast-girona12",
+    "id": "breakfast-gerona12",
     "categoryId": "cat-desayunos",
     "name": {
-      "es": "Desayuno Girona 12",
-      "en": "Girona 12 Breakfast",
+      "es": "Desayuno GERONA 12",
+      "en": "GERONA 12 Breakfast",
       "ar": "فطور جيرونا 12"
     },
     "description": {
-      "es": "Zumo de naranja, té o café, tostada Girona 12 (queso crema, aguacate y salmón), bollería, ensalada de frutas o yogur.",
-      "en": "Orange juice, tea or coffee, Girona 12 toast (cream cheese, avocado and salmon), pastries, fruit salad or yogurt.",
+      "es": "Zumo de naranja, té o café, tostada GERONA 12 (queso crema, aguacate y salmón), bollería, ensalada de frutas o yogur.",
+      "en": "Orange juice, tea or coffee, GERONA 12 toast (cream cheese, avocado and salmon), pastries, fruit salad or yogurt.",
       "ar": "يشمل عصير البرتقال، شاي أو قهوة، توست جيرونا 12 (جبن، أفوكادو، سلمون)، حلويات، سلطة فواكه أو زبادي."
     },
     "priceEur": 8.5,

@@ -1,7 +1,7 @@
 # Phase 04 — Menu extraction report
 
 **Date:** 2026-11-10 (Asia/Qatar)  
-**Evidence:** 21 page screenshots from `Full Menu Gerona 12.pdf` (stored under `docs/source/menu-pages/`)  
+**Evidence:** 21 page screenshots from `Full Menu GERONA 12.pdf` (stored under `docs/source/menu-pages/`)  
 **PDF file:** still absent as `docs/source/gerona12-full-menu.pdf` — extraction used screenshots only  
 **Status:** COMPLETE for covered pages (with flags below)
 
@@ -25,7 +25,7 @@
 |---------|----|----|----|-------|
 | Desayuno ligero | ✓ | ✓ | ✓ | Spanish omits “2 huevos” (EN-only) |
 | Desayuno exprés | ✓ | ✓ | ✓ | 4,50 € |
-| Desayunos (hasta 16:00) | ✓ | ✓ | ✓ | Oriental / Lujo B / Girona 12 |
+| Desayunos (hasta 16:00) | ✓ | ✓ | ✓ | Oriental / Lujo B / GERONA 12 |
 | Desayunos de la casa | ✓ | ✓ | ✓ | Marroquí / Chef |
 | Ensaladas | ✓ | ✓ | ✓ | |
 | Entrantes calientes | ✓ | ✓ | ✓ | |

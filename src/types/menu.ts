@@ -3,7 +3,7 @@
  * Spanish is the canonical source language. English and Arabic are translations
  * of the same item records — never duplicate products per locale.
  *
- * Only publish items verified from the official Full Menu Gerona 12 PDF.
+ * Only publish items verified from the official Full Menu GERONA 12 PDF.
  */
 
 import type { LocaleCode } from "./i18n-locale";

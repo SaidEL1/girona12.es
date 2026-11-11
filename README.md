@@ -1,4 +1,4 @@
-# Gerona 12 — Restaurante Al Andalus
+# GERONA 12 — Restaurante Al Andalus
 
 Premium Andalusian restaurant website for **Al Baraka Digital**.
 
@@ -33,7 +33,15 @@ npm run build
 
 ## Deploy (Netlify)
 
-Production URL: https://girona12.netlify.app
+Brand: **GERONA 12** · Permanent domain: **gerona12.es**  
+Verified live crawl origin: **https://gerona12.netlify.app**  
+Former Netlify host (retired): `https://girona12.netlify.app`  
+
+See `docs/deploy/domain-migration-gerona12.md` and `docs/deploy/custom-domain-gerona12-es.md`.  
+Do not flip `DOMAIN_CUTOVER_COMPLETE` or generate the permanent QR until `gerona12.es` HTTPS is verified.
+
+Legacy redirect site for the old QR host: **CANCELLED** (kit archived under `docs/deploy/qr-legacy-redirect-site/` — do not deploy).  
+Final QR (later): `https://gerona12.es/es/menu-original`.
 
 This app is **Next.js App Router** (not a static `out/` export). Netlify should use the OpenNext adapter with `npm run build` and an **empty publish directory**. See `netlify.toml` and `docs/deploy/netlify-404-investigation.md`.
 
@@ -66,4 +74,4 @@ public/menu/             # Original menu WebP pages + QR (read-only source of tr
 
 ## Visual identity
 
-Non-menu surfaces use emerald/gold/ivory surfaces and decorative assets derived from the original Gerona 12 menu pages. Stock photography and external image URLs are not used. The gallery remains a designed placeholder until the owner supplies real restaurant photographs. The Digital Menu CTA may preview the approved original cover page (`page-01.webp`) without altering menu page bytes.
+Non-menu surfaces use emerald/gold/ivory surfaces and decorative assets derived from the original GERONA 12 menu pages. Stock photography and external image URLs are not used. The gallery remains a designed placeholder until the owner supplies real restaurant photographs. The Digital Menu CTA may preview the approved original cover page (`page-01.webp`) without altering menu page bytes.
