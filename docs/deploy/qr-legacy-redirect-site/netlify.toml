@@ -1,19 +1,24 @@
-# GERONA 12 — LEGACY QR HOST RECOVERY (SEPARATE NETLIFY SITE)
+# GERONA 12 — LEGACY QR HOST (INDEPENDENT NETLIFY SITE)
 #
-# Deploy this folder as its OWN Netlify site (drag-and-drop or manual upload).
-# Then rename THAT site to slug `girona12` so it owns:
-#   https://girona12.netlify.app
+# Site name MUST be exactly: girona12
+# Hostname owned after rename: https://girona12.netlify.app
 #
-# Do NOT merge these redirects into the main app site (`gerona12`).
-# Do NOT use this package to change SEO crawl origins.
-#
-# After deploy + rename, expected behavior:
+# Purpose ONLY: preserve previously printed QR codes that encode
 #   https://girona12.netlify.app/es/menu-original
-#     → 301 → https://gerona12.netlify.app/es/menu-original
+# by 301-redirecting every path to the live app:
+#   https://gerona12.netlify.app/:splat
+#
+# Deploy this folder as a SEPARATE Netlify site (manual drag-and-drop).
+# Do NOT attach this config to the main GERONA 12 app (`gerona12`).
+# Do NOT change the main app build / OpenNext pipeline.
+# Do NOT regenerate QR assets or touch menu WebP pages.
+#
+# Query strings: Netlify appends the original request query string to the
+# destination by default for splat redirects (e.g. ?utm=qr stays intact).
 
 [build]
   publish = "."
-  # No build command — static redirect site only.
+  # Static redirect site — no build command, no Node, no OpenNext.
 
 [[redirects]]
   from = "/*"

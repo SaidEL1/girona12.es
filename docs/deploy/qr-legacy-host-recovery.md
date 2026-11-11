@@ -73,7 +73,8 @@ without reprinting:
    - Menu 26 pages, ES/EN/AR, Arabic RTL on the **live** host after follow-redirects
 5. Do **not** merge that redirect site into this app’s build pipeline.
 
-Prepared kit: `docs/deploy/qr-legacy-redirect-site/` (not deployed by this PR).
+Prepared kit: `docs/deploy/qr-legacy-redirect-site/` (not deployed by this PR).  
+Exact dashboard steps + verification commands: see that folder’s `README.md`.
 
 ### If the slug `girona12` cannot be claimed
 
