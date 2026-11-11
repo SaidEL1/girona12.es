@@ -15,7 +15,7 @@ import {
   isLocaleCode,
   localizedPath,
 } from "@/lib/i18n";
-import { SITE_ORIGIN } from "@/lib/site-url";
+import { CRAWL_ORIGIN } from "@/lib/site-url";
 import type { LocaleCode } from "@/types";
 import "../globals.css";
 
@@ -72,7 +72,7 @@ export async function generateMetadata({
   languages["x-default"] = localizedPath("es");
 
   return {
-    metadataBase: new URL(SITE_ORIGIN),
+    metadataBase: new URL(CRAWL_ORIGIN),
     title: {
       default: `${dictionary.brand.wordmark} · ${dictionary.brand.name}`,
       template: `%s · ${dictionary.brand.wordmark}`,

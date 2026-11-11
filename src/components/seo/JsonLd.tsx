@@ -1,8 +1,9 @@
 import { siteConfig } from "@/data/site";
-import { SITE_ORIGIN } from "@/lib/site-url";
+import { CRAWL_ORIGIN } from "@/lib/site-url";
 
 /**
- * Restaurant / WebSite structured data using the official gerona12.es identity.
+ * Restaurant / WebSite structured data.
+ * Brand: GERONA 12. Crawl URLs use CRAWL_ORIGIN (live Netlify until cutover).
  * Contact fields come only from the verified business card.
  */
 export function JsonLd() {
@@ -14,19 +15,19 @@ export function JsonLd() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": `${SITE_ORIGIN}/#website`,
-        url: SITE_ORIGIN,
+        "@id": `${CRAWL_ORIGIN}/#website`,
+        url: CRAWL_ORIGIN,
         name: "GERONA 12",
         alternateName: siteConfig.legalName,
         inLanguage: ["es", "en", "ar"],
       },
       {
         "@type": "Restaurant",
-        "@id": `${SITE_ORIGIN}/#restaurant`,
+        "@id": `${CRAWL_ORIGIN}/#restaurant`,
         name: "GERONA 12",
         legalName: siteConfig.legalName,
-        url: SITE_ORIGIN,
-        image: `${SITE_ORIGIN}/menu/pages/page-01.webp`,
+        url: CRAWL_ORIGIN,
+        image: `${CRAWL_ORIGIN}/menu/pages/page-01.webp`,
         telephone: phone,
         email,
         address: {
